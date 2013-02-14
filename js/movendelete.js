@@ -203,6 +203,7 @@ getContent(templateSpace,to_place_blog_url1);
 }
 
 function getContent(source,target_groupurl) {
+alert("Get Content ::"+target_groupurl);
 osapi.jive.corev3.contents.get({
 fields: '@all',
 count  :50,
