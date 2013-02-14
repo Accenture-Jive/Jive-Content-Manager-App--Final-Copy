@@ -5,6 +5,7 @@ var redirection_url;
 var source_html_url;
 var src_space_name;
 var to_place_blog_url;
+var global_blog_place_url;
 
 var CONTENT_TYPE_DICUSSION = 'discussion';
 var CONTENT_TYPE_BLOG = 'blog';
@@ -183,8 +184,8 @@ getContent(templateSpace,target_groupurl,CONTENT_TYPE_IDEA);
 if(blogSplitValue.length > 1) {
 var str='';
 var str2='';
-targetUrl=to_place_blog_url1;
-alert("blog targetUrl: "+targetUrl);
+global_blog_place_url=to_place_blog_url1;
+alert("blog targetUrl: "+global_blog_place_url);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -215,7 +216,7 @@ alert("Get Content ::"+target_groupurl+" contentType ::"+ contentType);
 
 
 
-if(CONTENT_TYPE_DICUSSION == CONTENT_TYPE_BLOG){
+if(CONTENT_TYPE_BLOG == contentType){
 	osapi.jive.corev3.contents.get({
 	fields: '@all',
 	count  :50,
@@ -235,7 +236,7 @@ if(CONTENT_TYPE_DICUSSION == CONTENT_TYPE_BLOG){
 
 }
 
-function onContentFetch(response,target_groupurl) {
+function onContentFetch(response) {
 if (response.error) {
 mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
 return;
@@ -285,8 +286,8 @@ var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
-response.parent=to_place_blog_url;
-alert("move targetUrl: "+to_place_blog_url);
+response.parent=global_blog_place_url;
+alert("move targetUrl: "+global_blog_place_url);
 //response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
