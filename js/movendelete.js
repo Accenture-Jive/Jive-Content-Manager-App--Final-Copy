@@ -1,11 +1,11 @@
-var globalAction;
-var targetUrl;
-var dest_space_name;
-var redirection_url;
-var source_html_url;
-var src_space_name;
-var to_place_blog_url;
-var global_blog_place_url;
+var globalAction='';
+var targetUrl='';
+var dest_space_name='';
+var redirection_url='';
+var source_html_url='';
+var src_space_name='';
+var to_place_blog_url='';
+var global_blog_place_url='';
 
 var CONTENT_TYPE_DICUSSION = 'discussion';
 var CONTENT_TYPE_BLOG = 'blog';
@@ -31,7 +31,7 @@ var blogSplitValue = Grp_blog_json.split(";");
 var ideaSplitValue = Grp_idea_json.split(";");
 var pollSplitValue = Grp_poll_json.split(";");
 
-var templateSpace;
+var templateSpace='';
 $("#start_copying_button").hide();
 $("#change_contents").hide();
 $("#button_div").hide();
