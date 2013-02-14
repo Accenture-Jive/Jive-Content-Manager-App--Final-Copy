@@ -200,7 +200,7 @@ getContent(templateSpace);
 function getContent(source) {
 osapi.jive.corev3.contents.get({
 fields: '@all',
-count  :50,
+count  :1000,
 uri: source
 }).execute(onContentFetch);
 }
