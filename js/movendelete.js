@@ -34,6 +34,7 @@ if(discussionSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
+alert("disc targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -60,6 +61,7 @@ if(fileSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
+alert("file targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -87,6 +89,7 @@ if(documetSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
+alert("doc targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -115,6 +118,7 @@ if(pollSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
+alert("poll targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -143,6 +147,7 @@ if(ideaSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
+alert("idea targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -171,6 +176,7 @@ if(blogSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl=to_place_blog_url1;
+alert("blog targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -211,12 +217,13 @@ return;
 }
 
 
-console.log("json "+JSON.stringify(response));
+//console.log("json "+JSON.stringify(response));
 alert("json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
 response.parent=targetUrl;
+alert("move targetUrl: "+targetUrl);
 response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
