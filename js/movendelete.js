@@ -6,6 +6,14 @@ var source_html_url;
 var src_space_name;
 var to_place_blog_url;
 
+var CONTENT_TYPE_DICUSSION = 'discussion';
+var CONTENT_TYPE_BLOG = 'blog';
+var CONTENT_TYPE_POLLS = 'polls';
+var CONTENT_TYPE_FILES = 'files';
+var CONTENT_TYPE_DOCUMENT = 'document';
+var CONTENT_TYPE_IDEA = 'idea';
+
+
 function movendelete(action,srcgroup_place_url,target_groupurl,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name1,redirection_url1,source_html_url1,src_space_name1,to_place_blog_url1) {
 globalAction = action;
 
@@ -53,7 +61,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = discussionSplitValue[i];
 alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 if(discussionSplitValue[i] != '')
-getContent(templateSpace,target_groupurl);
+getContent(templateSpace,target_groupurl,CONTENT_TYPE_DICUSSION);
 }
 }
 
@@ -81,7 +89,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = fileSplitValue[i];
 alert("fileSplitValue[i]: "+fileSplitValue[i]);
 if(fileSplitValue[i] != '')
-getContent(templateSpace,target_groupurl);
+getContent(templateSpace,target_groupurl,CONTENT_TYPE_FILES);
 }
 }
 
@@ -110,7 +118,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = documetSplitValue[i];
 alert("documetSplitValue[i]: "+documetSplitValue[i]);
 if(documetSplitValue[i] != '')
-getContent(templateSpace,target_groupurl);
+getContent(templateSpace,target_groupurl,CONTENT_TYPE_DOCUMENT);
 }
 }
 
@@ -139,7 +147,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = pollSplitValue[i];
 alert("pollSplitValue[i]: "+pollSplitValue[i]);
 if(pollSplitValue[i] != '')
-getContent(templateSpace,target_groupurl);
+getContent(templateSpace,target_groupurl,CONTENT_TYPE_POLLS);
 }
 }
 
@@ -168,7 +176,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = ideaSplitValue[i];
 alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
 if(ideaSplitValue[i] != '')
-getContent(templateSpace,target_groupurl);
+getContent(templateSpace,target_groupurl,CONTENT_TYPE_IDEA);
 }
 }
 
@@ -197,56 +205,37 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = blogSplitValue[i];
 alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != '')
-getContent(templateSpace,to_place_blog_url1);
+getContent(templateSpace,to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 }
 }
 
-function getContent(source,target_groupurl) {
-alert("Get Content ::"+target_groupurl);
-osapi.jive.corev3.contents.get({
-fields: '@all',
-count  :50,
-uri: source
-}).execute(function(response,target_groupurl){
-var url=target_groupurl;
-alert("url: "+url);
-if (response.error) {
-mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
-return;
-}
-alert("url1: "+url);
+function getContent(source,target_groupurl,contentType) {
+alert("Get Content ::"+target_groupurl+" contentType ::"+ contentType);
 
-//console.log("json "+JSON.stringify(response));
-alert("json "+JSON.stringify(response));
-var postDisc;
 
-if(globalAction == 'move'){
-//response.parent=targetUrl;
-response.parent=url;
-alert("move targetUrl: "+url);
-//response.update().execute();
-var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
-document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-$("#stylized").fadeOut(5000,function(){
-window.location = redirection_url+'/content';         
 
-});
+if(CONTENT_TYPE_DICUSSION == CONTENT_TYPE_BLOG){
+	osapi.jive.corev3.contents.get({
+	fields: '@all',
+	count  :50,
+	uri: source
+	}).execute(onContentFetchForBlog);
+	}
+	else {
+	
+	osapi.jive.corev3.contents.get({
+	fields: '@all',
+	count  :50,
+	uri: source
+	}).execute(onContentFetch);
+	
+	}
+
 
 }
-else if (globalAction == 'delete'){
-response.destroy().execute();
-var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
-document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-$("#stylized").fadeOut(5000,function(){
-window.location = source_html_url+'/content';
-});
-}
 
-});
-}
-
-/*function onContentFetch(response) {
+function onContentFetch(response,target_groupurl) {
 if (response.error) {
 mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
 return;
@@ -279,4 +268,41 @@ window.location = source_html_url+'/content';
 });
 }
 
-}*/
+}
+
+
+
+function onContentFetchForBlog(response) {
+if (response.error) {
+mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
+return;
+}
+
+
+//console.log("json "+JSON.stringify(response));
+alert("json "+JSON.stringify(response));
+var postDisc;
+
+if(globalAction == 'move'){
+//response.parent=targetUrl;
+response.parent=to_place_blog_url;
+alert("move targetUrl: "+to_place_blog_url);
+//response.update().execute();
+var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+$("#stylized").fadeOut(5000,function(){
+window.location = redirection_url+'/content';         
+
+});
+
+}
+else if (globalAction == 'delete'){
+response.destroy().execute();
+var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+$("#stylized").fadeOut(5000,function(){
+window.location = source_html_url+'/content';
+});
+}
+
+}
