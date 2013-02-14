@@ -2130,7 +2130,7 @@ all_selected=all_selected+'<tr>'+
 
 
 all_selected=all_selected+'</table>';
-//console.log(all_selected);
+console.log(all_selected);
 
 document.getElementById("selected_items").innerHTML=all_selected;  
 var count = $('#all_selected_items tr').length;
@@ -2447,6 +2447,12 @@ $("#button_div").hide();
 //alert("startMoving");
 $("#copyTo").text("Moving this:");
 
+alert("Grp_file_json"+Grp_file_json);
+alert("Grp_doc_json"+Grp_doc_json);
+alert("Grp_disc_json"+Grp_disc_json);
+alert("Grp_idea_json"+Grp_idea_json);
+alert("Grp_poll_json"+Grp_poll_json);
+alert("Grp_blog_json"+Grp_blog_json);
 
 movendelete('move',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name,redirection_url,source_html_url,src_space_name);
 
