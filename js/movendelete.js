@@ -105,7 +105,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
 templateSpace = documetSplitValue[i];
-alert("templateSpace[i]: "+templateSpace[i]);
+alert("documetSplitValue[i]: "+documetSplitValue[i]);
 if(documetSplitValue[i] != '')
 getContent(templateSpace);
 }
