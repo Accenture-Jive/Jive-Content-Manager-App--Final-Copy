@@ -209,13 +209,13 @@ fields: '@all',
 count  :50,
 uri: source
 }).execute(function(response,target_groupurl){
-
-
+var url=target_groupurl;
+alert("url: "+url);
 if (response.error) {
 mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
 return;
 }
-
+alert("url1: "+url);
 
 //console.log("json "+JSON.stringify(response));
 alert("json "+JSON.stringify(response));
@@ -223,8 +223,8 @@ var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
-response.parent=target_groupurl;
-alert("move targetUrl: "+target_groupurl);
+response.parent=url;
+alert("move targetUrl: "+url);
 //response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
