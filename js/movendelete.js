@@ -208,10 +208,9 @@ osapi.jive.corev3.contents.get({
 fields: '@all',
 count  :50,
 uri: source
-}).execute(onContentFetch,target_groupurl);
-}
+}).execute(function(response,target_groupurl){
 
-function onContentFetch(response,target_groupurl) {
+
 if (response.error) {
 mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
 return;
@@ -244,4 +243,40 @@ window.location = source_html_url+'/content';
 });
 }
 
+});
 }
+
+/*function onContentFetch(response) {
+if (response.error) {
+mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
+return;
+}
+
+
+//console.log("json "+JSON.stringify(response));
+alert("json "+JSON.stringify(response));
+var postDisc;
+
+if(globalAction == 'move'){
+//response.parent=targetUrl;
+response.parent=target_groupurl;
+alert("move targetUrl: "+target_groupurl);
+//response.update().execute();
+var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+$("#stylized").fadeOut(5000,function(){
+window.location = redirection_url+'/content';         
+
+});
+
+}
+else if (globalAction == 'delete'){
+response.destroy().execute();
+var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+$("#stylized").fadeOut(5000,function(){
+window.location = source_html_url+'/content';
+});
+}
+
+}*/
