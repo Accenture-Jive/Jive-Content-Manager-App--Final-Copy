@@ -219,7 +219,7 @@ function getContent(source,target_groupurl,contentType) {
 if(CONTENT_TYPE_BLOG == contentType){
 	osapi.jive.corev3.contents.get({
 	fields: '@all',
-	count  :50,
+	count  :1000,
 	uri: source
 	}).execute(onContentFetchForBlog);
 	}
@@ -227,7 +227,7 @@ if(CONTENT_TYPE_BLOG == contentType){
 	
 	osapi.jive.corev3.contents.get({
 	fields: '@all',
-	count  :50,
+	count  :1000,
 	uri: source
 	}).execute(onContentFetch);
 	
