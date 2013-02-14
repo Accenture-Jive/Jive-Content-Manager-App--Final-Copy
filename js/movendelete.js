@@ -43,7 +43,7 @@ if(discussionSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-alert("disc targetUrl: "+targetUrl);
+//alert("disc targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -60,7 +60,7 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = discussionSplitValue[i];
-alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
+//alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 if(discussionSplitValue[i] != '')
 getContent(templateSpace,target_groupurl,CONTENT_TYPE_DICUSSION);
 }
@@ -70,7 +70,7 @@ if(fileSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-alert("file targetUrl: "+targetUrl);
+//alert("file targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -88,7 +88,7 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = fileSplitValue[i];
-alert("fileSplitValue[i]: "+fileSplitValue[i]);
+//alert("fileSplitValue[i]: "+fileSplitValue[i]);
 if(fileSplitValue[i] != '')
 getContent(templateSpace,target_groupurl,CONTENT_TYPE_FILES);
 }
@@ -98,7 +98,7 @@ if(documetSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-alert("doc targetUrl: "+targetUrl);
+//alert("doc targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -117,7 +117,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
 templateSpace = documetSplitValue[i];
-alert("documetSplitValue[i]: "+documetSplitValue[i]);
+//alert("documetSplitValue[i]: "+documetSplitValue[i]);
 if(documetSplitValue[i] != '')
 getContent(templateSpace,target_groupurl,CONTENT_TYPE_DOCUMENT);
 }
@@ -127,7 +127,7 @@ if(pollSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-alert("poll targetUrl: "+target_groupurl);
+//alert("poll targetUrl: "+target_groupurl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -146,7 +146,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
 templateSpace = pollSplitValue[i];
-alert("pollSplitValue[i]: "+pollSplitValue[i]);
+//alert("pollSplitValue[i]: "+pollSplitValue[i]);
 if(pollSplitValue[i] != '')
 getContent(templateSpace,target_groupurl,CONTENT_TYPE_POLLS);
 }
@@ -156,7 +156,7 @@ if(ideaSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-alert("idea targetUrl: "+target_groupurl);
+//alert("idea targetUrl: "+target_groupurl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -175,7 +175,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
 
 templateSpace = ideaSplitValue[i];
-alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
+//alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
 if(ideaSplitValue[i] != '')
 getContent(templateSpace,target_groupurl,CONTENT_TYPE_IDEA);
 }
@@ -185,7 +185,7 @@ if(blogSplitValue.length > 1) {
 var str='';
 var str2='';
 global_blog_place_url=to_place_blog_url1;
-alert("blog targetUrl: "+global_blog_place_url);
+//alert("blog targetUrl: "+global_blog_place_url);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -204,7 +204,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
 
 templateSpace = blogSplitValue[i];
-alert("blogSplitValue[i]: "+blogSplitValue[i]);
+//alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != '')
 getContent(templateSpace,to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
@@ -212,7 +212,7 @@ getContent(templateSpace,to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 
 function getContent(source,target_groupurl,contentType) {
-alert("Get Content ::"+target_groupurl+" contentType ::"+ contentType);
+//alert("Get Content ::"+target_groupurl+" contentType ::"+ contentType);
 
 
 
@@ -244,13 +244,13 @@ return;
 
 
 //console.log("json "+JSON.stringify(response));
-alert("json "+JSON.stringify(response));
+//alert("json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=targetUrl;
-alert("move targetUrl: "+targetUrl);
+//alert("move targetUrl: "+targetUrl);
 //response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
@@ -281,14 +281,14 @@ return;
 
 
 //console.log("json "+JSON.stringify(response));
-alert("json "+JSON.stringify(response));
+//alert("json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=global_blog_place_url;
-alert("move targetUrl: "+global_blog_place_url);
-//response.update().execute();
+//alert("move targetUrl: "+global_blog_place_url);
+response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
 $("#stylized").fadeOut(5000,function(){
