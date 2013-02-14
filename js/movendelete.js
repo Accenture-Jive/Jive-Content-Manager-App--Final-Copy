@@ -115,8 +115,6 @@ getContent(templateSpace);
 }
 }
 
-/**/
-
 if(pollSplitValue.length > 1) {
 var str='';
 var str2='';
