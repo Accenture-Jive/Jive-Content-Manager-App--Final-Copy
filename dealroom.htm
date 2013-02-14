@@ -39,6 +39,7 @@ var poll_row='';
 var src_space_name='';
 var dest_space_name='';
 
+var to_place_blog_url='';
 var Grp_file_json='';
 var Grp_doc_json='';
 var Grp_idea_json='';
@@ -892,10 +893,9 @@ document.getElementById("to_space").innerHTML=msg2;
 var params = {
 type : "space",
 success : ( function(data){
-console.log("DATA: "+JSON.stringify(data));
+//console.log("DATA: "+JSON.stringify(data));
 to_place_name=data.name;	
 to_place_blog_url=data.resources.blog.ref;	
-alert("to_place_blog_url: "+to_place_blog_url);
 //showing execute button		
 
 if(to_place_name!='')
@@ -1042,10 +1042,9 @@ document.getElementById("to_space").innerHTML=msg2;
 var params = {
 type : "group",
 success : ( function(data){
-console.log("DATA: "+JSON.stringify(data));
+//console.log("DATA: "+JSON.stringify(data));
 to_place_name=data.name;	
 to_place_blog_url=data.resources.blog.ref;	
-alert("to_place_blog_url: "+to_place_blog_url);
 //showing execute button		
 if(to_place_name!='')
 {
@@ -1197,6 +1196,7 @@ type : "project",
 success : ( function(data){
 //console.log("DATA: "+JSON.stringify(data));
 to_place_name=data.name;
+to_place_blog_url=data.resources.blog.ref;	
 //showing execute button		
 if(to_place_name!='')
 {
@@ -2452,7 +2452,7 @@ $("#button_div").hide();
 $("#copyTo").text("Moving this:");
 
 
-movendelete('move',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name,redirection_url,source_html_url,src_space_name);
+movendelete('move',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name,redirection_url,source_html_url,src_space_name,to_place_blog_url);
 
 
 };
@@ -2468,7 +2468,7 @@ $("#del_place").hide();
 $("#deleteTo").text("Deleting this:");
 //alert(src_space_name);
 
-movendelete('delete',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,'test_name','test_url',source_html_url,src_space_name);
+movendelete('delete',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,'test_name','test_url',source_html_url,src_space_name,to_place_blog_url);
 
 };
 

@@ -4,14 +4,16 @@ var dest_space_name;
 var redirection_url;
 var source_html_url;
 var src_space_name;
+var to_place_blog_url;
 
-function movendelete(action,srcgroup_place_url,target_groupurl,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name1,redirection_url1,source_html_url1,src_space_name1) {
+function movendelete(action,srcgroup_place_url,target_groupurl,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name1,redirection_url1,source_html_url1,src_space_name1,to_place_blog_url1) {
 globalAction = action;
-targetUrl = target_groupurl;
+
 dest_space_name=dest_space_name1;
 redirection_url=redirection_url1;
 source_html_url=source_html_url1;
 src_space_name=src_space_name1;
+
 
 var	discussionSplitValue = Grp_disc_json.split(";");
 var fileSplitValue = Grp_file_json.split(";");			
@@ -38,6 +40,7 @@ $("#copyTo").text("Moving this:");
 if(discussionSplitValue.length > 1) {
 var str='';
 var str2='';
+targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -62,6 +65,7 @@ getContent(templateSpace);
 if(fileSplitValue.length > 1) {
 var str='';
 var str2='';
+targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -87,6 +91,7 @@ getContent(templateSpace);
 if(documetSplitValue.length > 1) {
 var str='';
 var str2='';
+targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -113,6 +118,7 @@ getContent(templateSpace);
 if(blogSplitValue.length > 1) {
 var str='';
 var str2='';
+targetUrl=to_place_blog_url1;
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -139,6 +145,7 @@ getContent(templateSpace);
 if(pollSplitValue.length > 1) {
 var str='';
 var str2='';
+targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -165,6 +172,7 @@ getContent(templateSpace);
 if(ideaSplitValue.length > 1) {
 var str='';
 var str2='';
+targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
