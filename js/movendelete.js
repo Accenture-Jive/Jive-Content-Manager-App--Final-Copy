@@ -210,7 +210,7 @@ mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discuss
 return;
 }
 
-alert("json "+JSON.stringify(response));
+console.log("json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
