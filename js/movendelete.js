@@ -115,32 +115,7 @@ getContent(templateSpace);
 }
 }
 
-if(blogSplitValue.length > 1) {
-var str='';
-var str2='';
-targetUrl=to_place_blog_url1;
-if(globalAction == 'move')
-{
-str='Moving ';
-str2='Moving blogs';
-}
-if(globalAction == 'delete')
-{
-str='Deleting ';
-str2='Deleting blogs';
-}
-
-for (var i = 0; i < blogSplitValue.length; i++) {
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
-document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
-document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
-
-templateSpace = blogSplitValue[i];
-if(blogSplitValue[i] != '')
-getContent(templateSpace);
-}
-}
+/**/
 
 if(pollSplitValue.length > 1) {
 var str='';
@@ -192,6 +167,33 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = ideaSplitValue[i];
 if(ideaSplitValue[i] != '')
+getContent(templateSpace);
+}
+}
+
+if(blogSplitValue.length > 1) {
+var str='';
+var str2='';
+targetUrl=to_place_blog_url1;
+if(globalAction == 'move')
+{
+str='Moving ';
+str2='Moving blogs';
+}
+if(globalAction == 'delete')
+{
+str='Deleting ';
+str2='Deleting blogs';
+}
+
+for (var i = 0; i < blogSplitValue.length; i++) {
+document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
+document.getElementById("frame1").contentDocument.body.style.color='Grey';
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
+
+templateSpace = blogSplitValue[i];
+if(blogSplitValue[i] != '')
 getContent(templateSpace);
 }
 }
