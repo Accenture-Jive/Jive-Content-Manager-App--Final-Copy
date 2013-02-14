@@ -1346,7 +1346,6 @@ function getFiles(space_url)
 osapi.jive.corev3.contents.get({
 type : 'file',
 fields : '@all',
-count:50,
 place : space_url
 }).execute(function(response) {
 console.log("Files: "+JSON.stringify(response));
@@ -1413,7 +1412,6 @@ function getBlogs(blog_url)
 osapi.jive.corev3.contents.get({
 type : 'post',
 fields : '@all',
-count:50,
 place : blog_url
 }).execute(function(response) {
 //console.log("Files: "+JSON.stringify(response));
