@@ -20,12 +20,12 @@ var blogSplitValue = Grp_blog_json.split(";");
 var ideaSplitValue = Grp_idea_json.split(";");
 var pollSplitValue = Grp_poll_json.split(";");
 
-alert(discussionSplitValue.length);
-alert(fileSplitValue.length);
-alert(documetSplitValue.length);
-alert(blogSplitValue.length);
-alert(ideaSplitValue.length);
-alert(pollSplitValue.length);
+alert("disc"+discussionSplitValue.length);
+alert("file"+fileSplitValue.length);
+alert("doc"+documetSplitValue.length);
+alert("blog"+blogSplitValue.length);
+alert("idea"+ideaSplitValue.length);
+alert("poll"+pollSplitValue.length);
 
 var templateSpace;
 $("#start_copying_button").hide();
