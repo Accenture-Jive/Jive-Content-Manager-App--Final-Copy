@@ -1413,7 +1413,6 @@ function getBlogs(blog_url)
 osapi.jive.corev3.contents.get({
 type : 'post',
 fields : '@all',
-count  :1000,
 place : blog_url
 }).execute(function(response) {
 //console.log("Files: "+JSON.stringify(response));
