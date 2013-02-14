@@ -249,8 +249,8 @@ var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
-response.parent=target_groupurl;
-alert("move targetUrl: "+target_groupurl);
+response.parent=targetUrl;
+alert("move targetUrl: "+targetUrl);
 //response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
