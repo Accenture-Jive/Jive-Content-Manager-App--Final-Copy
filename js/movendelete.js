@@ -53,7 +53,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = discussionSplitValue[i];
 alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 if(discussionSplitValue[i] != '')
-getContent(templateSpace);
+getContent(templateSpace,target_groupurl);
 }
 }
 
@@ -81,7 +81,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = fileSplitValue[i];
 alert("fileSplitValue[i]: "+fileSplitValue[i]);
 if(fileSplitValue[i] != '')
-getContent(templateSpace);
+getContent(templateSpace,target_groupurl);
 }
 }
 
@@ -110,7 +110,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = documetSplitValue[i];
 alert("documetSplitValue[i]: "+documetSplitValue[i]);
 if(documetSplitValue[i] != '')
-getContent(templateSpace);
+getContent(templateSpace,target_groupurl);
 }
 }
 
@@ -139,7 +139,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = pollSplitValue[i];
 alert("pollSplitValue[i]: "+pollSplitValue[i]);
 if(pollSplitValue[i] != '')
-getContent(templateSpace);
+getContent(templateSpace,target_groupurl);
 }
 }
 
@@ -197,20 +197,20 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = blogSplitValue[i];
 alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != '')
-getContent(templateSpace);
+getContent(templateSpace,to_place_blog_url1);
 }
 }
 }
 
-function getContent(source) {
+function getContent(source,target_groupurl) {
 osapi.jive.corev3.contents.get({
 fields: '@all',
 count  :50,
 uri: source
-}).execute(onContentFetch);
+}).execute(onContentFetch,target_groupurl);
 }
 
-function onContentFetch(response) {
+function onContentFetch(response,target_groupurl) {
 if (response.error) {
 mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
 return;
@@ -222,8 +222,9 @@ alert("json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
-response.parent=targetUrl;
-alert("move targetUrl: "+targetUrl);
+//response.parent=targetUrl;
+response.parent=target_groupurl;
+alert("move targetUrl: "+target_groupurl);
 response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
