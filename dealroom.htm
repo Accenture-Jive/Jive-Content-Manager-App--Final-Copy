@@ -1042,8 +1042,10 @@ document.getElementById("to_space").innerHTML=msg2;
 var params = {
 type : "group",
 success : ( function(data){
-//console.log("DATA: "+JSON.stringify(data));
-to_place_name=data.name;
+console.log("DATA: "+JSON.stringify(data));
+to_place_name=data.name;	
+to_place_blog_url=data.resources.blog.ref;	
+alert("to_place_blog_url: "+to_place_blog_url);
 //showing execute button		
 if(to_place_name!='')
 {
