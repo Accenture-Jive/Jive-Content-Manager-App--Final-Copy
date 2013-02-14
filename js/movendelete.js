@@ -22,13 +22,6 @@ var blogSplitValue = Grp_blog_json.split(";");
 var ideaSplitValue = Grp_idea_json.split(";");
 var pollSplitValue = Grp_poll_json.split(";");
 
-alert("disc"+discussionSplitValue.length);
-alert("file"+fileSplitValue.length);
-alert("doc"+documetSplitValue.length);
-alert("blog"+blogSplitValue.length);
-alert("idea"+ideaSplitValue.length);
-alert("poll"+pollSplitValue.length);
-
 var templateSpace;
 $("#start_copying_button").hide();
 $("#change_contents").hide();
@@ -57,6 +50,7 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = discussionSplitValue[i];
+alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 if(discussionSplitValue[i] != '')
 getContent(templateSpace);
 }
@@ -83,6 +77,7 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = fileSplitValue[i];
+alert("fileSplitValue[i]: "+fileSplitValue[i]);
 if(fileSplitValue[i] != '')
 getContent(templateSpace);
 }
@@ -110,6 +105,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
 templateSpace = documetSplitValue[i];
+alert("templateSpace[i]: "+templateSpace[i]);
 if(documetSplitValue[i] != '')
 getContent(templateSpace);
 }
@@ -137,6 +133,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
 templateSpace = pollSplitValue[i];
+alert("pollSplitValue[i]: "+pollSplitValue[i]);
 if(pollSplitValue[i] != '')
 getContent(templateSpace);
 }
@@ -164,6 +161,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
 
 templateSpace = ideaSplitValue[i];
+alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
 if(ideaSplitValue[i] != '')
 getContent(templateSpace);
 }
@@ -191,6 +189,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
 
 templateSpace = blogSplitValue[i];
+alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != '')
 getContent(templateSpace);
 }
