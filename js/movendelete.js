@@ -118,7 +118,7 @@ if(pollSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-alert("poll targetUrl: "+targetUrl);
+alert("poll targetUrl: "+target_groupurl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -147,7 +147,7 @@ if(ideaSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-alert("idea targetUrl: "+targetUrl);
+alert("idea targetUrl: "+target_groupurl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -168,7 +168,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = ideaSplitValue[i];
 alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
 if(ideaSplitValue[i] != '')
-getContent(templateSpace);
+getContent(templateSpace,target_groupurl);
 }
 }
 
