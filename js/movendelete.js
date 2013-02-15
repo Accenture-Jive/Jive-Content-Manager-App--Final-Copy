@@ -62,7 +62,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = discussionSplitValue[i];
 //alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 if(discussionSplitValue[i] != '')
-getContent(templateSpace,target_groupurl,CONTENT_TYPE_DICUSSION);
+getContent(discussionSplitValue[i],target_groupurl,CONTENT_TYPE_DICUSSION);
 }
 }
 
@@ -90,7 +90,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = fileSplitValue[i];
 //alert("fileSplitValue[i]: "+fileSplitValue[i]);
 if(fileSplitValue[i] != '')
-getContent(templateSpace,target_groupurl,CONTENT_TYPE_FILES);
+getContent(fileSplitValue[i],target_groupurl,CONTENT_TYPE_FILES);
 }
 }
 
@@ -119,7 +119,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = documetSplitValue[i];
 //alert("documetSplitValue[i]: "+documetSplitValue[i]);
 if(documetSplitValue[i] != '')
-getContent(templateSpace,target_groupurl,CONTENT_TYPE_DOCUMENT);
+getContent(documetSplitValue[i],target_groupurl,CONTENT_TYPE_DOCUMENT);
 }
 }
 
@@ -148,7 +148,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = pollSplitValue[i];
 //alert("pollSplitValue[i]: "+pollSplitValue[i]);
 if(pollSplitValue[i] != '')
-getContent(templateSpace,target_groupurl,CONTENT_TYPE_POLLS);
+getContent(pollSplitValue[i],target_groupurl,CONTENT_TYPE_POLLS);
 }
 }
 
@@ -177,7 +177,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = ideaSplitValue[i];
 //alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
 if(ideaSplitValue[i] != '')
-getContent(templateSpace,target_groupurl,CONTENT_TYPE_IDEA);
+getContent(ideaSplitValue[i],target_groupurl,CONTENT_TYPE_IDEA);
 }
 }
 
@@ -206,7 +206,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = blogSplitValue[i];
 //alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != '')
-getContent(templateSpace,to_place_blog_url1,CONTENT_TYPE_BLOG);
+getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 }
 }
