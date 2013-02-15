@@ -236,7 +236,7 @@ if(CONTENT_TYPE_BLOG == contentType){
 
 function onContentFetch(response) {
 if (response.error) {
-mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
+console.log("json "+JSON.stringify(response));
 return;
 }
 
@@ -273,7 +273,7 @@ window.location = source_html_url+'/content';
 
 function onContentFetchForBlog(response) {
 if (response.error) {
-mini.createTimerMessage("<div style='text-align:center;'>Unable to fetch discussions: " + response.error.message + "</div>", 4);
+console.log("json "+JSON.stringify(response));
 return;
 }
 
