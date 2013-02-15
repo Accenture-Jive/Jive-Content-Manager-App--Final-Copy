@@ -82,7 +82,7 @@ str='Deleting ';
 str2='Deleting files';
 }
 
-for (var i = 0; i < fileSplitValue.length; i++) {
+for (var i = 0; i <=fileSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -168,7 +168,7 @@ str='Deleting ';
 str2='Deleting ideas';
 }
 
-for (var i = 0; i < ideaSplitValue.length; i++) {
+for (var i = 0; i <ideaSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
