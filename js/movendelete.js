@@ -54,7 +54,7 @@ if(globalAction == 'delete')
 str='Deleting ';
 str2='Deleting discussions';
 }
-for (var i = 0; i < discussionSplitValue.length; i++) {
+for (var i = 0; i <=discussionSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -110,7 +110,7 @@ str='Deleting ';
 str2='Deleting documents';
 }
 
-for (var i = 0; i < documetSplitValue.length; i++) {
+for (var i = 0; i <=documetSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -139,7 +139,7 @@ str='Deleting ';
 str2='Deleting polls';
 }
 
-for (var i = 0; i < pollSplitValue.length; i++) {
+for (var i = 0; i <=pollSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -168,7 +168,7 @@ str='Deleting ';
 str2='Deleting ideas';
 }
 
-for (var i = 0; i <ideaSplitValue.length; i++) {
+for (var i = 0; i <=ideaSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -197,7 +197,7 @@ str='Deleting ';
 str2='Deleting blogs';
 }
 
-for (var i = 0; i < blogSplitValue.length; i++) {
+for (var i = 0; i <=blogSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
