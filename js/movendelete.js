@@ -6,6 +6,7 @@ var source_html_url='';
 var src_space_name='';
 var to_place_blog_url='';
 var global_blog_place_url='';
+var global_url='';
 
 var CONTENT_TYPE_DICUSSION = 'discussion';
 var CONTENT_TYPE_BLOG = 'post';
@@ -263,7 +264,8 @@ getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 
 function getContent(source,target_groupurl,contentType) {
 
-
+global_url='';
+global_url=source;
 
 
 if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
@@ -343,6 +345,30 @@ return;
 }
 
 console.log("Update res json "+JSON.stringify(response));
+var errorCode=JSON.stringify(response);
+if (errorCode=='{"status":500}')
+{
+
+if(CONTENT_TYPE_BLOG == contentType && (global_url != 'null' || global_url != '')){
+alert("inside if");
+console.log("Get Content ::"+global_url+" contentType ::"+ contentType);
+osapi.jive.corev3.contents.get({
+type : contentType,
+fields: '@all',
+uri: global_url
+}).execute(onContentFetchForBlog);
+}
+else {
+alert("inside else");
+osapi.jive.corev3.contents.get({
+type : contentType,
+fields: '@all',
+uri: global_url
+}).execute(onContentFetch);
+}
+
+}
+
 console.log("noOfFileExecuted = "+noOfFileExecuted);
 noOfFileExecuted = noOfFileExecuted + 1;
 if(noOfFileExecuted == (noOfFile-1)) {
@@ -357,16 +383,4 @@ document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in 
 }
 
 } 
-}
-
-updateResponseBlog
-
-function updateResponseBlog(response) {
-if (response.error) {
-console.log("jsonError "+JSON.stringify(response));
-return;
-}
-
-console.log("Update blog res json "+JSON.stringify(response));
-
 }
