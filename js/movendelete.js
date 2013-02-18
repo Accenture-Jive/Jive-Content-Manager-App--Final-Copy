@@ -42,7 +42,6 @@ if(discussionSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-//alert("disc targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -59,8 +58,8 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = discussionSplitValue[i];
-//alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 if(discussionSplitValue[i] != ''){
+alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 getContent(discussionSplitValue[i],target_groupurl,CONTENT_TYPE_DICUSSION);
 }
 }
@@ -70,7 +69,6 @@ if(fileSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-//alert("file targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -88,8 +86,8 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = fileSplitValue[i];
-//alert("fileSplitValue[i]: "+fileSplitValue[i]);
 if(fileSplitValue[i] != ''){
+alert("fileSplitValue[i]: "+fileSplitValue[i]);
 getContent(fileSplitValue[i],target_groupurl,CONTENT_TYPE_FILES);
 }
 }
@@ -99,7 +97,6 @@ if(documetSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-//alert("doc targetUrl: "+targetUrl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -118,8 +115,8 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
 templateSpace = documetSplitValue[i];
-//alert("documetSplitValue[i]: "+documetSplitValue[i]);
 if(documetSplitValue[i] != ''){
+alert("documetSplitValue[i]: "+documetSplitValue[i]);
 getContent(documetSplitValue[i],target_groupurl,CONTENT_TYPE_DOCUMENT);
 }
 }
@@ -129,7 +126,6 @@ if(pollSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-//alert("poll targetUrl: "+target_groupurl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -148,8 +144,8 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
 templateSpace = pollSplitValue[i];
-//alert("pollSplitValue[i]: "+pollSplitValue[i]);
 if(pollSplitValue[i] != ''){
+alert("pollSplitValue[i]: "+pollSplitValue[i]);
 getContent(pollSplitValue[i],target_groupurl,CONTENT_TYPE_POLLS);
 }
 }
@@ -159,7 +155,6 @@ if(ideaSplitValue.length > 1) {
 var str='';
 var str2='';
 targetUrl = target_groupurl;
-//alert("idea targetUrl: "+target_groupurl);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -178,8 +173,8 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
 
 templateSpace = ideaSplitValue[i];
-//alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
 if(ideaSplitValue[i] != ''){
+alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
 getContent(ideaSplitValue[i],target_groupurl,CONTENT_TYPE_IDEA);
 }
 }
@@ -189,7 +184,6 @@ if(blogSplitValue.length > 1) {
 var str='';
 var str2='';
 global_blog_place_url=to_place_blog_url1;
-//alert("blog targetUrl: "+global_blog_place_url);
 if(globalAction == 'move')
 {
 str='Moving ';
@@ -208,9 +202,8 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
 
 templateSpace = blogSplitValue[i];
-//alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != ''){
-console.log("FROM HTML :"+blogSplitValue[i]);
+alert("blogSplitValue: "+blogSplitValue[i]);
 getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 }
@@ -220,7 +213,7 @@ getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 function getContent(source,target_groupurl,contentType) {
 
 if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
-console.log("Get Content ::"+source+" contentType ::"+ contentType);
+alert("Get Content blog ::"+source+" contentType blog::"+ contentType);
 	osapi.jive.corev3.contents.get({
 	type : contentType,
 	fields: '@all',
@@ -228,6 +221,7 @@ console.log("Get Content ::"+source+" contentType ::"+ contentType);
 	}).execute(onContentFetchForBlog);
 	}
 	else {	
+	alert("Get Content other::"+source+" contentType other::"+ contentType);
 	osapi.jive.corev3.contents.get({
 	type : contentType,
 	fields: '@all',
@@ -245,19 +239,18 @@ console.log("json error: "+JSON.stringify(response));
 return;
 }
 console.log("json NO error: "+JSON.stringify(response));
-//alert("json "+JSON.stringify(response));
+alert("blog json onContentFetch: "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=targetUrl;
-console.log("move targetUrl: "+targetUrl);
+alert("move targetUrl: "+global_blog_place_url);
 response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
 //$("#stylized").fadeOut(5000,function(){
-//window.location = redirection_url+'/content';         
-
+//window.location = redirection_url+'/content';
 //});
 
 }
@@ -279,14 +272,14 @@ if (response.error) {
 console.log("json error "+JSON.stringify(response));
 return;
 }
-console.log("BLOG json "+JSON.stringify(response));
-//alert("blog json "+JSON.stringify(response));
+//console.log("BLOG json "+JSON.stringify(response));
+alert("blog json onContentFetchForBlog: "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=global_blog_place_url;
-//alert("move targetUrl: "+global_blog_place_url);
+alert("move targetUrl: "+global_blog_place_url);
 response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
