@@ -238,7 +238,7 @@ if (response.error) {
 console.log("json error: "+JSON.stringify(response));
 return;
 }
-console.log("json NO error: "+JSON.stringify(response));
+//console.log("json NO error: "+JSON.stringify(response));
 alert("blog json onContentFetch: "+JSON.stringify(response));
 var postDisc;
 
