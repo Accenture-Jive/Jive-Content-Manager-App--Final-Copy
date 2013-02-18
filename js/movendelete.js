@@ -315,7 +315,7 @@ return;
 noOfFileExecuted = noOfFileExecuted + 1;
 console.log("noOfFileExecuted: "+noOfFileExecuted);
 
-if(noOfFileExecuted == (noOfFile-1)) {	
+if(noOfFileExecuted == noOfFile) {	
 console.log("noOfFileExecuted inside if: "+noOfFileExecuted);
 
 if(globalAction == 'move'){
