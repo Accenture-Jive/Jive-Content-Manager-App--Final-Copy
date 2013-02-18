@@ -314,7 +314,7 @@ noOfFileFailed = noOfFileFailed + 1;
 return;
 }
 
-console.log("JSOn Success: "+JSON.stringify(response));
+alert("JSOn Success: "+JSON.stringify(response));
 noOfFileExecuted = noOfFileExecuted + 1;
 console.log("noOfFileExecuted: "+noOfFileExecuted);
 console.log("noOfFileFailed: "+noOfFileFailed);
@@ -336,4 +336,17 @@ document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in 
 }
 
 }
+}
+
+updateResponseBlog
+
+function updateResponseBlog(response) {
+alert("inside crap method..");
+if (response.error) {
+console.log("jsonError "+JSON.stringify(response));
+return;
+}
+
+console.log("Update blog res json "+JSON.stringify(response));
+
 }
