@@ -307,14 +307,13 @@ response.destroy().execute(updateResponse);
 }
 
 function updateResponse(response) {
-
 if (response.error) {
 console.log("JSON Error: "+JSON.stringify(response));
 noOfFileFailed = noOfFileFailed + 1;
 return;
 }
 
-alert("JSOn Success: "+JSON.stringify(response));
+console.log("JSOn Success: "+JSON.stringify(response));
 noOfFileExecuted = noOfFileExecuted + 1;
 console.log("noOfFileExecuted: "+noOfFileExecuted);
 console.log("noOfFileFailed: "+noOfFileFailed);
