@@ -362,10 +362,10 @@ noOfFileFailed = noOfFileFailed + 1;
 return;
 }
 
-//console.log("Update res json "+JSON.stringify(response));
+console.log("Update res json "+JSON.stringify(response));
 console.log("noOfFileExecuted = "+noOfFileExecuted);
 noOfFileExecuted = noOfFileExecuted + 1;
-if(noOfFileExecuted == (noOfFile-1)) {
+if(noOfFileExecuted==noOfFile) {
 console.log("noOfFileExecuted = "+noOfFileExecuted);	
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
