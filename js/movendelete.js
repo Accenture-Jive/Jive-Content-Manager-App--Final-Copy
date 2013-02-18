@@ -325,6 +325,7 @@ var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
+console.log("jsonError "+JSON.stringify(response));
 response.parent=global_blog_place_url;
 //alert("move targetUrl: "+global_blog_place_url);
 response.update().execute(updateResponse);
@@ -337,21 +338,26 @@ response.destroy().execute();
 
 function updateResponse(response) {
 if (response.error) {
-console.log("jsonError "+JSON.stringify(response));
+//console.log("jsonError "+JSON.stringify(response));
 noOfFileFailed = noOfFileFailed + 1;
 return;
 }
 
-console.log("Update res json "+JSON.stringify(response));
+//console.log("Update res json "+JSON.stringify(response));
 var errorCode=JSON.stringify(response);
 if (errorCode=='{"status":500}')
 {
 console.log("global_blog_place_url: "+global_blog_place_url);
 console.log("targetUrl: "+targetUrl);
-if(targetUrl!='')
+if(global_blog_place_url!='')
+{
+response.parent=global_blog_place_url;
+response.update().execute(updateResponse);
+}
+else if(targetUrl!='')
 {
 response.parent=targetUrl;
-response.update().execute();
+response.update().execute(updateResponse);
 }
 }
 
