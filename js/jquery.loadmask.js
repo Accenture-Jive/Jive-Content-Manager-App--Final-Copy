@@ -96,4 +96,4 @@
 		element.find("select").removeClass("masked-hidden");
 	};
  
-})(jQuery);
+})(jQuery)
