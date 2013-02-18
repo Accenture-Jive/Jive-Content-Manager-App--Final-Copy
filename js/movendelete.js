@@ -314,9 +314,11 @@ return;
 }
 noOfFileExecuted = noOfFileExecuted + 1;
 console.log("noOfFileExecuted: "+noOfFileExecuted);
+console.log("noOfFileFailed: "+noOfFileFailed);
 
 if(noOfFileExecuted == noOfFile) {	
 console.log("noOfFileExecuted inside if: "+noOfFileExecuted);
+console.log("noOfFileFailed inside if: "+noOfFileFailed);
 
 if(globalAction == 'move'){
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
