@@ -15,9 +15,9 @@
    - limitations under the License.
   -->
 <Module>
-    <ModulePrefs title="Jive Content Manager App"
+    <ModulePrefs title="Jive Content Manager App V1"
                 author="Accenture"
-           description="Jive Content Manager App">
+           description="Jive Content Manager App V1">
         <Link rel="Icon" href="group-icon.png"/>
         <Require feature="dynamic-height"/>
         <Require feature="jive-core-v3"/>
