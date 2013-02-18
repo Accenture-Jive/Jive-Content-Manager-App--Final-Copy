@@ -32,9 +32,9 @@ var documetSplitValue = Grp_doc_json.split(";");
 var blogSplitValue = Grp_blog_json.split(";");
 var ideaSplitValue = Grp_idea_json.split(";");
 var pollSplitValue = Grp_poll_json.split(";");
-noOfFile= 0;
-noOfFileExecuted=0;
-noOfFileFailed = 0;
+ noOfFile= 0;
+ noOfFileExecuted=0;
+ noOfFileFailed = 0;
 
 
 
@@ -42,37 +42,37 @@ noOfFileFailed = 0;
 
 //For calculating the number of files.
 for (var i = 0; i <discussionSplitValue.length; i++) {
-if(discussionSplitValue[i] != ''){
-noOfFile = noOfFile + 1;
-}
+	if(discussionSplitValue[i] != ''){
+	noOfFile = noOfFile + 1;
+	}
 }
 for (var i = 0; i <fileSplitValue.length; i++) {
 if(fileSplitValue[i] != ''){
-noOfFile = noOfFile + 1;
-}
+	noOfFile = noOfFile + 1;
+	}
 }
 for (var i = 0; i <documetSplitValue.length; i++) {
 if(documetSplitValue[i] != ''){
-noOfFile = noOfFile + 1;
-}
+	noOfFile = noOfFile + 1;
+	}
 }
 for (var i = 0; i <pollSplitValue.length; i++) {
 if(pollSplitValue[i] != ''){
-noOfFile = noOfFile + 1;
-}
+	noOfFile = noOfFile + 1;
+	}
 }
 for (var i = 0; i <ideaSplitValue.length; i++) {
 if(ideaSplitValue[i] != ''){
-noOfFile = noOfFile + 1;
-}
+	noOfFile = noOfFile + 1;
+	}
 }
 for (var i = 0; i <blogSplitValue.length; i++) {
 if(blogSplitValue[i] != ''){
-noOfFile = noOfFile + 1;
-}
+	noOfFile = noOfFile + 1;
+	}
 }
 alert("noOfFile = "+noOfFile);
-
+			
 
 var templateSpace='';
 $("#start_copying_button").hide();
@@ -268,21 +268,21 @@ function getContent(source,target_groupurl,contentType) {
 
 if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
 console.log("Get Content ::"+source+" contentType ::"+ contentType);
-osapi.jive.corev3.contents.get({
-type : contentType,
-fields: '@all',
-uri: source
-}).execute(onContentFetchForBlog);
-}
-else {
-
-osapi.jive.corev3.contents.get({
-type : contentType,
-fields: '@all',
-uri: source
-}).execute(onContentFetch);
-
-}
+	osapi.jive.corev3.contents.get({
+	type : contentType,
+	fields: '@all',
+	uri: source
+	}).execute(onContentFetchForBlog);
+	}
+	else {
+	
+	osapi.jive.corev3.contents.get({
+	type : contentType,
+	fields: '@all',
+	uri: source
+	}).execute(onContentFetch);
+	
+	}
 
 
 }
@@ -303,9 +303,21 @@ if(globalAction == 'move'){
 response.parent=targetUrl;
 console.log("move targetUrl: "+targetUrl);
 response.update().execute(updateResponse);
+var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+//$("#stylized").fadeOut(5000,function(){
+//window.location = redirection_url+'/content';         
+
+//});
+
 }
 else if (globalAction == 'delete'){
 response.destroy().execute();
+var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+$("#stylized").fadeOut(5000,function(){
+window.location = source_html_url+'/content';
+});
 }
 
 }
@@ -319,7 +331,7 @@ return;
 }
 
 
-//console.log("BLOG ^^^^ json "+JSON.stringify(response));
+console.log("BLOG ^^^^ json "+JSON.stringify(response));
 //alert("blog json "+JSON.stringify(response));
 var postDisc;
 
@@ -328,9 +340,21 @@ if(globalAction == 'move'){
 response.parent=global_blog_place_url;
 //alert("move targetUrl: "+global_blog_place_url);
 response.update().execute(updateResponse);
+var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+//$("#stylized").fadeOut(5000,function(){
+//window.location = redirection_url+'/content';         
+
+//});
+
 }
 else if (globalAction == 'delete'){
 response.destroy().execute();
+var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+$("#stylized").fadeOut(5000,function(){
+window.location = source_html_url+'/content';
+});
 }
 
 }
@@ -346,16 +370,11 @@ console.log("Update res json "+JSON.stringify(response));
 console.log("noOfFileExecuted = "+noOfFileExecuted);
 noOfFileExecuted = noOfFileExecuted + 1;
 if(noOfFileExecuted == (noOfFile-1)) {
-console.log("noOfFileExecuted = "+noOfFileExecuted);
-if(globalAction == 'move'){
-var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
-document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-}
-else if (globalAction == 'delete'){
-var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
-document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-}
+	console.log("noOfFileExecuted = "+noOfFileExecuted);
+	/*$("#stylized").fadeOut(5000,function(){
+	window.location = redirection_url+'/content';         
 
+});*/
 } 
 }
 
