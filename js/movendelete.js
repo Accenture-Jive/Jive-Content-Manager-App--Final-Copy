@@ -16,13 +16,12 @@ var CONTENT_TYPE_IDEA = 'idea';
 
 
 function movendelete(action,srcgroup_place_url,target_groupurl,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name1,redirection_url1,source_html_url1,src_space_name1,to_place_blog_url1) {
-globalAction = action;
 
+globalAction = action;
 dest_space_name=dest_space_name1;
 redirection_url=redirection_url1;
 source_html_url=source_html_url1;
 src_space_name=src_space_name1;
-
 
 var	discussionSplitValue = Grp_disc_json.split(";");
 var fileSplitValue = Grp_file_json.split(";");			
@@ -47,12 +46,12 @@ targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
-str2='Moving discussions';
+str2='Moving content';
 }
 if(globalAction == 'delete')
 {
 str='Deleting ';
-str2='Deleting discussions';
+str2='Deleting content';
 }
 for (var i = 0; i <discussionSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
@@ -75,12 +74,12 @@ targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
-str2='Moving files';
+str2='Moving content';
 }
 if(globalAction == 'delete')
 {
 str='Deleting ';
-str2='Deleting files';
+str2='Deleting content';
 }
 
 for (var i = 0; i <fileSplitValue.length; i++) {
@@ -104,12 +103,12 @@ targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
-str2='Moving documents';
+str2='Moving content';
 }
 if(globalAction == 'delete')
 {
 str='Deleting ';
-str2='Deleting documents';
+str2='Deleting content';
 }
 
 for (var i = 0; i <documetSplitValue.length; i++) {
@@ -134,12 +133,12 @@ targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
-str2='Moving polls';
+str2='Moving content';
 }
 if(globalAction == 'delete')
 {
 str='Deleting ';
-str2='Deleting polls';
+str2='Deleting content';
 }
 
 for (var i = 0; i <pollSplitValue.length; i++) {
@@ -164,12 +163,12 @@ targetUrl = target_groupurl;
 if(globalAction == 'move')
 {
 str='Moving ';
-str2='Moving ideas';
+str2='Moving content';
 }
 if(globalAction == 'delete')
 {
 str='Deleting ';
-str2='Deleting ideas';
+str2='Deleting content';
 }
 
 for (var i = 0; i <ideaSplitValue.length; i++) {
@@ -194,12 +193,12 @@ global_blog_place_url=to_place_blog_url1;
 if(globalAction == 'move')
 {
 str='Moving ';
-str2='Moving blogs';
+str2='Moving content';
 }
 if(globalAction == 'delete')
 {
 str='Deleting ';
-str2='Deleting blogs';
+str2='Deleting content';
 }
 
 for (var i = 0; i <blogSplitValue.length; i++) {
@@ -220,9 +219,6 @@ getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 
 function getContent(source,target_groupurl,contentType) {
 
-
-
-
 if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
 console.log("Get Content ::"+source+" contentType ::"+ contentType);
 	osapi.jive.corev3.contents.get({
@@ -231,8 +227,7 @@ console.log("Get Content ::"+source+" contentType ::"+ contentType);
 	uri: source
 	}).execute(onContentFetchForBlog);
 	}
-	else {
-	
+	else {	
 	osapi.jive.corev3.contents.get({
 	type : contentType,
 	fields: '@all',
@@ -246,12 +241,10 @@ console.log("Get Content ::"+source+" contentType ::"+ contentType);
 
 function onContentFetch(response) {
 if (response.error) {
-console.log("json "+JSON.stringify(response));
+console.log("json error: "+JSON.stringify(response));
 return;
 }
-
-
-console.log("json "+JSON.stringify(response));
+console.log("json NO error: "+JSON.stringify(response));
 //alert("json "+JSON.stringify(response));
 var postDisc;
 
@@ -272,9 +265,9 @@ else if (globalAction == 'delete'){
 response.destroy().execute();
 var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-$("#stylized").fadeOut(5000,function(){
-window.location = source_html_url+'/content';
-});
+//$("#stylized").fadeOut(5000,function(){
+//window.location = source_html_url+'/content';
+//});
 }
 
 }
@@ -283,12 +276,10 @@ window.location = source_html_url+'/content';
 
 function onContentFetchForBlog(response) {
 if (response.error) {
-console.log("json "+JSON.stringify(response));
+console.log("json error "+JSON.stringify(response));
 return;
 }
-
-
-console.log("BLOG ^^^^ json "+JSON.stringify(response));
+console.log("BLOG json "+JSON.stringify(response));
 //alert("blog json "+JSON.stringify(response));
 var postDisc;
 
@@ -309,9 +300,9 @@ else if (globalAction == 'delete'){
 response.destroy().execute();
 var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-$("#stylized").fadeOut(5000,function(){
-window.location = source_html_url+'/content';
-});
+//$("#stylized").fadeOut(5000,function(){
+//window.location = source_html_url+'/content';
+//});
 }
 
 }
