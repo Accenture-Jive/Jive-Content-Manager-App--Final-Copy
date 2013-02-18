@@ -349,10 +349,15 @@ if (errorCode=='{"status":500}')
 alert("global_blog_place_url: "+global_blog_place_url);
 alert("targetUrl: "+targetUrl);
 if (global_blog_place_url=='')
+{
 response.parent=targetUrl;
-else
+response.update().execute(updateResponse);
+}
+else if(global_blog_place_url!='')
+{
 response.parent=global_blog_place_url;
 response.update().execute(updateResponse);
+}
 }
 console.log("noOfFileExecuted = "+noOfFileExecuted);
 noOfFileExecuted = noOfFileExecuted + 1;
