@@ -14,6 +14,10 @@ var CONTENT_TYPE_FILES = 'file';
 var CONTENT_TYPE_DOCUMENT = 'document';
 var CONTENT_TYPE_IDEA = 'idea';
 
+var noOfFile=0;
+var noOfFileExecuted=0;
+var noOfFileFailed=0;
+
 
 function movendelete(action,srcgroup_place_url,target_groupurl,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name1,redirection_url1,source_html_url1,src_space_name1,to_place_blog_url1) {
 
@@ -29,6 +33,43 @@ var documetSplitValue = Grp_doc_json.split(";");
 var blogSplitValue = Grp_blog_json.split(";");
 var ideaSplitValue = Grp_idea_json.split(";");
 var pollSplitValue = Grp_poll_json.split(";");
+
+noOfFile= 0;
+noOfFileExecuted=0;
+noOfFileFailed = 0;
+
+//For calculating the number of files.
+for (var i = 0; i <discussionSplitValue.length; i++) {
+if(discussionSplitValue[i] != ''){
+noOfFile = noOfFile + 1;
+}
+}
+for (var i = 0; i <fileSplitValue.length; i++) {
+if(fileSplitValue[i] != ''){
+noOfFile = noOfFile + 1;
+}
+}
+for (var i = 0; i <documetSplitValue.length; i++) {
+if(documetSplitValue[i] != ''){
+noOfFile = noOfFile + 1;
+}
+}
+for (var i = 0; i <pollSplitValue.length; i++) {
+if(pollSplitValue[i] != ''){
+noOfFile = noOfFile + 1;
+}
+}
+for (var i = 0; i <ideaSplitValue.length; i++) {
+if(ideaSplitValue[i] != ''){
+noOfFile = noOfFile + 1;
+}
+}
+for (var i = 0; i <blogSplitValue.length; i++) {
+if(blogSplitValue[i] != ''){
+noOfFile = noOfFile + 1;
+}
+}
+alert("noOfFile = "+noOfFile);
 
 var templateSpace='';
 $("#start_copying_button").hide();
@@ -59,7 +100,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = discussionSplitValue[i];
 if(discussionSplitValue[i] != ''){
-alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
+//alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 getContent(discussionSplitValue[i],target_groupurl,CONTENT_TYPE_DICUSSION);
 }
 }
@@ -87,7 +128,7 @@ document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = fileSplitValue[i];
 if(fileSplitValue[i] != ''){
-alert("fileSplitValue[i]: "+fileSplitValue[i]);
+//alert("fileSplitValue[i]: "+fileSplitValue[i]);
 getContent(fileSplitValue[i],target_groupurl,CONTENT_TYPE_FILES);
 }
 }
@@ -116,7 +157,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = documetSplitValue[i];
 if(documetSplitValue[i] != ''){
-alert("documetSplitValue[i]: "+documetSplitValue[i]);
+//alert("documetSplitValue[i]: "+documetSplitValue[i]);
 getContent(documetSplitValue[i],target_groupurl,CONTENT_TYPE_DOCUMENT);
 }
 }
@@ -145,7 +186,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = pollSplitValue[i];
 if(pollSplitValue[i] != ''){
-alert("pollSplitValue[i]: "+pollSplitValue[i]);
+//alert("pollSplitValue[i]: "+pollSplitValue[i]);
 getContent(pollSplitValue[i],target_groupurl,CONTENT_TYPE_POLLS);
 }
 }
@@ -174,7 +215,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = ideaSplitValue[i];
 if(ideaSplitValue[i] != ''){
-alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
+//alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
 getContent(ideaSplitValue[i],target_groupurl,CONTENT_TYPE_IDEA);
 }
 }
@@ -203,7 +244,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = blogSplitValue[i];
 if(blogSplitValue[i] != ''){
-alert("blogSplitValue: "+blogSplitValue[i]);
+//alert("blogSplitValue: "+blogSplitValue[i]);
 getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 }
@@ -213,22 +254,22 @@ getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 function getContent(source,target_groupurl,contentType) {
 
 if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
-alert("Get Content blog ::"+source+" contentType blog::"+ contentType);
-	osapi.jive.corev3.contents.get({
-	type : contentType,
-	fields: '@all',
-	uri: source
-	}).execute(onContentFetchForBlog);
-	}
-	else {	
-	alert("Get Content other::"+source+" contentType other::"+ contentType);
-	osapi.jive.corev3.contents.get({
-	type : contentType,
-	fields: '@all',
-	uri: source
-	}).execute(onContentFetch);
-	
-	}
+//alert("Get Content blog ::"+source+" contentType blog::"+ contentType);
+osapi.jive.corev3.contents.get({
+type : contentType,
+fields: '@all',
+uri: source
+}).execute(onContentFetchForBlog);
+}
+else {	
+//alert("Get Content other::"+source+" contentType other::"+ contentType);
+osapi.jive.corev3.contents.get({
+type : contentType,
+fields: '@all',
+uri: source
+}).execute(onContentFetch);
+
+}
 
 
 }
@@ -238,66 +279,53 @@ if (response.error) {
 console.log("json error: "+JSON.stringify(response));
 return;
 }
-//console.log("json NO error: "+JSON.stringify(response));
-//alert("blog json onContentFetch: "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
-//response.parent=targetUrl;
 response.parent=targetUrl;
-alert("move targetUrl onContentFetch: "+global_blog_place_url);
-response.update().execute();
-alert(JSON.stringify(response));
-var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
-document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-//$("#stylized").fadeOut(5000,function(){
-//window.location = redirection_url+'/content';
-//});
-
+response.update().execute(updateResponse);
 }
 else if (globalAction == 'delete'){
-response.destroy().execute();
-var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
-document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-//$("#stylized").fadeOut(5000,function(){
-//window.location = source_html_url+'/content';
-//});
+response.destroy().execute(updateResponse);
 }
-
 }
-
-
 
 function onContentFetchForBlog(response) {
 if (response.error) {
 console.log("json error "+JSON.stringify(response));
 return;
 }
-//console.log("BLOG json "+JSON.stringify(response));
-//alert("blog json onContentFetchForBlog: "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
-//response.parent=targetUrl;
 response.parent=global_blog_place_url;
-alert("move targetUrl onContentFetchForBlog: "+global_blog_place_url);
-response.update().execute();
-alert(JSON.stringify(response));
+response.update().execute(updateResponse);
+}
+else if (globalAction == 'delete'){
+response.destroy().execute(updateResponse);
+}
+}
+
+function updateResponse(response) {
+if (response.error) {
+console.log("jsonError "+JSON.stringify(response));
+noOfFileFailed = noOfFileFailed + 1;
+return;
+}
+noOfFileExecuted = noOfFileExecuted + 1;
+if(noOfFileExecuted == (noOfFile-1)) {	
+if(globalAction == 'move'){
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-//$("#stylized").fadeOut(5000,function(){
-//window.location = redirection_url+'/content';         
-
-//});
 
 }
 else if (globalAction == 'delete'){
-response.destroy().execute();
 var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-//$("#stylized").fadeOut(5000,function(){
-//window.location = source_html_url+'/content';
-//});
 }
+$("#stylized").fadeOut(5000,function(){
+window.location = redirection_url+'/content';         
 
+});
+} 
 }
