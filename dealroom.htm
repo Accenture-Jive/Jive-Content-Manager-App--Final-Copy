@@ -895,7 +895,8 @@ type : "space",
 success : ( function(data){
 //console.log("DATA: "+JSON.stringify(data));
 to_place_name=data.name;	
-to_place_blog_url=data.resources.blog.ref;	
+to_place_blog_url=data.resources.blog.ref;
+
 //showing execute button		
 
 if(to_place_name!='')
@@ -1346,6 +1347,7 @@ function getFiles(space_url)
 osapi.jive.corev3.contents.get({
 type : 'file',
 fields : '@all',
+count : 50,
 place : space_url
 }).execute(function(response) {
 //console.log("Files: "+JSON.stringify(response));
@@ -1412,6 +1414,7 @@ function getBlogs(blog_url)
 osapi.jive.corev3.contents.get({
 type : 'post',
 fields : '@all',
+count : 50,
 place : blog_url
 }).execute(function(response) {
 //console.log("Files: "+JSON.stringify(response));
@@ -1475,6 +1478,7 @@ function getDocs(space_url)
 //console.log("space_url inside getDocs: "+space_url);
 osapi.jive.corev3.documents.get ({
 fields : '@all',
+count : 50,
 place : space_url
 }).execute(function(response) {
 //console.log("Documents: "+JSON.stringify(response));
@@ -1535,6 +1539,7 @@ function getDiscussions(space_url){
 
 osapi.jive.corev3.discussions.get ({
 fields : '@all',
+count : 50,
 place : space_url
 }).execute(function(response) {
 //console.log("Discussions: "+JSON.stringify(response));
@@ -1595,6 +1600,7 @@ function getIdeas(space_url){
 
 osapi.jive.corev3.ideas.get ({
 fields : '@all',
+count : 50,
 place : space_url
 }).execute(function(response) {
 //console.log("Ideas: "+JSON.stringify(response));
@@ -1657,6 +1663,7 @@ function getPolls(space_url)
 //console.log("space_url inside getPolls: "+space_url);
 osapi.jive.corev3.polls.get({
 fields : '@all',
+count : 50,
 place : space_url
 }).execute(function(response) {
 //console.log("Polls: "+JSON.stringify(response));

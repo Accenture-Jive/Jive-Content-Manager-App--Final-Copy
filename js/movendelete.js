@@ -8,9 +8,9 @@ var to_place_blog_url='';
 var global_blog_place_url='';
 
 var CONTENT_TYPE_DICUSSION = 'discussion';
-var CONTENT_TYPE_BLOG = 'blog';
-var CONTENT_TYPE_POLLS = 'polls';
-var CONTENT_TYPE_FILES = 'files';
+var CONTENT_TYPE_BLOG = 'post';
+var CONTENT_TYPE_POLLS = 'poll';
+var CONTENT_TYPE_FILES = 'file';
 var CONTENT_TYPE_DOCUMENT = 'document';
 var CONTENT_TYPE_IDEA = 'idea';
 
@@ -54,15 +54,16 @@ if(globalAction == 'delete')
 str='Deleting ';
 str2='Deleting discussions';
 }
-for (var i = 0; i <=discussionSplitValue.length; i++) {
+for (var i = 0; i <discussionSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = discussionSplitValue[i];
 //alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
-if(discussionSplitValue[i] != '')
+if(discussionSplitValue[i] != ''){
 getContent(discussionSplitValue[i],target_groupurl,CONTENT_TYPE_DICUSSION);
+}
 }
 }
 
@@ -82,15 +83,16 @@ str='Deleting ';
 str2='Deleting files';
 }
 
-for (var i = 0; i <=fileSplitValue.length; i++) {
+for (var i = 0; i <fileSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 templateSpace = fileSplitValue[i];
 //alert("fileSplitValue[i]: "+fileSplitValue[i]);
-if(fileSplitValue[i] != '')
+if(fileSplitValue[i] != ''){
 getContent(fileSplitValue[i],target_groupurl,CONTENT_TYPE_FILES);
+}
 }
 }
 
@@ -110,7 +112,7 @@ str='Deleting ';
 str2='Deleting documents';
 }
 
-for (var i = 0; i <=documetSplitValue.length; i++) {
+for (var i = 0; i <documetSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -118,8 +120,9 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = documetSplitValue[i];
 //alert("documetSplitValue[i]: "+documetSplitValue[i]);
-if(documetSplitValue[i] != '')
+if(documetSplitValue[i] != ''){
 getContent(documetSplitValue[i],target_groupurl,CONTENT_TYPE_DOCUMENT);
+}
 }
 }
 
@@ -139,7 +142,7 @@ str='Deleting ';
 str2='Deleting polls';
 }
 
-for (var i = 0; i <=pollSplitValue.length; i++) {
+for (var i = 0; i <pollSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -147,8 +150,9 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = pollSplitValue[i];
 //alert("pollSplitValue[i]: "+pollSplitValue[i]);
-if(pollSplitValue[i] != '')
+if(pollSplitValue[i] != ''){
 getContent(pollSplitValue[i],target_groupurl,CONTENT_TYPE_POLLS);
+}
 }
 }
 
@@ -168,7 +172,7 @@ str='Deleting ';
 str2='Deleting ideas';
 }
 
-for (var i = 0; i <=ideaSplitValue.length; i++) {
+for (var i = 0; i <ideaSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -176,8 +180,9 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = ideaSplitValue[i];
 //alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
-if(ideaSplitValue[i] != '')
+if(ideaSplitValue[i] != ''){
 getContent(ideaSplitValue[i],target_groupurl,CONTENT_TYPE_IDEA);
+}
 }
 }
 
@@ -197,7 +202,7 @@ str='Deleting ';
 str2='Deleting blogs';
 }
 
-for (var i = 0; i <=blogSplitValue.length; i++) {
+for (var i = 0; i <blogSplitValue.length; i++) {
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -205,19 +210,23 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 
 templateSpace = blogSplitValue[i];
 //alert("blogSplitValue[i]: "+blogSplitValue[i]);
-if(blogSplitValue[i] != '')
+if(blogSplitValue[i] != ''){
+console.log("FROM HTML :"+blogSplitValue[i]);
 getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
+}
 }
 }
 }
 
 function getContent(source,target_groupurl,contentType) {
-//alert("Get Content ::"+target_groupurl+" contentType ::"+ contentType);
 
 
 
-if(CONTENT_TYPE_BLOG == contentType){
+
+if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
+console.log("Get Content ::"+source+" contentType ::"+ contentType);
 	osapi.jive.corev3.contents.get({
+	type : contentType,
 	fields: '@all',
 	uri: source
 	}).execute(onContentFetchForBlog);
@@ -225,6 +234,7 @@ if(CONTENT_TYPE_BLOG == contentType){
 	else {
 	
 	osapi.jive.corev3.contents.get({
+	type : contentType,
 	fields: '@all',
 	uri: source
 	}).execute(onContentFetch);
@@ -241,21 +251,21 @@ return;
 }
 
 
-//console.log("json "+JSON.stringify(response));
+console.log("json "+JSON.stringify(response));
 //alert("json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=targetUrl;
-//alert("move targetUrl: "+targetUrl);
+console.log("move targetUrl: "+targetUrl);
 response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-$("#stylized").fadeOut(5000,function(){
-window.location = redirection_url+'/content';         
+//$("#stylized").fadeOut(5000,function(){
+//window.location = redirection_url+'/content';         
 
-});
+//});
 
 }
 else if (globalAction == 'delete'){
@@ -278,8 +288,8 @@ return;
 }
 
 
-//console.log("json "+JSON.stringify(response));
-//alert("json "+JSON.stringify(response));
+console.log("BLOG ^^^^ json "+JSON.stringify(response));
+//alert("blog json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
@@ -289,10 +299,10 @@ response.parent=global_blog_place_url;
 response.update().execute();
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-$("#stylized").fadeOut(5000,function(){
-window.location = redirection_url+'/content';         
+//$("#stylized").fadeOut(5000,function(){
+//window.location = redirection_url+'/content';         
 
-});
+//});
 
 }
 else if (globalAction == 'delete'){
