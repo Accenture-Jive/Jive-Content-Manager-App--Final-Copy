@@ -307,7 +307,6 @@ response.destroy().execute(updateResponse);
 }
 
 function updateResponse(response) {
-
 if (response.error) {
 console.log("JSON Error: "+JSON.stringify(response));
 noOfFileFailed = noOfFileFailed + 1;
@@ -334,19 +333,22 @@ else if (globalAction == 'delete')
 var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
 }
- 
-}
 
 if(globalAction == 'move')
 {
+/*
 $("#stylized").fadeOut(5000,function(){
 window.location = redirection_url+'/content';
 });
+*/
 }
 else if (globalAction == 'delete')
 {
+/*
 $("#stylized").fadeOut(5000,function(){
 window.location = source_html_url+'/content';
 });
+*/
+} 
 }
 }
