@@ -351,7 +351,7 @@ console.log("targetUrl: "+targetUrl);
 if(global_blog_place_url!='')
 {
 response.parent=global_blog_place_url;
-response.update().execute(updateResponse);
+response.update().execute();
 }
 else if(targetUrl!='')
 {
