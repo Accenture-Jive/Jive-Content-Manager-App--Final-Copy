@@ -245,8 +245,9 @@ var postDisc;
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=targetUrl;
-alert("move targetUrl: "+global_blog_place_url);
+alert("move targetUrl onContentFetch: "+global_blog_place_url);
 response.update().execute();
+alert(response.update().execute());
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
 //$("#stylized").fadeOut(5000,function(){
@@ -273,14 +274,15 @@ console.log("json error "+JSON.stringify(response));
 return;
 }
 //console.log("BLOG json "+JSON.stringify(response));
-alert("blog json onContentFetchForBlog: "+JSON.stringify(response));
+//alert("blog json onContentFetchForBlog: "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=global_blog_place_url;
-alert("move targetUrl: "+global_blog_place_url);
+alert("move targetUrl onContentFetchForBlog: "+global_blog_place_url);
 response.update().execute();
+alert(response.update().execute());
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
 //$("#stylized").fadeOut(5000,function(){
