@@ -356,9 +356,10 @@ response.update().execute(updateResponse);
 else if(targetUrl!='')
 {
 response.parent=targetUrl;
-response.update().execute(updateResponse);
+response.update().execute();
 }
 }
+
 console.log("noOfFileExecuted = "+noOfFileExecuted);
 noOfFileExecuted = noOfFileExecuted + 1;
 if(noOfFileExecuted == (noOfFile-1)) {
