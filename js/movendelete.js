@@ -351,7 +351,7 @@ console.log("targetUrl: "+targetUrl);
 if(targetUrl!='')
 {
 response.parent=targetUrl;
-response.update().execute(updateResponse);
+response.update().execute();
 }
 }
 
