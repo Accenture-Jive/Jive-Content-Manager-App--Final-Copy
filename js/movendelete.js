@@ -261,6 +261,7 @@ getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 }
 }
+var contentType='';
 
 function getContent(source,target_groupurl,contentType) {
 
@@ -349,7 +350,7 @@ var errorCode=JSON.stringify(response);
 if (errorCode=='{"status":500}')
 {
 
-if(CONTENT_TYPE_BLOG == 'post' && (global_url != 'null' || global_url != '')){
+if(CONTENT_TYPE_BLOG == contentType && (global_url != 'null' || global_url != '')){
 alert("inside if");
 console.log("Get Content ::"+global_url+" contentType ::"+ contentType);
 osapi.jive.corev3.contents.get({
@@ -360,6 +361,7 @@ uri: global_url
 }
 else {
 alert("inside else");
+console.log("Get Content ::"+global_url+" contentType ::"+ contentType);
 osapi.jive.corev3.contents.get({
 type : contentType,
 fields: '@all',
