@@ -316,7 +316,7 @@ noOfFileExecuted = noOfFileExecuted + 1;
 console.log("noOfFileExecuted: "+noOfFileExecuted);
 console.log("noOfFileFailed: "+noOfFileFailed);
 
-if(noOfFileExecuted == noOfFile) {	
+if(noOfFileExecuted == (noOfFile-1)) {	
 console.log("noOfFileExecuted inside if: "+noOfFileExecuted);
 console.log("noOfFileFailed inside if: "+noOfFileFailed);
 
