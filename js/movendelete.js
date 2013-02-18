@@ -325,7 +325,6 @@ var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
-console.log("jsonError "+JSON.stringify(response));
 response.parent=global_blog_place_url;
 //alert("move targetUrl: "+global_blog_place_url);
 response.update().execute(updateResponse);
@@ -338,9 +337,8 @@ response.destroy().execute();
 
 function updateResponse(response) {
 if (response.error) {
-console.log("jsonError "+JSON.stringify(response));
+//console.log("jsonError "+JSON.stringify(response));
 noOfFileFailed = noOfFileFailed + 1;
-response.update().execute();
 return;
 }
 
@@ -348,7 +346,9 @@ return;
 var errorCode=JSON.stringify(response);
 if (errorCode=='{"status":500}')
 {
-response.update().execute();
+alert("inside if");
+onContentFetch();
+alert("exit if");
 }
 
 console.log("noOfFileExecuted = "+noOfFileExecuted);
