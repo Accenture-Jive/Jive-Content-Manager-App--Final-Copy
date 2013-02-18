@@ -338,8 +338,9 @@ response.destroy().execute();
 
 function updateResponse(response) {
 if (response.error) {
-//console.log("jsonError "+JSON.stringify(response));
+console.log("jsonError "+JSON.stringify(response));
 noOfFileFailed = noOfFileFailed + 1;
+response.update().execute();
 return;
 }
 
