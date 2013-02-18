@@ -313,7 +313,11 @@ noOfFileFailed = noOfFileFailed + 1;
 return;
 }
 noOfFileExecuted = noOfFileExecuted + 1;
+console.log("noOfFileExecuted: "+noOfFileExecuted);
+
 if(noOfFileExecuted == (noOfFile-1)) {	
+console.log("noOfFileExecuted inside if: "+noOfFileExecuted);
+
 if(globalAction == 'move'){
 var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
@@ -323,7 +327,8 @@ else if (globalAction == 'delete'){
 var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
 }
-$("#stylized").fadeOut(5000,function(){
+
+$("#stylized").fadeOut(10000,function(){
 window.location = redirection_url+'/content';         
 
 });
