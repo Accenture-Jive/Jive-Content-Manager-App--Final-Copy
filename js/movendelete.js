@@ -254,7 +254,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = blogSplitValue[i];
 //alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != ''){
-console.log("FROM HTML :"+blogSplitValue[i]);
+//console.log("FROM HTML :"+blogSplitValue[i]);
 getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 }
@@ -267,7 +267,7 @@ function getContent(source,target_groupurl,contentType) {
 
 
 if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
-console.log("Get Content ::"+source+" contentType ::"+ contentType);
+//console.log("Get Content ::"+source+" contentType ::"+ contentType);
 osapi.jive.corev3.contents.get({
 type : contentType,
 fields: '@all',
@@ -294,14 +294,14 @@ return;
 }
 
 
-console.log("json "+JSON.stringify(response));
+//console.log("json "+JSON.stringify(response));
 //alert("json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=targetUrl;
-console.log("move targetUrl: "+targetUrl);
+//console.log("move targetUrl: "+targetUrl);
 response.update().execute(updateResponse);
 }
 else if (globalAction == 'delete'){
@@ -346,8 +346,8 @@ console.log("Update res json "+JSON.stringify(response));
 var errorCode=JSON.stringify(response);
 if (errorCode=='{"status":500}')
 {
-alert("global_blog_place_url: "+global_blog_place_url);
-alert("targetUrl: "+targetUrl);
+console.log("global_blog_place_url: "+global_blog_place_url);
+console.log("targetUrl: "+targetUrl);
 if(global_blog_place_url!='')
 {
 response.parent=global_blog_place_url;
