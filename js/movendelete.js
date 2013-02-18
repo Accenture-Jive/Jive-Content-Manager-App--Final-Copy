@@ -348,15 +348,10 @@ if (errorCode=='{"status":500}')
 {
 console.log("global_blog_place_url: "+global_blog_place_url);
 console.log("targetUrl: "+targetUrl);
-if(global_blog_place_url!='')
-{
-response.parent=global_blog_place_url;
-response.update().execute();
-}
-else if(targetUrl!='')
+if(targetUrl!='')
 {
 response.parent=targetUrl;
-response.update().execute();
+response.update().execute(updateResponse);
 }
 }
 
