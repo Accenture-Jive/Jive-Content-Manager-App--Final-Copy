@@ -69,6 +69,7 @@ console.log(data);
 
 function onPageLoad() 
 {
+var iframePage = '<iframe id="frame1" src = "" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 osapi.people.get({
 userId : '@me'
 }).execute(function(response) {
