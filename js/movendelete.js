@@ -79,7 +79,7 @@ $("#start_copying_button").hide();
 $("#change_contents").hide();
 $("#button_div").hide();
 var iframePage = '<iframe id="frame1" src = "" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
-document.getElementById("selected_items").innerHTML=iframePage;  
+document.getElementById("change_selection_div").innerHTML=iframePage;  
 $("#copyTo").text("Moving this:");
 
 var str='';
@@ -89,7 +89,6 @@ str2='Intializing Moving';
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("selected_items").innerHTML=iframePage;  
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
 
 if(discussionSplitValue.length > 1) {
