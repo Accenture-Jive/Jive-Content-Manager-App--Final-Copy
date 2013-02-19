@@ -2158,6 +2158,8 @@ document.getElementById("selected_items").innerHTML=all_selected;
 
 };
 
+var initialMsg='';
+
 function startCopying(){
 $("#cmdu").show();
 $("#src_place").hide();
@@ -2176,7 +2178,7 @@ $("#copyTo").text("Copying this:");
 dest_space_name=dest_space_name.toLowerCase();
 dest_space_name=dest_space_name.replace(/[^a-z0-9-\s]/gi, '').replace(/[_\s]/g, '-');
 
-var initialMsg='Please wait, initialising copying..';
+initialMsg='Please wait, initialising copying..';
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
