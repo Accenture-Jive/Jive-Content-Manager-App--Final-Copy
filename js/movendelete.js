@@ -84,8 +84,17 @@ $("#copyTo").text("Moving this:");
 
 var str='';
 var str2='';
+if(globalAction == 'move')
+{
 str='Moving ';
 str2='Intializing Moving';
+}
+if(globalAction == 'delete')
+{
+str='Deleting ';
+str2='Intializing Deleting';
+}
+
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -263,7 +272,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progr
 templateSpace = blogSplitValue[i];
 //alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != ''){
-console.log("FROM HTML :"+blogSplitValue[i]);
+//console.log("FROM HTML :"+blogSplitValue[i]);
 getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 }
@@ -272,11 +281,8 @@ getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 
 function getContent(source,target_groupurl,contentType) {
 
-
-
-
 if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
-console.log("Get Content ::"+source+" contentType ::"+ contentType);
+//console.log("Get Content ::"+source+" contentType ::"+ contentType);
 osapi.jive.corev3.contents.get({
 type : contentType,
 fields: '@all',
@@ -292,8 +298,6 @@ uri: source
 }).execute(onContentFetch);
 
 }
-
-
 }
 
 function onContentFetch(response) {
@@ -301,27 +305,18 @@ if (response.error) {
 console.log("json "+JSON.stringify(response));
 return;
 }
-console.log("json "+JSON.stringify(response));
-
-
+//console.log("json "+JSON.stringify(response));
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=targetUrl;
-console.log("move targetUrl: "+targetUrl);
+//console.log("move targetUrl: "+targetUrl);
 response.update().execute(updateResponse);
-
-
-
 }
 else if (globalAction == 'delete'){
 response.destroy().execute();
-
 }
-
 }
-
-
 
 function onContentFetchForBlog(response) {
 if (response.error) {
@@ -329,13 +324,11 @@ console.log("json "+JSON.stringify(response));
 return;
 }
 
-
-console.log("BLOG ^^^^ json "+JSON.stringify(response));
+//console.log("BLOG ^^^^ json "+JSON.stringify(response));
 //alert("blog json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
-
 response.parent=global_blog_place_url;
 //alert("move targetUrl: "+global_blog_place_url);
 response.update().execute(updateResponse);
@@ -343,7 +336,6 @@ response.update().execute(updateResponse);
 else if (globalAction == 'delete'){
 response.destroy().execute();
 }
-
 }
 
 function updateResponse(response) {
@@ -352,10 +344,10 @@ console.log("jsonError "+JSON.stringify(response));
 noOfFileFailed = noOfFileFailed + 1;
 return;
 }
-console.log("RESPONSE JSON "+JSON.stringify(response));
-console.log("response.type : "+response.type);
+//console.log("RESPONSE JSON "+JSON.stringify(response));
+//console.log("response.type : "+response.type);
 noOfFileExecuted = noOfFileExecuted + 1;
-console.log("noOfFileExecuted = "+noOfFileExecuted +" noOfFile "+noOfFile);
+//console.log("noOfFileExecuted = "+noOfFileExecuted +" noOfFile "+noOfFile);
 var str='';
 var str2='';
 var type = response.type;
@@ -369,38 +361,21 @@ if(globalAction == 'delete')
 str='Deleting ';
 str2='Deleting content';
 }
-
-
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
-
 if(noOfFileExecuted == noOfFile) {
-console.log("noOfFileExecuted%%%%%%% = "+noOfFileExecuted + "globalAction "+globalAction);
+//console.log("noOfFileExecuted%%%%%%% = "+noOfFileExecuted + "globalAction "+globalAction);
 if(globalAction == 'move'){
 finalurl=redirection_url+'/content';
 var str='Moving completed. Please click   <a href='+finalurl+'>here </a>  for the new location';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-
 }
 else if (globalAction == 'delete'){
 var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
 }
-
 } 
-}
-
-updateResponseBlog
-
-function updateResponseBlog(response) {
-if (response.error) {
-console.log("jsonError "+JSON.stringify(response));
-return;
-}
-
-console.log("Update blog res json "+JSON.stringify(response));
-
 }
