@@ -314,7 +314,7 @@ response.parent=targetUrl;
 response.update().execute(updateResponse);
 }
 else if (globalAction == 'delete'){
-response.destroy().execute();
+response.destroy().execute(updateResponse);
 }
 }
 
@@ -334,7 +334,7 @@ response.parent=global_blog_place_url;
 response.update().execute(updateResponse);
 }
 else if (globalAction == 'delete'){
-response.destroy().execute();
+response.destroy().execute(updateResponse);
 }
 }
 
