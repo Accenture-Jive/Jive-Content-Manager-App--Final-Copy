@@ -2207,6 +2207,12 @@ osapi.http.get({
 
 function refreshFrameResponse(response) 
 {
+
+document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
+document.getElementById("frame1").contentDocument.body.style.color='Grey';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Copying in Progress.<br>Please leave this window open until the copying process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+initialMsg.fontcolor("#3778C7")+"</span>";
+
 if(!flag)
 {
 refreshiframe();
@@ -2215,7 +2221,7 @@ setTimeout("refreshiframe()",1000);
 var str='';
 str=response.content;
 if(str!='')
-document.getElementById('frame1').contentDocument.body.src = '';
+document.getElementById('frame1').src = '';
 //console.log("str: "+str);
 var res='{ error: "Connect to /54.246.36.246:8080 timed out" }';
 var errorCode=str.indexOf(res);
