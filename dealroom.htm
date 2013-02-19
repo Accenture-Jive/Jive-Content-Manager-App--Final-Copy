@@ -2169,18 +2169,7 @@ $("#to_place").hide();
 
 //alert("startCopying");
 
-var iframe = '<iframe id="frame1" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
-document.getElementById("selected_items").innerHTML=iframe;  
-$("#copyTo").text("Copying this:");
 
-dest_space_name=dest_space_name.toLowerCase();
-dest_space_name=dest_space_name.replace(/[^a-z0-9-\s]/gi, '').replace(/[_\s]/g, '-');
-
-var initialMsg='Please wait, initialising copying..';
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
-document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
-document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = "Copying in Progress.<br>Please leave this window open until the copying process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+initialMsg.fontcolor("#3778C7")+"</span>";
 
 osapi.http.get({
 'href' : 'http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/AIServlet?srcgroup_place_url='+space_url+'&target_groupurl='+to_url+'&src_group_file='+Grp_file_json+'&src_group_document='+Grp_doc_json+'&src_idea='+Grp_idea_json+'&src_discussion='+Grp_disc_json+'&src_blog='+Grp_blog_json+'&src_poll='+Grp_poll_json+'&logged-user='+loggedUser+'&logged-userName='+loggedUserName+'&group-name='+dest_space_name,
@@ -2204,10 +2193,24 @@ osapi.http.get({
 
 function refreshFrameResponse(response) 
 {
+var iframe = '<iframe id="frame1" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
+document.getElementById("selected_items").innerHTML=iframe;  
+$("#copyTo").text("Copying this:");
+
+dest_space_name=dest_space_name.toLowerCase();
+dest_space_name=dest_space_name.replace(/[^a-z0-9-\s]/gi, '').replace(/[_\s]/g, '-');
+
+var initialMsg='Please wait, initialising copying..';
+document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
+document.getElementById("frame1").contentDocument.body.style.color='Grey';
+document.getElementById("frame1").contentDocument.body.innerHTML = "Copying in Progress.<br>Please leave this window open until the copying process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+initialMsg.fontcolor("#3778C7")+"</span>";
+
 if(!flag)
 {
 refreshiframe();
 }
+
 setTimeout("refreshiframe()",1000); 	
 var str=response.content;
 //console.log("str: "+str);
