@@ -2218,9 +2218,7 @@ if(!flag)
 refreshiframe();
 }
 setTimeout("refreshiframe()",1000); 	
-var str='';
-str=response.content;
-if(str!='')
+var str=response.content;
 document.getElementById('frame1').src = '';
 //console.log("str: "+str);
 var res='{ error: "Connect to /54.246.36.246:8080 timed out" }';
