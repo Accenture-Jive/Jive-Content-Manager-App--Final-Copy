@@ -2169,7 +2169,7 @@ $("#to_place").hide();
 
 //alert("startCopying");
 
-var iframe = '<iframe id="frame1" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
+var iframe = '<iframe id="frame1" src = "http://www.yourdomain.com/file.html" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 document.getElementById("selected_items").innerHTML=iframe;  
 $("#copyTo").text("Copying this:");
 
@@ -2187,6 +2187,7 @@ osapi.http.get({
 'format' : 'json',
 'authz' : 'signed'
 }).execute(refreshiframe);
+
 };
 
 var flag=false;
@@ -2204,18 +2205,15 @@ osapi.http.get({
 
 function refreshFrameResponse(response) 
 {
-var initialMsg='Please wait, initialising copying..';
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
-document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
-document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = "Copying in Progress.<br>Please leave this window open until the copying process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+initialMsg.fontcolor("#3778C7")+"</span>";
-
 if(!flag)
 {
 refreshiframe();
 }
 setTimeout("refreshiframe()",1000); 	
-var str=response.content;
+var str='';
+str=response.content;
+if(str!='')
+document.getElementById('frame1').src = '';
 //console.log("str: "+str);
 var res='{ error: "Connect to /54.246.36.246:8080 timed out" }';
 var errorCode=str.indexOf(res);
