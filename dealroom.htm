@@ -49,6 +49,7 @@ var Grp_poll_json='';
 var finalJSON = '';
 var sel_action_val='';
 var msg2='Please select a place.';
+var iframePage ='';
 
 function showLoading() 
 {
@@ -69,7 +70,7 @@ console.log(data);
 
 function onPageLoad() 
 {
-var iframePage = '<iframe id="frame1" src = "" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
+iframePage = '<iframe id="frame1" src = "" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 osapi.people.get({
 userId : '@me'
 }).execute(function(response) {
