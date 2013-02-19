@@ -49,7 +49,6 @@ var Grp_poll_json='';
 var finalJSON = '';
 var sel_action_val='';
 var msg2='Please select a place.';
-var iframePage ='';
 
 function showLoading() 
 {
@@ -70,7 +69,6 @@ console.log(data);
 
 function onPageLoad() 
 {
-iframePage = '<iframe id="frame1" src = "" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 osapi.people.get({
 userId : '@me'
 }).execute(function(response) {
@@ -2171,8 +2169,8 @@ $("#to_place").hide();
 
 //alert("startCopying");
 
-//var iframe = '<iframe id="frame1" src = "" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
-document.getElementById("selected_items").innerHTML=iframePage;  
+var iframe = '<iframe id="frame1" src = "" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
+document.getElementById("selected_items").innerHTML=iframe;  
 $("#copyTo").text("Copying this:");
 
 dest_space_name=dest_space_name.toLowerCase();
