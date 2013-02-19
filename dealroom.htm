@@ -2171,7 +2171,7 @@ $("#to_place").hide();
 
 //alert("startCopying");
 
-var iframe = '<iframe id="frame1" src = "http://www.yourdomain.com/file.html" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
+var iframe = '<iframe id="frame1" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 document.getElementById("selected_items").innerHTML=iframe;  
 $("#copyTo").text("Copying this:");
 
@@ -2219,7 +2219,6 @@ refreshiframe();
 }
 setTimeout("refreshiframe()",1000); 	
 var str=response.content;
-document.getElementById('frame1').src = '';
 //console.log("str: "+str);
 var res='{ error: "Connect to /54.246.36.246:8080 timed out" }';
 var errorCode=str.indexOf(res);
