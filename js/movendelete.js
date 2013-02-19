@@ -346,9 +346,7 @@ return;
 var errorCode=JSON.stringify(response);
 if (errorCode=='{"status":500}')
 {
-alert("inside if");
 onContentFetch();
-alert("exit if");
 }
 
 console.log("noOfFileExecuted = "+noOfFileExecuted);
