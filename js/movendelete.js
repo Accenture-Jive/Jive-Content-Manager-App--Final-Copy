@@ -366,7 +366,7 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
 
-//if(noOfFileExecuted == noOfFile) {
+if(noOfFileExecuted == noOfFile) {
 //console.log("noOfFileExecuted%%%%%%% = "+noOfFileExecuted + "globalAction "+globalAction);
 if(globalAction == 'move')
 {
@@ -387,5 +387,5 @@ $("#stylized").fadeOut(5000,function(){
 window.location = source_html_url+/content;   
 });
 }
-//} 
+} 
 }
