@@ -71,7 +71,7 @@ if(blogSplitValue[i] != ''){
 noOfFile = noOfFile + 1;
 }
 }
-alert("noOfFile = "+noOfFile);
+//alert("noOfFile = "+noOfFile);
 
 
 var templateSpace='';
@@ -81,6 +81,15 @@ $("#button_div").hide();
 var iframe = '<iframe id="frame1" src = "" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 document.getElementById("selected_items").innerHTML=iframe;  
 $("#copyTo").text("Moving this:");
+
+var str='';
+var str2='';
+str='Moving ';
+str2='Intializing Moving';
+document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
+document.getElementById("frame1").contentDocument.body.style.color='Grey';
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
 
 if(discussionSplitValue.length > 1) {
 var str='';
@@ -98,10 +107,10 @@ str='Deleting ';
 str2='Deleting discussions';
 }
 for (var i = 0; i <discussionSplitValue.length; i++) {
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+/*document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";*/
 templateSpace = discussionSplitValue[i];
 //alert("discussionSplitValue[i]: "+discussionSplitValue[i]);
 if(discussionSplitValue[i] != ''){
@@ -127,10 +136,10 @@ str2='Deleting files';
 }
 
 for (var i = 0; i <fileSplitValue.length; i++) {
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+/*document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";*/
 templateSpace = fileSplitValue[i];
 //alert("fileSplitValue[i]: "+fileSplitValue[i]);
 if(fileSplitValue[i] != ''){
@@ -156,10 +165,10 @@ str2='Deleting documents';
 }
 
 for (var i = 0; i <documetSplitValue.length; i++) {
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+/*document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";*/
 
 templateSpace = documetSplitValue[i];
 //alert("documetSplitValue[i]: "+documetSplitValue[i]);
@@ -186,10 +195,10 @@ str2='Deleting polls';
 }
 
 for (var i = 0; i <pollSplitValue.length; i++) {
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+/*document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";*/
 
 templateSpace = pollSplitValue[i];
 //alert("pollSplitValue[i]: "+pollSplitValue[i]);
@@ -216,10 +225,10 @@ str2='Deleting ideas';
 }
 
 for (var i = 0; i <ideaSplitValue.length; i++) {
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+/*document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	*/
 
 templateSpace = ideaSplitValue[i];
 //alert("ideaSplitValue[i]: "+ideaSplitValue[i]);
@@ -246,15 +255,15 @@ str2='Deleting blogs';
 }
 
 for (var i = 0; i <blogSplitValue.length; i++) {
-document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+/*document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
-document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	*/
 
 templateSpace = blogSplitValue[i];
 //alert("blogSplitValue[i]: "+blogSplitValue[i]);
 if(blogSplitValue[i] != ''){
-//console.log("FROM HTML :"+blogSplitValue[i]);
+console.log("FROM HTML :"+blogSplitValue[i]);
 getContent(blogSplitValue[i],to_place_blog_url1,CONTENT_TYPE_BLOG);
 }
 }
@@ -267,7 +276,7 @@ function getContent(source,target_groupurl,contentType) {
 
 
 if(CONTENT_TYPE_BLOG == contentType && (source != 'null' || source != '')){
-//console.log("Get Content ::"+source+" contentType ::"+ contentType);
+console.log("Get Content ::"+source+" contentType ::"+ contentType);
 osapi.jive.corev3.contents.get({
 type : contentType,
 fields: '@all',
@@ -292,20 +301,22 @@ if (response.error) {
 console.log("json "+JSON.stringify(response));
 return;
 }
+console.log("json "+JSON.stringify(response));
 
 
-//console.log("json "+JSON.stringify(response));
-//alert("json "+JSON.stringify(response));
-var postDisc;
 
 if(globalAction == 'move'){
 //response.parent=targetUrl;
 response.parent=targetUrl;
-//console.log("move targetUrl: "+targetUrl);
+console.log("move targetUrl: "+targetUrl);
 response.update().execute(updateResponse);
+
+
+
 }
 else if (globalAction == 'delete'){
 response.destroy().execute();
+
 }
 
 }
@@ -319,12 +330,12 @@ return;
 }
 
 
-//console.log("BLOG ^^^^ json "+JSON.stringify(response));
+console.log("BLOG ^^^^ json "+JSON.stringify(response));
 //alert("blog json "+JSON.stringify(response));
 var postDisc;
 
 if(globalAction == 'move'){
-//response.parent=targetUrl;
+
 response.parent=global_blog_place_url;
 //alert("move targetUrl: "+global_blog_place_url);
 response.update().execute(updateResponse);
@@ -337,25 +348,42 @@ response.destroy().execute();
 
 function updateResponse(response) {
 if (response.error) {
-//console.log("jsonError "+JSON.stringify(response));
+console.log("jsonError "+JSON.stringify(response));
 noOfFileFailed = noOfFileFailed + 1;
 return;
 }
-
-//console.log("Update res json "+JSON.stringify(response));
-var errorCode=JSON.stringify(response);
-if (errorCode=='{"status":500}')
+console.log("RESPONSE JSON "+JSON.stringify(response));
+console.log("response.type : "+response.type);
+noOfFileExecuted = noOfFileExecuted + 1;
+console.log("noOfFileExecuted = "+noOfFileExecuted +" noOfFile "+noOfFile);
+var str='';
+var str2='';
+var type = response.type;
+if(globalAction == 'move')
 {
-onContentFetch();
+str='Moving ';
+str2='Moving content';
+}
+if(globalAction == 'delete')
+{
+str='Deleting ';
+str2='Deleting content';
 }
 
-console.log("noOfFileExecuted = "+noOfFileExecuted);
-noOfFileExecuted = noOfFileExecuted + 1;
-if(noOfFileExecuted == (noOfFile-1)) {
-console.log("noOfFileExecuted = "+noOfFileExecuted);
+
+document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
+document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
+document.getElementById("frame1").contentDocument.body.style.color='Grey';
+document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
+
+
+if(noOfFileExecuted == noOfFile) {
+console.log("noOfFileExecuted%%%%%%% = "+noOfFileExecuted + "globalAction "+globalAction);
 if(globalAction == 'move'){
-var str='Moving completed. You will now be redirected to "'+dest_space_name+'"';
+finalurl=redirection_url+'/content';
+var str='Moving completed. Please click   <a href='+finalurl+'>here </a>  for the new location"';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
+
 }
 else if (globalAction == 'delete'){
 var str='Deleting completed. You will now be redirected to "'+src_space_name+'"';
