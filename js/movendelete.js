@@ -381,7 +381,7 @@ if(noOfFileExecuted == noOfFile) {
 console.log("noOfFileExecuted%%%%%%% = "+noOfFileExecuted + "globalAction "+globalAction);
 if(globalAction == 'move'){
 finalurl=redirection_url+'/content';
-var str='Moving completed. Please click   <a href='+finalurl+'>here </a>  for the new location"';
+var str='Moving completed. Please click   <a href='+finalurl+'>here </a>  for the new location';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
 
 }
