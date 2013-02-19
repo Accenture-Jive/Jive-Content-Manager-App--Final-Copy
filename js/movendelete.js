@@ -78,7 +78,7 @@ var templateSpace='';
 $("#start_copying_button").hide();
 $("#change_contents").hide();
 $("#button_div").hide();
-var iframe = '<iframe id="frame1" src = "http://www.yourdomain.com/file.html" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
+var iframe = '<iframe id="frame1" src = "javascript:"&nbsp;" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 document.getElementById("selected_items").innerHTML=iframe;  
 $("#copyTo").text("Moving this:");
 
