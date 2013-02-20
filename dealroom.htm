@@ -84,7 +84,7 @@ navigator.sayswho= (function(){
 
 if(browserName=="MSIE")
 {
-alert("inside MSIE if.")
+//alert("inside MSIE if.")
 $('#deleteFrom').css("margin-left", "200px");
 $('#del_place').css("margin-left", "245px");
 $('#deleteTo').css("margin-left", "262px");
@@ -254,6 +254,12 @@ $('#start_copying_button').val('Start Deleting');
 $('#start_copying_button').unbind('click').click(function(){startDeleting();});
 }
 else if(sel_action_val=="uploadd"){
+if(browserName=="MSIE")
+{
+alert("inside MSIE if.")
+}
+else
+{
 src_space_name='';
 dest_space_name='';
 $("#cmdu").text("Upload");
@@ -291,6 +297,7 @@ $("#to_space").hide();
 $("#to_group").hide();
 $("#to_project").hide();	
 $('#select_items_button').hide();
+}
 }
 else if(sel_action_val=="select_action"){
 src_space_name='';
