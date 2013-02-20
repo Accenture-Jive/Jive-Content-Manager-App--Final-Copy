@@ -2560,7 +2560,7 @@ Copy To:
 </tbody>
 
 <div id="delShow">
-<label id ="deleteFrom" style="display:none;margin-left:200px;position:absolute; margin-top:75px;"><br/>Delete From:</label>
+<label id ="deleteFrom" style="display:none;margin-left:-126px;position:absolute; margin-top:75px;"><br/>Delete From:</label>
 <tr>
 <tr>
 <label id="del_from_space" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Delete From Space</label>
@@ -2570,7 +2570,7 @@ Copy To:
 <td>
 <br/>
 <select name="del_place" id="del_place" onchange="javascript:delFromPlace();" 
-style="display:none;margin-left:245px;position:absolute; margin-top:110px;">
+style="display:none;margin-left:-80px;position:absolute; margin-top:110px;">
 <option value="select_one">Select Place</option>
 <option value="select_space">Select Space</option>
 <option value="select_group">Select Group</option>
@@ -2579,15 +2579,15 @@ style="display:none;margin-left:245px;position:absolute; margin-top:110px;">
 </td>
 </tr>
 <tr>
-<span id ="deleteTo" style="display:none;margin-left:260px;font-weight:bold;position:absolute; margin-top:160px;"></span>
+<span id ="deleteTo" style="display:none;margin-left:-60px;font-weight:bold;position:absolute; margin-top:160px;"></span>
 </tr>
 <tr>
-<input type="button" id="del_select_items_button" value="Select Contents" name="select_items" style="display:none;margin-left:241px;font-weight:bold;position:absolute; margin-top:190px;" onclick="javascript:showTab();javascript:highlightTab();"/>
+<input type="button" id="del_select_items_button" value="Select Contents" name="select_items" style="display:none;margin-left:-86px;font-weight:bold;position:absolute; margin-top:190px;" onclick="javascript:showTab();javascript:highlightTab();"/>
 </tr>
 </div>
 
 <div id="upShow">
-<label id ="upFrom" style="display:none;margin-left:200px;position:absolute; margin-top:60px;"><br/>Upload To:</label>
+<label id ="upFrom" style="display:none;margin-left:-135px;position:absolute; margin-top:60px;"><br/>Upload To:</label>
 <tr>
 <tr>
 <label id="up_from_space" style="margin-left:230px;position:absolute; margin-top:100px;font-weight:normal;text-align:center;display:none;">Upload to Space</label>
@@ -2597,7 +2597,7 @@ style="display:none;margin-left:245px;position:absolute; margin-top:110px;">
 <td>
 <br/>
 <select name="up_place" id="up_place" onchange="javascript:upFromPlace();" 
-style="display:none;margin-left:245px;position:absolute; margin-top:90px;">
+style="display:none;margin-left:-80px;position:absolute; margin-top:90px;">
 <option value="select_one">Select Place</option>
 <option value="select_space">Select Space</option>
 <option value="select_group">Select Group</option>
@@ -2606,12 +2606,12 @@ style="display:none;margin-left:245px;position:absolute; margin-top:90px;">
 </td>
 </tr>
 <tr>
-<span id ="upTo" style="display:none;margin-left:260px;font-weight:bold;position:absolute; margin-top:150px;"></span>
+<span id ="upTo" style="display:none;margin-left:-60px;font-weight:bold;position:absolute; margin-top:150px;"></span>
 </tr>
 <tr>
 <form id = "form2" action="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/FileUploadServletExample" enctype="multipart/form-data" method="POST">
 <input type="hidden" id= "redirectVal" name="redirectVal" value=""/>
-<input type="file" id="up_select_items_button" name="files[]" multiple style="display:none;margin-left:241px;font-weight:bold;position:absolute; margin-top:190px;" onchange="javascript:uploadFiles();"/>
+<input type="file" id="up_select_items_button" name="files[]" multiple style="display:none;margin-left:-80px;font-weight:bold;position:absolute; margin-top:190px;" onchange="javascript:uploadFiles();"/>
 </form >
 </tr>
 </div>
