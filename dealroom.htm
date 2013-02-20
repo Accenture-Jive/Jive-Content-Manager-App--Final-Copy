@@ -111,6 +111,9 @@ var sel_action = document.getElementById("src_place");
 sel_action_val = sel_action.options[sel_action.selectedIndex].value;
 //alert("sel_action_val : "+sel_action_val);
 
+var dialog_obj3 = $("#uploadIE");
+dialog_obj3.dialog("close");
+
 if(sel_action_val=="copy"){
 src_space_name='';
 dest_space_name='';
@@ -256,7 +259,23 @@ $('#start_copying_button').unbind('click').click(function(){startDeleting();});
 else if(sel_action_val=="uploadd"){
 if(browserName=="MSIE")
 {
-alert("inside MSIE if.")
+
+src_space_name='';
+dest_space_name='';
+$("#uploadIE").show();
+$("#uploadIE").dialog();
+
+$("#src_place option").each(function() {
+if($(this).text() == 'Select Place') {
+$(this).attr('selected', 'selected'); 
+$('#src_place :selected').text('Change Place');	
+}
+else if($(this).text() == 'Change Place')
+{  
+$('#src_place option:[text="' + $(this).text() + '"]').attr('selected', true);  
+}
+});
+
 }
 else
 {
@@ -2745,6 +2764,10 @@ The "copy from" place has to be different from the "copy to" place.
 
 <div id="dialogMove" title="Same Place Error:" style="display:none;">
 The "move from" place has to be different from the "move to" place.
+</div>
+
+<div id="uploadIE" title="Upload not supported in IE:" style="display:none;">
+"This functionality is not supported by Internet Explorer. Please use Chrome or Firefox to do bulk uploads."
 </div>
 
 <div id="footer" style="font-family:Tahoma">&copy; Accenture 2012-13</div>
