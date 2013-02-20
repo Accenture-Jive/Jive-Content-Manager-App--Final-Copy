@@ -21,6 +21,7 @@
 
 <script type="text/javascript">
 
+var browserName='';
 var loggedUser='';
 var loggedUserName='';
 
@@ -74,13 +75,14 @@ function onPageLoad()
 navigator.sayswho= (function(){
     var N= navigator.appName, ua= navigator.userAgent, tem;
     var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-    if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
-    M= M? [M[1]]: [N];
-
-    alert("Browser: "+M);
-	alert("0"+navigator.sayswho[0]);
-alert("1"+navigator.sayswho[1]);
-alert("2"+navigator.sayswho[2]);
+    //if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
+   //M= M? [M[1]]: [N];
+	
+	browserName=M;
+    alert("Browser: "+browserName);
+    alert("nav appName: "+navigator.appName);
+    alert("nav user Agent: "+navigator.userAgent);
+	
 })();
 
 
