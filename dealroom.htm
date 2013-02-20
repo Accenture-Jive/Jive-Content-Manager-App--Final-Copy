@@ -2283,6 +2283,7 @@ uploadSelected='<input  style="visibility:hidden" type="text" name="loggedUser" 
 
 var files = $('#up_select_items_button').prop("files");
 var names = $.map(files, function(val) { return val.name; });
+alert("len: "+names.length);
 for(var i=0;i<names.length;i++)
 {
 //alert("names: "+names[i]);
@@ -2628,7 +2629,7 @@ style="display:none;margin-left:-80px;position:absolute; margin-top:90px;">
 <tr>
 <form id = "form2" action="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/FileUploadServletExample" enctype="multipart/form-data" method="POST">
 <input type="hidden" id= "redirectVal" name="redirectVal" value=""/>
-<input type="file" id="up_select_items_button" name="files[]" multiple style="display:none;margin-left:-80px;font-weight:bold;position:absolute; margin-top:190px;" onchange="javascript:uploadFiles();"/>
+<input type="file" id="up_select_items_button" name="files[]" multiple="true" style="display:none;margin-left:-80px;font-weight:bold;position:absolute; margin-top:190px;" onchange="javascript:uploadFiles();"/>
 </form >
 </tr>
 </div>
