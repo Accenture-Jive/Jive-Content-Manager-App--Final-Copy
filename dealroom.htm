@@ -262,6 +262,42 @@ if(browserName=="MSIE")
 
 src_space_name='';
 dest_space_name='';
+$("#cmdu").text("Upload");
+$('#all_selected_items').css("margin-top", "80px");
+$('#selected_items').css("margin-top", "80px");
+//$("#stylized").show();
+$("#change_selection_div").hide();
+$("#showDiv").hide();
+$("#deleteFrom").hide();
+document.getElementById("deleteTo").style.display="inline";
+$("#deleteTo").hide();
+document.getElementById("up_place").style.display="inline";
+document.getElementById("del_select_items_button").style.display="inline";
+document.getElementById("up_select_items_button").style.display="inline";
+$("#del_place").hide();
+$("#del_select_items_button").hide();
+$("#up_select_items_button").hide();
+$("#copyTo").hide();
+$("#delShow").hide();
+$("#upShow").hide();
+$("#up_place").hide();
+$('#up_place').css("margin-top", "90px");
+$("#del_from_space").hide();
+$("#del_from_group").hide();
+$("#del_from_project").hide();
+$("#up_from_space").hide();
+$("#up_from_group").hide();
+$("#up_from_project").hide();
+document.getElementById("upFrom").style.display="inline";
+//$("#copyTo").text("Delete this:").append('<br/>');
+$('#from_label').hide();
+$('#to_label').hide();
+$('#to_place').hide();
+$("#to_space").hide();
+$("#to_group").hide();
+$("#to_project").hide();	
+$('#select_items_button').hide();
+
 $("#uploadIE").show();
 $("#uploadIE").dialog();
 
