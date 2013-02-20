@@ -79,8 +79,17 @@ navigator.sayswho= (function(){
 	M= M? [M[1]]: [N];
 	
 	browserName=M;
-    alert("Browser: "+browserName);   
+    //alert("Browser: "+browserName);   
 })();
+
+if(browserName=="MSIE")
+{
+alert("inside MSIE if.")
+$('#deleteFrom').css("margin-left", "200px");
+$('#del_place').css("margin-left", "245px");
+$('#deleteTo').css("margin-left", "262px");
+$('#del_select_items_button').css("margin-left", "240px");
+}
 
 
 
