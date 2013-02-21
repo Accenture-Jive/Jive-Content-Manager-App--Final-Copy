@@ -75,11 +75,10 @@ function onPageLoad()
 navigator.sayswho= (function(){    
 	var N= navigator.appName, ua= navigator.userAgent, tem;
     var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-    //if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
 	M= M? [M[1]]: [N];
 	
 	browserName=M;
-    alert("Browser: "+browserName);   
+    //alert("Browser: "+browserName);   
 })();
 
 if(browserName=="MSIE")
@@ -2293,7 +2292,7 @@ var flag=false;
 
 function blankMethod()
 {
-//alert("blankMethod");
+alert("blankMethod");
 }
 
 function refreshiframe() 
