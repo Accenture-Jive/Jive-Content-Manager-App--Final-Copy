@@ -6,6 +6,7 @@ var source_html_url='';
 var src_space_name='';
 var to_place_blog_url='';
 var global_blog_place_url='';
+var browserName='';
 
 var CONTENT_TYPE_DICUSSION = 'discussion';
 var CONTENT_TYPE_BLOG = 'post';
@@ -18,13 +19,14 @@ var noOfFile= 0;
 var noOfFileExecuted=0;
 var noOfFileFailed = 0;
 
-function movendelete(action,srcgroup_place_url,target_groupurl,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name1,redirection_url1,source_html_url1,src_space_name1,to_place_blog_url1) {
+function movendelete(action,srcgroup_place_url,target_groupurl,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name1,redirection_url1,source_html_url1,src_space_name1,to_place_blog_url1,browserName1) {
 globalAction = action;
 
 dest_space_name=dest_space_name1;
 redirection_url=redirection_url1;
 source_html_url=source_html_url1;
 src_space_name=src_space_name1;
+browserName=browserName1;
 
 var	discussionSplitValue = Grp_disc_json.split(";");
 var fileSplitValue = Grp_file_json.split(";");			
@@ -76,9 +78,23 @@ $("#start_copying_button").hide();
 $("#change_contents").hide();
 $("#button_div").hide();
 
+if(browserName=="MSIE" && globalAction == 'move')
+{
+var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;"></span>';
+document.getElementById("selected_items").innerHTML=ieSpan; 
+}
+else if(browserName=="MSIE" && globalAction == 'delete')
+{
+var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;"></span>';
+document.getElementById("selected_items").innerHTML=ieSpan; 
+}
+else
+{
 var iframe = '<iframe id="frame1" src = "javascript:"&nbsp;" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 document.getElementById("selected_items").innerHTML=iframe;  
 $("#copyTo").text("Moving this:");
+}
+
 
 var str='';
 var str2='';
@@ -94,10 +110,23 @@ str='Deleting ';
 str2='Intializing Deleting';
 }
 
+if(browserName=="MSIE" && globalAction == 'move')
+{
+var finalurl=redirection_url+'/content';
+document.getElementById("ieSpan").innerHTML = 'The selected contents are being moved. The moved contents will appear here in a short while: <a href='+finalurl+'>'+dest_space_name+' - Contents</a>';
+}
+else if(browserName=="MSIE" && globalAction == 'delete')
+{
+var finalurl=source_html_url+'/content';
+document.getElementById("ieSpan").innerHTML = 'The selected contents have been deleted. This can be verified here: <a href='+finalurl+'>'+src_space_name+' - Contents</a>';
+}
+else
+{
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";	
+}
 
 if(discussionSplitValue.length > 1) {
 var str='';
@@ -307,24 +336,46 @@ if(globalAction == 'delete')
 str='Deleting ';
 str2='Deleting content';
 }
+
+if(browserName=="MSIE")
+{
+var finalurl=redirection_url+'/content';
+document.getElementById("ieSpan").innerHTML = 'The selected contents are being moved. The moved contents will appear here in a short while: <a href='+finalurl+'>'+dest_space_name+' - Contents</a>';
+}
+else
+{
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = str+"in Progress.<br>Please leave this window open until the "+str+"process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str2.fontcolor("#3778C7")+"</span>";
+}
 
 //if(noOfFileExecuted == noOfFile) {
 if(globalAction == 'move')
 {
-finalurl=redirection_url+'/content';
+var finalurl=redirection_url+'/content';
+
+if(browserName=="MSIE")
+{
+var finalurl=redirection_url+'/content';
+document.getElementById("ieSpan").innerHTML = 'The selected contents are being moved. The moved contents will appear here in a short while: <a href='+finalurl+'>'+dest_space_name+' - Contents</a>';
+}
+else
+{
 var str='Moving completed. Please click   <a href='+finalurl+'>here </a>  for the new location of your content.';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Moving in Progress.<br>Please leave this window open until the moving process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-/*
-$("#stylized").fadeOut(5000,function(){
-window.location = redirection_url+'/content';   
-});
-*/
+}
+
 }
 else if (globalAction == 'delete')
+{
+
+if(browserName=="MSIE")
+{
+var finalurl=source_html_url+'/content';
+document.getElementById("ieSpan").innerHTML = 'The selected contents have been deleted. This can be verified here: <a href='+finalurl+'>'+src_space_name+' - Contents</a>';
+}
+else
 {
 var str='Deleting completed. You will now be redirected to "'+src_space_name+'".';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in Progress.<br>Please leave this window open until the deleting process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
@@ -332,6 +383,8 @@ document.getElementById("frame1").contentDocument.body.innerHTML = "Deleting in 
 $("#stylized").fadeOut(5000,function(){
 window.location = source_html_url+'/content';   
 });
+}
+
 }
 //} 
 }

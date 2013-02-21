@@ -2255,7 +2255,7 @@ $("#to_place").hide();
 //alert("startCopying");
 if(browserName=="MSIE")
 {
-alert("inside if msie");
+//alert("inside if msie");
 var finalurl=redirection_url+'/content';
 var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;">The selected contents are being copied. This may take a while depending on the number of contents and files that have been selected. The process will be completed in the background so you can close this window. The copies of the selected contents will be available after completion here: <a href='+finalurl+'>'+dest_space_name+' - Contents</a></span>';
 document.getElementById("selected_items").innerHTML=ieSpan; 
@@ -2296,7 +2296,7 @@ var flag=false;
 
 function blankMethod(response)
 {
-alert("blankMethod"+JSON.stringify(response));
+//alert("blankMethod"+JSON.stringify(response));
 }
 
 function refreshiframe() 
@@ -2568,7 +2568,7 @@ $("#button_div").hide();
 $("#copyTo").text("Moving this:");
 
 
-movendelete('move',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name,redirection_url,source_html_url,src_space_name,to_place_blog_url);
+movendelete('move',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name,redirection_url,source_html_url,src_space_name,to_place_blog_url,browserName);
 
 
 };
@@ -2584,7 +2584,7 @@ $("#del_place").hide();
 $("#deleteTo").text("Deleting this:");
 //alert(src_space_name);
 
-movendelete('delete',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,'test_name','test_url',source_html_url,src_space_name,to_place_blog_url);
+movendelete('delete',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,'test_name','test_url',source_html_url,src_space_name,to_place_blog_url,browserName);
 
 };
 
