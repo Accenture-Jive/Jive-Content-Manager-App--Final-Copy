@@ -2256,8 +2256,12 @@ $("#to_place").hide();
 if(browserName=="MSIE")
 {
 alert("inside if msie");
-var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;">Message here.!!</span>';
+var finalurl=redirection_url+'/content';
+var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;">The selected contents are being copied. This may take a while depending on the number of contents and files that have been selected. The process will be completed in the background so you can close this window. The copies of the selected contents will be available after completion here: <a href='+finalurl+'>'+dest_space_name+' - Contents</a></span>';
 document.getElementById("selected_items").innerHTML=ieSpan; 
+
+dest_space_name=dest_space_name.toLowerCase();
+dest_space_name=dest_space_name.replace(/[^a-z0-9-\s]/gi, '').replace(/[_\s]/g, '-');
 
 osapi.http.get({
 'href' : 'http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/AIServlet?srcgroup_place_url='+space_url+'&target_groupurl='+to_url+'&src_group_file='+Grp_file_json+'&src_group_document='+Grp_doc_json+'&src_idea='+Grp_idea_json+'&src_discussion='+Grp_disc_json+'&src_blog='+Grp_blog_json+'&src_poll='+Grp_poll_json+'&logged-user='+loggedUser+'&logged-userName='+loggedUserName+'&group-name='+dest_space_name,
