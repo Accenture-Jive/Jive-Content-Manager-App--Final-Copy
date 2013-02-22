@@ -35,6 +35,7 @@
              ]]>  
       </Param>  
     </Require>  
+	 <Preload href="dealroom.htm" preferred_height="600" views="home,canvas"/> 
 		<Link rel="event.addapp" href="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/installed" method="GET"/>
 		<Link rel="event.removeapp" href="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/uninstalled" method="GET"/>
 		
