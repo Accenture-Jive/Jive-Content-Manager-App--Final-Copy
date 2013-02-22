@@ -32,7 +32,6 @@
       <Param name="action-contributions">  
           <![CDATA[ 
              <action id="jiveapps.jw12sweetness" path="jive/actions/jive" label="Jive Content Manager" view="embedded" icon="icon16.png" /> 
-			 <Content view="home, canvas" type="html" href="dealroom.htm" preferred_height="600"/>
              ]]>  
 			 
       </Param>  
