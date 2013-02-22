@@ -34,7 +34,7 @@
                   <action id="jiveapps.jw12apps101.content"
                   path="jive/actions/content/*"
                   label="Jive Content Manager"
-                  view="embedded.search"
+                  view="home"
                   icon="icon16.png" />  ]]>
       </Param>  
     </Require>  
