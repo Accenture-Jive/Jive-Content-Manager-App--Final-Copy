@@ -31,7 +31,7 @@
 		<Require feature="actions">  
       <Param name="action-contributions">  
           <![CDATA[ 
-             <action id="jiveapps.jw12sweetness" path="jive/actions/content/*" label="Jive Content manager App" view="embedded" icon="icon16.png" /> 
+             <action id="jiveapps.jw12sweetness" path="https://accenture.jiveon.com/apps/87f5153d-3a47-46ac-a0e2-8d1494c1a3b5" label="Jive Content Manager" view="embedded" icon="icon16.png" /> 
              ]]>  
       </Param>  
     </Require>  
