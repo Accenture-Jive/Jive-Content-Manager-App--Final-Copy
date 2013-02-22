@@ -33,11 +33,18 @@
           <![CDATA[ 
              <action id="jiveapps.jw12sweetness" path="jive/actions/content/*" label="Jive Content Manager" view="embedded" icon="icon16.png"/> 
              ]]>  
+			      <![CDATA[
+                  <action id="com.jivesoftware.linkSObject"
+                  path="jive/actions/rte"
+                  label="Jive Content Manager"
+                  view="embedded.search"
+                  icon="images/link-16.png" />  ]]>
       </Param>  
     </Require>  
 		<Link rel="event.addapp" href="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/installed" method="GET"/>
 		<Link rel="event.removeapp" href="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/uninstalled" method="GET"/>
 		
     </ModulePrefs>
+	<Content type="html" view="embedded.search" href="dealroom.html" preferred_height="640" preferred_width="550"/>
     <Content view="home, canvas" type="html" href="dealroom.htm" preferred_height="600"/>
 </Module>
