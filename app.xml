@@ -15,7 +15,7 @@
    - limitations under the License.
   -->
 <Module>
-    <ModulePrefs title="Jive Content Manager App"
+    <ModulePrefs title="RTE Jive Content Manager App"
                 author="Accenture"
            description="Jive Content Manager App">
         <Link rel="Icon" href="group-icon.png"/>
@@ -31,7 +31,7 @@
 		<Require feature="actions">  
       <Param name="action-contributions">  
           <![CDATA[ 
-             <action id="jiveapps.jw12sweetness" path="jive/actions/rte" label="Jive Content Manager" view="embedded" icon="icon16.png" /> 
+             <action id="com.jivesoftware.rte.send.notifications" path="jive/actions/rte" label="Jive Content Manager" view="embedded" icon="icon16.png" /> 
              ]]>  
       </Param>  
     </Require>  
