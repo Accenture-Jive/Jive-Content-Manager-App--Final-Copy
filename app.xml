@@ -32,7 +32,7 @@
       <Param name="action-contributions">  
 			      <![CDATA[
                   <action id="jiveapps.jw12sweetness"
-                  path="jive/actions/rte"
+                  path="jive/actions/content/*"
                   label="Jive Content Manager"
                   view="embedded.search"
                   icon="icon16.png" />  ]]>
