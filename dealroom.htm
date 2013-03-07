@@ -485,7 +485,7 @@ document.getElementById("copyTo").style.visibility="hidden";
 
 function delFromPlace()
 {
-$("#dwn_place").hide();
+
 var from_place = document.getElementById("del_place");
 var from_sel_place = from_place.options[from_place.selectedIndex].value;
 //alert("selected_value method_one: "+selected_value);
@@ -1313,6 +1313,7 @@ document.getElementById("to_place").disabled = false;
 document.getElementById("start_copying_button").style.visibility="visible";
 document.getElementById("start_uploading").style.visibility="hidden";
 $("#button_div").show();	
+$("#dwn_place").hide();
 $("#change_selection_div").hide();
 $('#select_items_button').show();
 document.getElementById("copyTo").style.visibility="visible";
