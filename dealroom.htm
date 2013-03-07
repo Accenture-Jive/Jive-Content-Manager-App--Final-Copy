@@ -1070,6 +1070,7 @@ $("#dwn_select_items_button").show();
 $("#up_select_items_button").hide();
 $("#change_selection_div").hide();
 $("#dwnShow").show();
+$("#delShow").hide();
 $("#upShow").hide();
 $("#up_place").hide();
 document.getElementById("dwn_place").style.display="inline";
@@ -2203,11 +2204,20 @@ $("#idea_div").hide();
 $("#poll_div").hide();
 $("#blog_div").hide();
 document.getElementById("del_select_items_button").style.display="inline";
+document.getElementById("dwn_select_items_button").style.display="inline";
 $("#del_select_items_button").hide();
+$("#dwn_select_items_button").hide();
 document.getElementById("up_select_items_button").style.display="inline";
 $("#up_select_items_button").hide();
 
 if(sel_action_val=="delete")
+{
+//$("#del_place").show();
+//alert("copy to");
+//$("#copyTo").text("Delete this:").append('<br/>');
+document.getElementById("start_copying_button").style.visibility="visible";
+document.getElementById("start_uploading").style.visibility="hidden";
+}else if(sel_action_val=="download")
 {
 //$("#del_place").show();
 //alert("copy to");
