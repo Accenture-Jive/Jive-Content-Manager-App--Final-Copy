@@ -707,6 +707,30 @@ $("#del_from_space").show();
 $("#del_from_group").hide();
 $("#del_from_project").hide();
 }
+else if(sel_action_val=="download")
+{
+$('#all_selected_items').css("margin-top", "80px");
+$('#selected_items').css("margin-top", "80px");
+$("#dwnTo").text("Download this:").append('<br/>');
+document.getElementById("dwnTo").style.display="inline";
+$("#dwnTo").show();
+$("#upTo").hide();
+document.getElementById("dwn_select_items_button").style.display="inline";
+document.getElementById("up_select_items_button").style.display="inline";
+$("#dwn_select_items_button").show();
+$("#up_select_items_button").hide();
+$("#change_selection_div").hide();
+$("#dwnShow").show();
+$("#upShow").hide();
+$("#up_place").hide();
+document.getElementById("dwn_place").style.display="inline";
+$("#dwn_place").show();
+document.getElementById("dwn_from_space").innerHTML='<span id="myId" style="text-decoration:underline;">Space</span>'+': '+from_place_name;
+$("#dwn_place").css("margin-top", "130px");
+$("#dwn_from_space").show();
+$("#dwn_from_group").hide();
+$("#dwn_from_project").hide();
+}
 else if(sel_action_val=="select_action")
 {
 document.getElementById("del_place").style.display="inline";
@@ -858,6 +882,30 @@ $("#del_from_group").show();
 $("#del_from_space").hide();
 $("#del_from_project").hide();
 }
+else if(sel_action_val=="download")
+{
+$('#all_selected_items').css("margin-top", "80px");
+$('#selected_items').css("margin-top", "80px");
+$("#dwnTo").text("Download this:").append('<br/>');
+document.getElementById("dwnTo").style.display="inline";
+$("#dwnTo").show();
+$("#upTo").hide();
+document.getElementById("dwn_select_items_button").style.display="inline";
+document.getElementById("up_select_items_button").style.display="inline";
+$("#dwn_select_items_button").show();
+$("#up_select_items_button").hide();
+$("#change_selection_div").hide();
+$("#dwnShow").show();
+$("#upShow").hide();
+$("#up_place").hide();
+document.getElementById("dwn_place").style.display="inline";
+$("#dwn_place").show();
+document.getElementById("dwn_from_group").innerHTML='<span id="myId" style="text-decoration:underline;">Group</span>'+': '+from_place_name;
+$("#dwn_place").css("margin-top", "130px");
+$("#dwn_from_group").show();
+$("#dwn_from_space").hide();
+$("#dwn_from_project").hide();
+}
 else if(sel_action_val=="select_action")
 {
 document.getElementById("del_place").style.display="inline";
@@ -1007,6 +1055,30 @@ $("#del_place").css("margin-top", "130px");
 $("#del_from_project").show();
 $("#del_from_group").hide();
 $("#del_from_space").hide();
+}
+else if(sel_action_val=="download")
+{
+$('#all_selected_items').css("margin-top", "80px");
+$('#selected_items').css("margin-top", "80px");
+$("#dwnTo").text("Download this:").append('<br/>');
+document.getElementById("dwnTo").style.display="inline";
+$("#dwnTo").show();
+$("#upTo").hide();
+document.getElementById("dwn_select_items_button").style.display="inline";
+document.getElementById("up_select_items_button").style.display="inline";
+$("#dwn_select_items_button").show();
+$("#up_select_items_button").hide();
+$("#change_selection_div").hide();
+$("#dwnShow").show();
+$("#upShow").hide();
+$("#up_place").hide();
+document.getElementById("dwn_place").style.display="inline";
+$("#dwn_place").show();
+document.getElementById("dwn_from_project").innerHTML='<span id="myId" style="text-decoration:underline;">Project</span>'+': '+from_place_name;
+$("#dwn_place").css("margin-top", "130px");
+$("#dwn_from_group").hide();
+$("#dwn_from_space").hide();
+$("#dwn_from_project").show();
 }
 else if(sel_action_val=="select_action")
 {
