@@ -385,6 +385,8 @@ $("#up_from_project").hide();
 document.getElementById("deleteFrom").style.display="inline";
 document.getElementById("upFrom").style.display="inline";
 //$("#copyTo").text("Delete this:").append('<br/>');
+
+$('#dwnFrom').show();
 $('#upFrom').hide();
 $('#from_label').hide();
 $('#to_label').hide();
@@ -393,8 +395,8 @@ $("#to_space").hide();
 $("#to_group").hide();
 $("#to_project").hide();
 $('#select_items_button').hide();	
-$('#start_copying_button').val('Start Deleting');
-$('#start_copying_button').unbind('click').click(function(){startDeleting();});
+$('#start_copying_button').val('Start Downloading');
+$('#start_copying_button').unbind('click').click(function(){startDownloading();});
 }
 else if(sel_action_val=="select_action"){
 src_space_name='';
@@ -2657,6 +2659,20 @@ movendelete('delete',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,G
 
 };
 
+function startDownloading()
+{
+alert("Start Downloading..!!");
+
+$("#cmdu").show();
+$("#src_place").hide();
+$("#start_copying_button").hide();
+$("#change_contents").hide();
+$("#button_div").hide();
+$("#dwn_place").hide();
+//alert("startDeleting");
+$("#dwnTo").text("Downloading this:");
+//alert(src_space_name);
+}
 </script>
 </head>
 
