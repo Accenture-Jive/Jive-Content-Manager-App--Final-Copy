@@ -467,6 +467,35 @@ document.getElementById("copyTo").style.visibility="hidden";
 }
 }
 
+function dwnFromPlace()
+{
+
+var from_place = document.getElementById("dwn_place");
+var from_sel_place = from_place.options[from_place.selectedIndex].value;
+//alert("selected_value method_one: "+selected_value);
+
+if(from_sel_place=="select_space"){
+fromSpaceRequest();
+document.getElementById("copyTo").style.visibility="hidden";
+
+}
+else if(from_sel_place=="select_group"){
+fromGroupRequest();
+document.getElementById("copyTo").style.visibility="hidden";
+
+}
+else if(from_sel_place=="select_project"){
+fromProjectRequest();
+document.getElementById("copyTo").style.visibility="hidden";
+
+}
+else if(from_sel_place=="select_one"){
+document.getElementById("start_copying_button").style.visibility="hidden";	
+$("#button_div").hide();
+document.getElementById("copyTo").style.visibility="hidden";
+}
+}
+
 function upFromPlace()
 {
 
@@ -2722,6 +2751,35 @@ style="display:none;margin-left:-80px;position:absolute; margin-top:90px;">
 </form >
 </tr>
 </div>
+
+<div id="dwnShow">
+<label id ="dwnFrom" style="display:none;margin-left:-126px;position:absolute; margin-top:75px;"><br/>Download From:</label>
+<tr>
+<tr>
+<label id="dwn_from_space" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Download From Space</label>
+<label id="dwn_from_group" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Download From Group</label>
+<label id="dwn_from_project" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Download From Project</label>
+</tr>
+<td>
+<br/>
+<select name="dwn_place" id="dwn_place" onchange="javascript:dwnFromPlace();" 
+style="display:none;margin-left:-80px;position:absolute; margin-top:110px;">
+<option value="select_one">Select Place</option>
+<option value="select_space">Select Space</option>
+<option value="select_group">Select Group</option>
+<option value="select_project">Select Project</option>
+</select> 
+</td>
+</tr>
+<tr>
+<span id ="dwnTo" style="display:none;margin-left:-60px;font-weight:bold;position:absolute; margin-top:160px;"></span>
+</tr>
+<tr>
+<input type="button" id="dwn_select_items_button" value="Select Contents" name="select_items" style="display:none;margin-left:-86px;font-weight:bold;position:absolute; margin-top:190px;" onclick="javascript:showTab();javascript:highlightTab();"/>
+</tr>
+</div>
+
+
 <tr>
 <div>
 </div>
