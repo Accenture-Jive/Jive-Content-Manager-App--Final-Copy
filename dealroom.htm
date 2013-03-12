@@ -2801,7 +2801,7 @@ $("#dwnTo").text("Downloading this:");
 //alert("space_url: "+space_url);
 //alert("Grp_file_json: "+Grp_file_json);
 
-var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;">Download is being prepared. DO NOT CLOSE THIS WINDOW. <br> A zip file containing all selected contents is being assembled by the server. <br> After that process is complete a download dialog will pop up giving you the option to save the zip file on your local hard drive. <br>  Closing this browser window will abort the operation.</span>';
+var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;"><br/>Download is being prepared. DO NOT CLOSE THIS WINDOW. <br/> A zip file containing all selected contents is being assembled by the server. <br/> After that process is complete a download dialog will pop up giving you the option to save the zip file on your local hard drive. <br/>  Closing this browser window will abort the operation.</span>';
 document.getElementById("selected_items").innerHTML=ieSpan; 
 
 osapi.http.get({
