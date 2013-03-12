@@ -2806,7 +2806,7 @@ document.getElementById("selected_items").innerHTML=ieSpan;
 
 osapi.http.get({
 'href' : 'http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/FileDownloadServlet?srcgroup_place_url='+space_url+'&src_group_file='+Grp_file_json,
-'format' : 'json',
+'format' : 'text',
 'authz' : 'signed'
 }).execute(blankDownload);
 
@@ -2814,7 +2814,7 @@ osapi.http.get({
 
 function blankDownload(response)
 {
-console.log(response);
+console.log(JSON.stringify(response));
 }
 </script>
 </head>
