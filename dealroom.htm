@@ -233,7 +233,8 @@ src_space_name='';
 dest_space_name='';
 $("#dwn_from_space").hide();
 $("#dwn_from_group").hide();
-$("#dwn_from_project").hide();$("#dwn_place").hide();
+$("#dwn_from_project").hide();
+$("#dwn_place").hide();
 $("#dwnTo").hide();
 $("#cmdu").text("Delete");
 $("#dwnFrom").hide();
@@ -718,6 +719,17 @@ $('#del_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+$("#dwn_place option").each(function() {
+if($(this).text() == 'Select Place') {
+$(this).attr('selected', 'selected'); 
+$('#dwn_place :selected').text('Change Place');	
+}
+else if($(this).text() == 'Change Place')
+{  
+$('#dwn_place option:[text="' + $(this).text() + '"]').attr('selected', true);  
+}
+});
+
 getDocs(space_url);
 getFiles(space_url);
 getDiscussions(space_url);
@@ -894,6 +906,17 @@ $('#del_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+$("#dwn_place option").each(function() {
+if($(this).text() == 'Select Place') {
+$(this).attr('selected', 'selected'); 
+$('#dwn_place :selected').text('Change Place');	
+}
+else if($(this).text() == 'Change Place')
+{  
+$('#dwn_place option:[text="' + $(this).text() + '"]').attr('selected', true);  
+}
+});
+
 getDocs(space_url);
 getFiles(space_url);
 getDiscussions(space_url);
@@ -1066,6 +1089,17 @@ $('#del_place :selected').text('Change Place');
 else if($(this).text() == 'Change Place')
 {  
 $('#del_place option:[text="' + $(this).text() + '"]').attr('selected', true);  
+}
+});
+
+$("#dwn_place option").each(function() {
+if($(this).text() == 'Select Place') {
+$(this).attr('selected', 'selected'); 
+$('#dwn_place :selected').text('Change Place');	
+}
+else if($(this).text() == 'Change Place')
+{  
+$('#dwn_place option:[text="' + $(this).text() + '"]').attr('selected', true);  
 }
 });
 
