@@ -2799,8 +2799,24 @@ $("#dwn_place").hide();
 $("#dwnTo").text("Downloading this:");
 //alert(src_space_name);
 
-alert("space_url: "+space_url);
-alert("Grp_file_json: "+Grp_file_json);
+//alert("space_url: "+space_url);
+//alert("Grp_file_json: "+Grp_file_json);
+
+var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;">The download message here..!!</span>';
+document.getElementById("selected_items").innerHTML=ieSpan; 
+
+var initialMsg='Please wait, initialising download..';
+document.getElementById("ieSpan").contentDocument.body.style.fontFamily="Tahoma";	
+document.getElementById("ieSpan").contentDocument.body.style.fontSize = "12px";
+document.getElementById("ieSpan").contentDocument.body.style.color='Grey';
+document.getElementById("ieSpan").contentDocument.body.innerHTML = "Download in Progress.<br>Please leave this window open until the download process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+initialMsg.fontcolor("#3778C7")+"</span>";
+
+osapi.http.get({
+'href' : 'http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/FileDownloadServlet?srcgroup_place_url='+space_url+'&src_group_file='+Grp_file_json,
+'format' : 'json',
+'authz' : 'signed'
+}).execute(refreshiframe);
+
 }
 </script>
 </head>
