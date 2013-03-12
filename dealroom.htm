@@ -2800,7 +2800,8 @@ $("#dwnTo").text("Downloading this:");
 
 //alert("space_url: "+space_url);
 //alert("Grp_file_json: "+Grp_file_json);
-
+document.getElementById("form2").submit();
+/*
 var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;"><br/>Download is being prepared. DO NOT CLOSE THIS WINDOW. <br/> A zip file containing all selected contents is being assembled by the server. <br/> After that process is complete a download dialog will pop up giving you the option to save the zip file on your local hard drive. <br/>  Closing this browser window will abort the operation.</span>';
 document.getElementById("selected_items").innerHTML=ieSpan; 
 
@@ -2809,6 +2810,7 @@ osapi.http.get({
 'format' : 'APPLICATION/OCTET-STREAM',
 'authz' : 'signed'
 }).execute(blankDownload);
+*/
 
 }
 
@@ -2978,6 +2980,11 @@ style="display:none;margin-left:-80px;position:absolute; margin-top:110px;">
 </tr>
 <tr>
 <input type="button" id="dwn_select_items_button" value="Select Contents" name="select_items" style="display:none;margin-left:-86px;font-weight:bold;position:absolute; margin-top:190px;" onclick="javascript:showTab();javascript:highlightTab();"/>
+</tr>
+<tr>
+<form id = "form3" action="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/FileDownloadServlet" method="POST">
+<input type="button" id="dwnloadTestButton" value="Select Contents" name="select_items" style="display:none;margin-left:-86px;font-weight:bold;position:absolute; margin-top:190px;" />
+</form >
 </tr>
 </div>
 
