@@ -2798,25 +2798,14 @@ $("#dwn_place").hide();
 $("#dwnTo").text("Downloading this:");
 //alert(src_space_name);
 
-//alert("space_url: "+space_url);
 //alert("Grp_file_json: "+Grp_file_json);
+
+document.getElementById("dwnloadDataSend").value=Grp_file_json;
 document.getElementById("form3").submit();
-/*
+
 var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;"><br/>Download is being prepared. DO NOT CLOSE THIS WINDOW. <br/> A zip file containing all selected contents is being assembled by the server. <br/> After that process is complete a download dialog will pop up giving you the option to save the zip file on your local hard drive. <br/>  Closing this browser window will abort the operation.</span>';
-document.getElementById("selected_items").innerHTML=ieSpan; 
+document.getElementById("selected_items").innerHTML=ieSpan;
 
-osapi.http.get({
-'href' : 'http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/FileDownloadServlet?srcgroup_place_url='+space_url+'&src_group_file='+Grp_file_json,
-'format' : 'APPLICATION/OCTET-STREAM',
-'authz' : 'signed'
-}).execute(blankDownload);
-*/
-
-}
-
-function blankDownload(response)
-{
-console.log(JSON.stringify(response));
 }
 </script>
 </head>
@@ -2983,6 +2972,7 @@ style="display:none;margin-left:-80px;position:absolute; margin-top:110px;">
 </tr>
 <tr>
 <form id = "form3" action="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/FileDownloadServlet" method="POST">
+<input type="text" id="dwnloadDataSend" name="src_group_file" style="display:none;" />
 </form >
 </tr>
 </div>
