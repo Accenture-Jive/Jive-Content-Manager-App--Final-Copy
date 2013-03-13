@@ -43,8 +43,5 @@
 		
     </ModulePrefs>
 	
-  <UserPref name="UserName" display_name="GitHub Account Username" datatype="string" default_value="ripul" required="false" />
-  <UserPref name="Password" display_name="GitHub Account Password (Encrypted)" datatype="string" default_value="deal123" required="false" />
-	
     <Content view="home, canvas" type="html" href="dealroom.htm" preferred_height="600" preferred_width="800"/>
 </Module>
