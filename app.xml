@@ -15,14 +15,6 @@
    - limitations under the License.
   -->
 <Module>
-		<servers>
-		<server>
-		<id>github</id>
-		<username>ripul</username>
-		<password>deal123</password>
-		</server>  
-		</servers>
-
     <ModulePrefs title="Jive Content Manager App"
                 author="Accenture"
            description="Jive Content Manager App">
