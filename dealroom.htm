@@ -70,45 +70,41 @@ console.log(data);
 
 function onPageLoad() 
 {
-//alert("Browser Detect: "+BrowserDetect.browser);
 
+// Detect the browser for adding different code when using IE.
 navigator.sayswho= (function(){    
 	var N= navigator.appName, ua= navigator.userAgent, tem;
     var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
 	M= M? [M[1]]: [N];
 	
 	browserName=M;
-    //alert("Browser: "+browserName);   
 })();
 
+// Set the margins and position for given elements while loading the page in IE.
 if(browserName=="MSIE")
 {
-//alert("inside MSIE if.")
 $('#deleteFrom').css("margin-left", "200px");
 $('#del_place').css("margin-left", "245px");
 $('#deleteTo').css("margin-left", "262px");
 $('#del_select_items_button').css("margin-left", "240px");
 }
 
-
-
+// Identifying the logged-in user.
 osapi.people.get({
 userId : '@me'
 }).execute(function(response) {
-//alert(JSON.stringify(response));
 loggedUser =response.id; 
 loggedUserName=response.name.formatted;
-//alert("loggedUser: "+loggedUser);
-//alert("loggedUserName: "+loggedUserName);
 });
 
 }
 
 function selected_action()
 {
+// Check which action is selected by user copy/move/delete/upload/download &
+// hide show elements accordingly.
 var sel_action = document.getElementById("src_place");
 sel_action_val = sel_action.options[sel_action.selectedIndex].value;
-//alert("sel_action_val : "+sel_action_val);
 
 var dialog_obj3 = $("#uploadIE");
 dialog_obj3.dialog("close");
@@ -150,8 +146,6 @@ document.getElementById("up_select_items_button").style.display="inline";
 $("#del_select_items_button").hide();
 $("#up_select_items_button").hide();
 document.getElementById("copyTo").style.visibility="hidden";
-//$('#to_place :selected').text('Select Place');	
-//$('#from_place :selected').text('Select Place');
 document.getElementById("del_place").style.display="inline";
 document.getElementById("up_place").style.display="inline";
 $("#del_place").hide();
@@ -210,8 +204,6 @@ document.getElementById("up_select_items_button").style.display="inline";
 $("#del_select_items_button").hide();
 $("#up_select_items_button").hide();
 document.getElementById("copyTo").style.visibility="hidden";
-//$('#to_place :selected').text('Select Place');	
-//$('#from_place :selected').text('Select Place');
 document.getElementById("del_place").style.display="inline";
 document.getElementById("up_place").style.display="inline";
 $("#del_place").hide();
@@ -244,10 +236,8 @@ $("#dwnFrom").hide();
 $("#tab_items").show();
 $('#all_selected_items').css("margin-top", "80px");
 $('#selected_items').css("margin-top", "80px");
-//$("#stylized").show();
 $("#change_selection_div").hide();
 $("#showDiv").hide();
-//$("#deleteFrom").show();
 document.getElementById("del_place").style.display="inline";
 document.getElementById("del_select_items_button").style.display="inline";
 document.getElementById("up_select_items_button").style.display="inline";
@@ -268,7 +258,6 @@ $("#up_from_group").hide();
 $("#up_from_project").hide();
 document.getElementById("deleteFrom").style.display="inline";
 document.getElementById("upFrom").style.display="inline";
-//$("#copyTo").text("Delete this:").append('<br/>');
 $('#upFrom').hide();
 $('#from_label').hide();
 $('#to_label').hide();
@@ -295,7 +284,6 @@ $("#dwnTo").hide();
 $("#dwn_select_items_button").hide();
 $('#all_selected_items').css("margin-top", "80px");
 $('#selected_items').css("margin-top", "80px");
-//$("#stylized").show();
 $("#change_selection_div").hide();
 $("#showDiv").hide();
 $("#deleteFrom").hide();
@@ -320,7 +308,6 @@ $("#up_from_space").hide();
 $("#up_from_group").hide();
 $("#up_from_project").hide();
 document.getElementById("upFrom").style.display="inline";
-//$("#copyTo").text("Delete this:").append('<br/>');
 $('#from_label').hide();
 $('#to_label').hide();
 $('#to_place').hide();
@@ -357,7 +344,6 @@ $("#cmdu").text("Upload");
 $('#all_selected_items').css("margin-top", "80px");
 $("#dwnFrom").hide();
 $('#selected_items').css("margin-top", "80px");
-//$("#stylized").show();
 $("#change_selection_div").hide();
 $("#showDiv").hide();
 $("#deleteFrom").hide();
@@ -382,7 +368,6 @@ $("#up_from_space").hide();
 $("#up_from_group").hide();
 $("#up_from_project").hide();
 document.getElementById("upFrom").style.display="inline";
-//$("#copyTo").text("Delete this:").append('<br/>');
 $('#from_label').hide();
 $('#to_label').hide();
 $('#to_place').hide();
@@ -399,10 +384,8 @@ $("#cmdu").text("Download");
 $("#tab_items").hide();
 $('#all_selected_items').css("margin-top", "80px");
 $('#selected_items').css("margin-top", "80px");
-//$("#stylized").show();
 $("#change_selection_div").hide();
 $("#showDiv").hide();
-//$("#deleteFrom").show();
 document.getElementById("del_place").style.display="inline";
 document.getElementById("del_select_items_button").style.display="inline";
 document.getElementById("up_select_items_button").style.display="inline";
@@ -426,7 +409,6 @@ $("#up_from_group").hide();
 $("#up_from_project").hide();
 document.getElementById("deleteFrom").style.display="inline";
 document.getElementById("upFrom").style.display="inline";
-//$("#copyTo").text("Delete this:").append('<br/>');
 
 $('#dwnFrom').show();
 $('#upFrom').hide();
@@ -445,7 +427,6 @@ src_space_name='';
 dest_space_name='';
 
 document.getElementById("del_place").style.display="inline";
-//$("#stylized").hide();
 $("#change_selection_div").hide();
 $("#dwn_from_space").hide();
 $("#dwn_select_items_button").hide();
@@ -482,10 +463,9 @@ $('#select_items_button').hide();
 
 function fromPlace()
 {
-
+// Identifies which space/group/project the user  has chosen the content to copy/move and calls the relevant method.
 var from_place = document.getElementById("from_place");
 var from_sel_place = from_place.options[from_place.selectedIndex].value;
-//alert("selected_value method_one: "+selected_value);
 
 if(from_sel_place=="select_space"){
 src_space_name='';
@@ -534,10 +514,9 @@ document.getElementById("copyTo").style.visibility="hidden";
 
 function delFromPlace()
 {
-
+// Identifies which space/group/project the user  has chosen the content to delete from and calls the relevant method.
 var from_place = document.getElementById("del_place");
 var from_sel_place = from_place.options[from_place.selectedIndex].value;
-//alert("selected_value method_one: "+selected_value);
 
 if(from_sel_place=="select_space"){
 fromSpaceRequest();
@@ -563,10 +542,9 @@ document.getElementById("copyTo").style.visibility="hidden";
 
 function dwnFromPlace()
 {
-
+// Identifies which space/group/project user has chosen to download content from and calls the appropriate method.
 var from_place = document.getElementById("dwn_place");
 var from_sel_place = from_place.options[from_place.selectedIndex].value;
-//alert("selected_value method_one: "+selected_value);
 
 if(from_sel_place=="select_space"){
 fromSpaceRequest();
@@ -592,10 +570,9 @@ document.getElementById("copyTo").style.visibility="hidden";
 
 function upFromPlace()
 {
-
+// Identifies which space/group/project user has chosen to upload file to and calls the appropriate method.
 var up_place = document.getElementById("up_place");
 var up_sel_place = up_place.options[up_place.selectedIndex].value;
-//alert("selected_value method_one: "+selected_value);
 
 if(up_sel_place=="select_space"){
 toSpaceRequest();
@@ -621,10 +598,9 @@ document.getElementById("copyTo").style.visibility="hidden";
 
 function toPlace()
 {
-
+// Identifies which space/group/project the user  has chosen to copy/move the selected content and calls the relevant method.
 var to_place = document.getElementById("to_place");
 var to_sel_place = to_place.options[to_place.selectedIndex].value;
-//alert("selected_value method_one: "+selected_value);
 
 if(to_sel_place=="to_space"){
 toSpaceRequest();
@@ -643,6 +619,8 @@ document.getElementById("copyTo").style.visibility="hidden";
 }
 
 function fromSpaceRequest() {
+// Handles user request to select the SPACE and then handle the response to fetch details about the selected SPACE.
+
 var from_place_name='';
 src_space_name='';
 dest_space_name='';
@@ -653,31 +631,30 @@ document.getElementById("from_space").innerHTML=msg2;
 var params = {
 type : "space",
 success : ( function(data){
-//showTab();
-//console.log("DATA: "+JSON.stringify(data));
+//consolelog("DATA: "+JSON.stringify(data));
+
+// Assigns values to the variables from the received response.
 from_place_name=data.name;
 src_space_name=from_place_name;
 space_url=data.resources.self.ref;
 blog_url=data.resources.blog.ref;
 source_html_url=data.resources.html.ref;
-//alert('blog_url: '+blog_url);
-//console.log('blog_url: '+blog_url);
 
-//	alert("from_place_name: "+from_place_name);
 $("#del_place").hide();
 document.getElementById("from_space").innerHTML='<span id="myId" style="text-decoration:underline;">Space</span>'+': '+from_place_name;
 
+// Check if the source place is empty and reset the values accordingly.
 if(from_place_name!='')
 {
-//alert("dest: "+dest_space_name+" from place: "+from_place_name);
 if(dest_space_name==from_place_name)
 {
-//alert("The source place and destination place should be different..!!");
 if(sel_action_val=="move"){
+// Showing an error message if the source and target is same for move.
 $("#dialogMove").show();
 $("#dialogMove").dialog();
 }
 else{
+// Showing an error message if the source and target is same for copy.
 $("#dialog").show();
 $("#dialog").dialog();
 }
@@ -693,17 +670,11 @@ dialog_obj.dialog("close");
 var dialog_obj2 = $("#dialogMove");
 dialog_obj2.dialog("close");
 document.getElementById("to_place").disabled = false;
-// alert("dest: "+dest_space_name+" from place: "+from_place_name);		
-//document.getElementById("start_copying_button").style.visibility="visible";
-//$("#button_div").show();	
-//$("#change_selection_div").hide();
-//document.getElementById("copyTo").style.visibility="visible";
 document.getElementById("from_space").innerHTML='<span id="myId" style="text-decoration:underline;">Space</span>'+': '+from_place_name;	
-
 }
 }
 
-//changing the selection to 'Change Place'	   
+//changing the default dropdown selection to 'Change Place'	   
 $("#from_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -715,6 +686,7 @@ $('#from_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+//changing the default dropdown selection to 'Change Place'
 $("#del_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -726,6 +698,7 @@ $('#del_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+//changing the default dropdown selection to 'Change Place'
 $("#dwn_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -737,6 +710,7 @@ $('#dwn_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+// calling methods to fetch content.
 getDocs(space_url);
 getFiles(space_url);
 getDiscussions(space_url);
@@ -744,6 +718,7 @@ getIdeas(space_url);
 getPolls(space_url);
 getBlogs(blog_url);
 
+// actions when the user choses to delete content.
 if(sel_action_val=="delete")
 {
 $('#all_selected_items').css("margin-top", "80px");
@@ -770,6 +745,7 @@ $("#del_from_project").hide();
 }
 else if(sel_action_val=="download")
 {
+// actions when the user choses to download files.
 $('#all_selected_items').css("margin-top", "80px");
 $('#selected_items').css("margin-top", "80px");
 $("#dwnTo").text("Download this:").append('<br/>');
@@ -794,8 +770,8 @@ $("#dwn_from_project").hide();
 }
 else if(sel_action_val=="select_action")
 {
+// actions if user changes action to default value.
 document.getElementById("del_place").style.display="inline";
-//$("#stylized").hide();
 $("#change_selection_div").hide();
 $("#del_from_space").hide();
 $("#del_from_group").hide();
@@ -819,6 +795,7 @@ error : handleResponse  };
 
 if(from_place_name=='')
 {
+// actions if the selected place name is empty.
 document.getElementById("to_place").disabled = true;
 document.getElementById("start_copying_button").style.visibility="hidden";	
 $("#button_div").hide();	
@@ -826,10 +803,13 @@ document.getElementById("copyTo").style.visibility="hidden";
 document.getElementById("from_space").innerHTML=msg2;
 }
 
+// calling the OSAPI with the params. final call.
 osapi.jive.corev3.places.requestPicker(params);	
 }
 
 function fromGroupRequest() {
+// Handles user request to select the GROUP and then handle the response to fetch details about the selected GROUP.
+
 var from_place_name='';
 src_space_name='';
 dest_space_name='';
@@ -840,30 +820,30 @@ document.getElementById("from_space").innerHTML=msg2;
 var params = {
 type : "group",
 success : ( function(data){
-//showTab();
 //console.log("DATA: "+JSON.stringify(data));
+
+// assigning values to the variables from the received response.
 from_place_name=data.name;
 src_space_name=from_place_name;
 space_url=data.resources.self.ref;
 blog_url=data.resources.blog.ref;
 source_html_url=data.resources.html.ref;
-//alert('blog_url: '+blog_url);
-//console.log('blog_url: '+blog_url);
 
-//	alert("from_place_name: "+from_place_name);
+$("#del_place").hide();
 document.getElementById("from_group").innerHTML='<span id="myId" style="text-decoration:underline;">Group</span>'+': '+from_place_name;
 
 if(from_place_name!='')
 {
-//alert("dest: "+dest_space_name+" from place: "+from_place_name);
+// checking if the selected source and target are same.
 if(dest_space_name==from_place_name)
 {
-//alert("The source place and destination place should be different..!!");
 if(sel_action_val=="move"){
+// an error message of the source and target are same for move.
 $("#dialogMove").show();
 $("#dialogMove").dialog();
 }
 else{
+// an error message of the source and target are same for copy.
 $("#dialog").show();
 $("#dialog").dialog();
 }
@@ -874,23 +854,17 @@ document.getElementById("from_group").innerHTML=msg2;
 }
 else
 {	
-//alert("esle : ");	
 var dialog_obj = $("#dialog");
 dialog_obj.dialog("close");	
 var dialog_obj2 = $("#dialogMove");
 dialog_obj2.dialog("close");
 document.getElementById("to_place").disabled = false;
-//document.getElementById("start_copying_button").style.visibility="visible";
-//$("#button_div").show();	
-//$("#change_selection_div").hide();
-//document.getElementById("copyTo").style.visibility="visible";
 $("#del_place").hide();
 document.getElementById("from_group").innerHTML='<span id="myId" style="text-decoration:underline;">Group</span>'+': '+from_place_name;	
-
 }
 }
 
-//changing the selection to 'Change Place'	   
+//changing the default dropdown value to 'Change Place'
 $("#from_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -902,6 +876,7 @@ $('#from_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+//changing the default dropdown value to 'Change Place'
 $("#del_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -913,6 +888,7 @@ $('#del_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+//changing the default dropdown value to 'Change Place'
 $("#dwn_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -924,6 +900,7 @@ $('#dwn_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+// calling methods to fetch content from the selected group.
 getDocs(space_url);
 getFiles(space_url);
 getDiscussions(space_url);
@@ -933,6 +910,7 @@ getBlogs(blog_url);
 
 if(sel_action_val=="delete")
 {
+// actions when user choses to delete content.
 $('#all_selected_items').css("margin-top", "80px");
 $('#selected_items').css("margin-top", "80px");
 $("#deleteTo").text("Delete this:").append('<br/>');
@@ -957,6 +935,7 @@ $("#del_from_project").hide();
 }
 else if(sel_action_val=="download")
 {
+// actions when user choses to download content.
 $('#all_selected_items').css("margin-top", "80px");
 $('#selected_items').css("margin-top", "80px");
 $("#dwnTo").text("Download this:").append('<br/>');
@@ -981,8 +960,8 @@ $("#dwn_from_project").hide();
 }
 else if(sel_action_val=="select_action")
 {
+//action when user changes the action to default value.
 document.getElementById("del_place").style.display="inline";
-//$("#stylized").hide();
 $("#change_selection_div").hide();
 $("#showDiv").hide();
 document.getElementById("deleteTo").style.display="inline";
@@ -1004,9 +983,9 @@ $("#from_project").hide();
 } ),
 error : handleResponse  };
 
-//alert("src_space_name: "+src_space_name);
 if(from_place_name=='')
 {
+// actions if the source place is empty
 document.getElementById("to_place").disabled = true;
 document.getElementById("start_copying_button").style.visibility="hidden";	
 $("#button_div").hide();	
@@ -1014,10 +993,13 @@ document.getElementById("copyTo").style.visibility="hidden";
 document.getElementById("from_group").innerHTML=msg2;
 }
 
+// final call by OSAPI using the params.
 osapi.jive.corev3.places.requestPicker(params);	
 }
 
 function fromProjectRequest() {
+// Handles user request to select the PROJECT and then handle the response to fetch details about the selected PROJECT.
+
 var from_place_name='';
 src_space_name='';
 dest_space_name='';
@@ -1028,30 +1010,30 @@ document.getElementById("from_space").innerHTML=msg2;
 var params = {
 type : "project",
 success : ( function(data){
-//showTab();
 //console.log("DATA: "+JSON.stringify(data));
+
+// assigning values to the variables from the received response.
 from_place_name=data.name;
 src_space_name=from_place_name;
 space_url=data.resources.self.ref;
 blog_url=data.resources.blog.ref;
 source_html_url=data.resources.html.ref;
-//alert('blog_url: '+blog_url);
-//console.log('blog_url: '+blog_url);
 
-//	alert("from_place_name: "+from_place_name);
 $("#del_place").hide();
 document.getElementById("from_project").innerHTML='<span id="myId" style="text-decoration:underline;">Project</span>'+': '+from_place_name;
 
 if(from_place_name!='')
 {
+//checking if the selected source and destination are same.
 if(dest_space_name==from_place_name)
 {
-//alert("The source place and destination place should be different..!!");
 if(sel_action_val=="move"){
+// error message of the selected source and destination are same for move.
 $("#dialogMove").show();
 $("#dialogMove").dialog();
 }
 else{
+// error message of the selected source and destination are same for copy.
 $("#dialog").show();
 $("#dialog").dialog();
 }
@@ -1067,16 +1049,11 @@ dialog_obj.dialog("close");
 var dialog_obj2 = $("#dialogMove");
 dialog_obj2.dialog("close");
 document.getElementById("to_place").disabled = false;
-//document.getElementById("start_copying_button").style.visibility="visible";
-//$("#button_div").show();	
-//$("#change_selection_div").hide();
-//document.getElementById("copyTo").style.visibility="visible";
 document.getElementById("from_project").innerHTML='<span id="myId" style="text-decoration:underline;">Project</span>'+': '+from_place_name;	
-
 }
 }
 
-//changing the selection to 'Change Place'	   
+//changing the default dropdown value to 'Change Place'
 $("#from_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -1088,6 +1065,7 @@ $('#from_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+//changing the default dropdown value to 'Change Place'
 $("#del_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -1099,6 +1077,7 @@ $('#del_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+//changing the default dropdown value to 'Change Place'
 $("#dwn_place option").each(function() {
 if($(this).text() == 'Select Place') {
 $(this).attr('selected', 'selected'); 
@@ -1110,6 +1089,7 @@ $('#dwn_place option:[text="' + $(this).text() + '"]').attr('selected', true);
 }
 });
 
+// calling the methods to fetch content from selected project.
 getDocs(space_url);
 getFiles(space_url);
 getDiscussions(space_url);
@@ -1119,6 +1099,7 @@ getBlogs(blog_url);
 
 if(sel_action_val=="delete")
 {
+// actions when the user choses to delete.
 $('#all_selected_items').css("margin-top", "80px");
 $('#selected_items').css("margin-top", "80px");
 $("#deleteTo").text("Delete this:").append('<br/>');
@@ -1143,6 +1124,7 @@ $("#del_from_space").hide();
 }
 else if(sel_action_val=="download")
 {
+// actions when the user choses to download.
 $('#all_selected_items').css("margin-top", "80px");
 $('#selected_items').css("margin-top", "80px");
 $("#dwnTo").text("Download this:").append('<br/>');
@@ -1169,8 +1151,8 @@ $("#dwn_from_project").show();
 }
 else if(sel_action_val=="select_action")
 {
+// actions when the user changes the action to default value.
 document.getElementById("del_place").style.display="inline";
-//$("#stylized").hide();		
 $("#change_selection_div").hide();
 $("#showDiv").hide();
 $("#copyTo").hide();
@@ -1193,6 +1175,7 @@ error : handleResponse  };
 
 if(from_place_name=='')
 {
+// actions if the soruce place name is empty.
 document.getElementById("to_place").disabled = true;
 document.getElementById("start_copying_button").style.visibility="hidden";	
 $("#button_div").hide();
@@ -1200,6 +1183,7 @@ document.getElementById("copyTo").style.visibility="hidden";
 document.getElementById("from_project").innerHTML=msg2;
 }
 
+// final OSAPI call with params.
 osapi.jive.corev3.places.requestPicker(params);	
 }
 
@@ -1659,9 +1643,8 @@ osapi.jive.corev3.places.requestPicker(params);
 
 function getFiles(space_url)
 {
-//alert("inside getFiles");
-//alert("space_url inside getFiles: "+space_url);
-//console.log("space_url inside getFiles: "+space_url);
+// fetches the files from the selected space/group/project using the SPACE_URL.
+
 osapi.jive.corev3.contents.get({
 type : 'file',
 fields : '@all',
@@ -1673,15 +1656,19 @@ place : space_url
 var files = response.list;
 var postFiles;
 var files_length=response.list.length;
-//alert("files_length: "+files_length);
 
 if (files_length==0)
 {
+// action when the selected space/group/project has no files.
+
 files_row='<table id="filesTable" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 450px;">'+				
 '<tr><td colspan="4" style="border:1px ;border: 1px solid #000000;width: 60px;padding: 2px;color: #ffffff;background-color: #6690bc;text-align: center;" valign="middle"><strong>No files in this place.</strong></td></tr>';
 }
 else
 {
+// action when the selected space/group/project has files.
+
+// creates table header row.
 files_row='<table id="filesTable" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 450px;">'+
 
 '<tr>'+
@@ -1699,17 +1686,13 @@ updated : "",
 fileUrl : ""
 }
 
+// assigning values from the received response to the variables.
 postFiles.title = group.subject;
-//alert("postFiles.title: "+postFiles.title);
 postFiles.author = group.author.name.formatted;
-//alert("postFiles.author: "+postFiles.author);
 postFiles.updated = group.updated;
-//alert("postFiles.updated: "+postFiles.updated);
 postFiles.fileUrl = group.resources.self.ref;
-//alert("postFiles.fileUrl: "+postFiles.fileUrl);
-//if(index=='')
-//alert("index files: "+index);
 
+// adding each file in a row as per the received response.
 files_row = files_row + '<tr>'+
 '<td style="border:1px ;border: 1px solid #000000;text-align:right;padding:2px;">'+'<input type="checkbox" name="file_cb" class="file_cb" onclick="javascript:checkUncheck(this.name);" value="'+postFiles.fileUrl+'">'+'</td>'+
 '<td style="border:1px ;border: 1px solid #000000;padding: 2px;">'+postFiles.title+'</td>'+
@@ -1718,6 +1701,8 @@ files_row = files_row + '<tr>'+
 });
 }
 files_row=files_row+'</table>';	
+
+// writing the files table to the files tab.
 document.getElementById("files_div").innerHTML=files_row;	
 
 });
@@ -1725,29 +1710,30 @@ document.getElementById("files_div").innerHTML=files_row;
 
 function getBlogs(blog_url)
 {
+// getting the blogs from the selected space/group/project using the BLOG_URL.
 
-//alert("inside getFiles");
-//alert("blog_url inside getFiles: "+blog_url);
-//console.log("blog_url inside getFiles: "+blog_url);
 osapi.jive.corev3.contents.get({
 type : 'post',
 fields : '@all',
 count : 50,
 place : blog_url
 }).execute(function(response) {
-//console.log("Files: "+JSON.stringify(response));
+//console.log("Blogs: "+JSON.stringify(response));
 
 var blogs = response.list;
 var postBlogs;
 var blogs_length=response.list.length;
-//alert("blogs_length: "+blogs_length);
 if(blogs_length==0)
 {
+// action when the selected space/group/project has no blogs.
 blog_row='<table id="blogTable" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 450px;">'+
 '<tr><td colspan="4" style="border:1px ;border: 1px solid #000000;width: 60px;padding: 2px;color: #ffffff;background-color: #6690bc;text-align: center;" valign="middle"><strong>No blog posts in this place.</strong></td></tr>';
 }
 else
 {	
+// action when the selected space/group/project has blogs.
+
+// adding the header for blogs table.
 blog_row='<table id="blogTable" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 450px;">'+
 '<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;width: 60px;padding: 2px;color: #ffffff;background-color: #6690bc;text-align: right;" valign="middle"><strong>'+'All<input type="checkbox" id="sel_all_blogs"  onclick="javascript:checkedAll(this.id);">'+'</strong></th>'+
@@ -1763,17 +1749,13 @@ updated : "",
 fileUrl : ""
 }
 
+// assigning values from received response to the variables.
 postBlogs.title = group.subject;
-//alert("postBlogs.title: "+postBlogs.title);
 postBlogs.author = group.author.name.formatted;
-//alert("postBlogs.author: "+postBlogs.author);
 postBlogs.updated = group.updated;
-//alert("postBlogs.updated: "+postBlogs.updated);
 postBlogs.fileUrl = group.resources.self.ref;
-//alert("postBlogs.fileUrl: "+postBlogs.fileUrl);
-//if(index=='')
-//alert("index blogs: "+index);
 
+// adding each blog in a row as per the received response.
 blog_row = blog_row + '<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: right;padding: 2px;">'+'<input type="checkbox" name="blog_cb" class="blog_cb" onclick="javascript:checkUncheck(this.name);" value="'+postBlogs.fileUrl+'">'+'</td>'+
 '<td style="border:1px solid black;border: 1px solid #000000;padding: 2px;">'+postBlogs.title+'</td>'+
@@ -1782,6 +1764,8 @@ blog_row = blog_row + '<tr>'+
 });
 }
 blog_row=blog_row+'</table>';	
+
+// writing the blog table in the blog tab.
 document.getElementById("blog_div").innerHTML=blog_row;	
 
 });
@@ -1791,9 +1775,6 @@ document.getElementById("blog_div").innerHTML=blog_row;
 function getDocs(space_url)
 {
 
-//alert("inside getDocs");
-//alert("space_url inside getDocs: "+space_url);
-//console.log("space_url inside getDocs: "+space_url);
 osapi.jive.corev3.documents.get ({
 fields : '@all',
 count : 50,
@@ -1804,7 +1785,6 @@ place : space_url
 var documents = response.list;
 var postDoc;
 var docs_length=response.list.length;
-//alert("docs_length: "+docs_length);
 if (docs_length==0)
 {
 docs_row='<table id="docsTable" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 450px;">'+
@@ -1829,15 +1809,9 @@ docUrl : ""
 }
 
 postDoc.title = group.subject;
-//alert("postDoc.title: "+postDoc.title);
 postDoc.author = group.author.name.formatted;
-//alert("postDoc.author: "+postDoc.author);
 postDoc.updated = group.updated;
-//alert("postDoc.updated: "+postDoc.updated);
 postDoc.docUrl = group.resources.self.ref;
-//alert("postDoc.fileUrl: "+postDoc.fileUrl);
-//if(index=='')
-//alert("index documents: "+index);
 
 docs_row = docs_row + '<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: right;padding: 2px;">'+'<input type="checkbox" name="doc_cb" class="doc_cb" onclick="javascript:checkUncheck(this.name);" value="'+postDoc.docUrl+'">'+'</td>'+
@@ -1854,7 +1828,6 @@ document.getElementById("docs_div").innerHTML=docs_row;
 
 function getDiscussions(space_url){
 
-
 osapi.jive.corev3.discussions.get ({
 fields : '@all',
 count : 50,
@@ -1865,7 +1838,6 @@ place : space_url
 var disc = response.list;
 var postDisc;
 var disc_length=response.list.length;
-//alert("disc_length: "+disc_length);
 if(disc_length==0)
 {
 disc_row='<table id="discTable" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 450px;">'+
@@ -1890,15 +1862,9 @@ discUrl : ""
 }
 
 postDisc.title = group.subject;
-//alert("postFiles.title: "+postFiles.title);
 postDisc.author = group.author.name.formatted;
-//alert("postFiles.author: "+postFiles.author);
 postDisc.updated = group.updated;
-//alert("postFiles.updated: "+postFiles.updated);
 postDisc.discUrl = group.resources.self.ref;
-//alert("postFiles.fileUrl: "+postFiles.fileUrl);
-//if(index=='')
-//alert("index disc: "+index);
 
 disc_row = disc_row + '<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: right;padding: 2px;">'+'<input type="checkbox" name="disc_cb" class="disc_cb" onclick="javascript:checkUncheck(this.name);" value="'+postDisc.discUrl+'">'+'</td>'+
@@ -1915,7 +1881,6 @@ document.getElementById("disc_div").innerHTML=disc_row;
 
 function getIdeas(space_url){
 
-
 osapi.jive.corev3.ideas.get ({
 fields : '@all',
 count : 50,
@@ -1926,7 +1891,6 @@ place : space_url
 var idea = response.list;
 var postIdea;
 var idea_length=response.list.length;
-//alert("idea_length: "+idea_length);
 if(idea_length==0)
 {
 idea_row='<table id="ideaTable" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 450px;">'+
@@ -1951,16 +1915,9 @@ ideaUrl : ""
 }
 
 postIdea.title = group.subject;
-//alert("postFiles.title: "+postFiles.title);
 postIdea.author = group.author.name.formatted;
-//alert("postFiles.author: "+postFiles.author);
 postIdea.updated = group.updated;
-//alert("postFiles.updated: "+postFiles.updated);
 postIdea.ideaUrl = group.resources.self.ref;
-//alert("postFiles.fileUrl: "+postFiles.fileUrl);
-//if(index=='')
-//alert("index idea: "+index);
-
 
 idea_row = idea_row + '<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: right;padding: 2px;">'+'<input type="checkbox" name="idea_cb" class="idea_cb" onclick="javascript:checkUncheck(this.name);" value="'+postIdea.ideaUrl+'">'+'</td>'+
@@ -1976,9 +1933,6 @@ document.getElementById("idea_div").innerHTML=idea_row;
 
 function getPolls(space_url)
 {
-//alert("inside getPolls");
-//alert("space_url inside getPolls: "+space_url);
-//console.log("space_url inside getPolls: "+space_url);
 osapi.jive.corev3.polls.get({
 fields : '@all',
 count : 50,
@@ -1987,10 +1941,8 @@ place : space_url
 //console.log("Polls: "+JSON.stringify(response));
 
 var polls = response.list;
-//console.log ("Blogs: "+JSON.stringify(polls));
 var postPolls;
 var poll_length=response.list.length;
-//alert("poll_length: "+poll_length);
 if(poll_length==0)
 {
 poll_row='<table id="pollTable" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 450px;">'+
@@ -2015,15 +1967,9 @@ fileUrl : ""
 }
 
 postPolls.title = group.subject;
-//alert("postPolls.title: "+postPolls.title);
 postPolls.author = group.author.name.formatted;
-//alert("postPolls.author: "+postPolls.author);
 postPolls.updated = group.updated;
-//alert("postPolls.updated: "+postPolls.updated);
 postPolls.fileUrl = group.resources.self.ref;
-//alert("postPolls.fileUrl: "+postPolls.fileUrl);
-//if(index=='')
-//alert("index polls: "+index);
 
 poll_row = poll_row + '<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: right;padding: 2px;">'+'<input type="checkbox" name="poll_cb" class="poll_cb" onclick="javascript:checkUncheck(this.name);" value="'+postPolls.fileUrl+'">'+'</td>'+
@@ -2039,7 +1985,9 @@ document.getElementById("poll_div").innerHTML=poll_row;
 };
 
 function checkedAll(selCheckId){
-//alert("selCheckId : "+selCheckId);
+
+// check/uncheck all the checkboxes if the one in header is checked/unchecked.
+
 var tab='';
 if(selCheckId=='sel_all_files')
 {
@@ -2069,7 +2017,6 @@ var sel_all=document.getElementById(selCheckId);
 
 if(sel_all.checked==true)
 {
-//alert("checked");
 for ( var i = 0; i < len; i++ )
 {
 if ( elems[i].type == "checkbox" )
@@ -2080,7 +2027,6 @@ elems[i].checked = true;
 }
 else if(sel_all.checked==false)
 {
-//alert("not checked");
 for ( var i = 0; i < len; i++ )
 {
 if ( elems[i].type == "checkbox" )
@@ -2094,11 +2040,11 @@ elems[i].checked = false;
 
 function checkUncheck(name)
 {
+// check/uncheck the checkbox in header if all the others below are checked/unchecked.
 
 var id='';
 var mcb_id='';
 var check='';
-//alert(name);
 if(name=="file_cb")
 {
 id='sel_all_files';
@@ -2165,8 +2111,6 @@ $(mcb_id).attr('checked', 'checked');
 else
 $(mcb_id).removeAttr("checked");
 }
-//alert(mcb_id);
-//alert(name);
 
 check=name+':checked';
 
@@ -2186,6 +2130,7 @@ $(mcb_id).removeAttr("checked");
 
 function highlightTab()
 {
+// highlight the tab on which the user clicks by adding a blue border and underline.
 $("#docs_tab").addClass("borderadd");
 $("#disc_tab").addClass("borderadd");
 $("#idea_tab").addClass("borderadd");
@@ -2204,6 +2149,7 @@ $(this).removeClass('borderadd');
 }
 
 function showTab(){
+// actions when user choses to select content he wants to copy/move/delete/download.
 
 $("#stylized").hide();
 $("#selection_menu").show();
@@ -2268,6 +2214,7 @@ $("#blog_div").show();
 var all_selected=''; 
 
 function goBack(){
+// handles the code for creating the the final selection tables and the list of values to be passed to the server/javascript
 
 all_selected='';
 Grp_file_json='';
@@ -2277,11 +2224,10 @@ Grp_disc_json='';
 Grp_blog_json='';
 Grp_poll_json='';
 
-//$('br + br').remove();
 $("#button_div").hide();
 document.getElementById("copyTo").style.visibility="visible";
 document.getElementById("start_copying_button").disabled = false;
-//$("#del_place").hide();
+
 $("#docs_div").hide();
 $("#files_div").hide();
 $("#disc_div").hide();
@@ -2297,29 +2243,22 @@ $("#up_select_items_button").hide();
 
 if(sel_action_val=="delete")
 {
-//$("#del_place").show();
-//alert("copy to");
-//$("#copyTo").text("Delete this:").append('<br/>');
 document.getElementById("start_copying_button").style.visibility="visible";
 document.getElementById("start_uploading").style.visibility="hidden";
 }else if(sel_action_val=="download")
 {
-//$("#del_place").show();
-//alert("copy to");
-//$("#copyTo").text("Delete this:").append('<br/>');
 document.getElementById("start_copying_button").style.visibility="visible";
 document.getElementById("start_uploading").style.visibility="hidden";
 }
 
-
 $("#selection_menu").hide();
-
 $("#stylized").show();
 $("#change_selection_div").show();
 $("#change_contents").show();
 $("#start_copying_button").show();
 document.getElementById("start_uploading").style.visibility="hidden";
 
+// creating the header for the final selection table.
 all_selected='<TABLE id="all_selected_items" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 600px;">'
 +'<col width="400px" /><col width="120px" /><col width="10px" />'
 +'<tr>'+
@@ -2329,17 +2268,12 @@ all_selected='<TABLE id="all_selected_items" border="0" class="jiveBorder" jive-
 '</tr>';
 
 $('#filesTable input[type=checkbox]:checked').each(function() { 
-// alert ( $(this).val() );
-/*
-Grp_file_json = Grp_file_json+'{'+
-'"file_self_url": "'+$(this).val()+'"},';*/
+// getting self url's of files from the files table and adding them to files JSON.
 if($(this).val()!='on'){
 Grp_file_json = Grp_file_json+$(this).val()+';';
 var row = $(this).parent().parent();
 var rowcells = row.find('td');
-//alert(" rowcells1: "+rowcells[1].textContent);
-// alert(" rowcells2: "+rowcells[2].textContent);
-//alert(" rowcells3: "+rowcells[3].textContent);
+
 if(rowcells[1].textContent!='Title'){
 all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">'+rowcells[1].textContent+'</td>'+
@@ -2347,22 +2281,16 @@ all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">File</td>'+
 '</tr>';
 }   
-//console.log("Grp_file_json: "+Grp_file_json);
 }
 });
 
 $('#docsTable input[type=checkbox]:checked').each(function() { 
-
-//alert ( $(this).val() );
-/*Grp_doc_json = Grp_doc_json+'{'+
-'"document_self_url": "'+$(this).val()+'"},';*/
+// getting self url's of files from the files table and adding them to files JSON.
 if($(this).val()!='on'){
 Grp_doc_json = Grp_doc_json+$(this).val()+';';
 var row = $(this).parent().parent();
 var rowcells = row.find('td');
-//alert(" rowcells1: "+rowcells[1].textContent);
-// alert(" rowcells2: "+rowcells[2].textContent);
-//alert(" rowcells3: "+rowcells[3].textContent);
+
 if(rowcells[1].textContent!='Title'){
 all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">'+rowcells[1].textContent+'</td>'+
@@ -2370,22 +2298,16 @@ all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">Documents</td>'+
 '</tr>';
 }
-//console.log("Grp_doc_json: "+Grp_doc_json);
 }
 });
 
 $('#discTable input[type=checkbox]:checked').each(function() { 
-
-//alert ( $(this).val() );
-/*Grp_disc_json = Grp_disc_json+'{'+
-'"discussion_self_url": "'+$(this).val()+'"},';*/
+// getting self url's of files from the files table and adding them to files JSON.
 if($(this).val()!='on'){
 Grp_disc_json = Grp_disc_json+$(this).val()+';';
 var row = $(this).parent().parent();
 var rowcells = row.find('td');
-//alert(" rowcells1: "+rowcells[1].textContent);
-// alert(" rowcells2: "+rowcells[2].textContent);
-//alert(" rowcells3: "+rowcells[3].textContent);
+
 if(rowcells[1].textContent!='Title'){
 all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">'+rowcells[1].textContent+'</td>'+
@@ -2393,22 +2315,16 @@ all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">Discussions</td>'+
 '</tr>';
 }
-//console.log("Grp_disc_json: "+Grp_disc_json);
 }
 });
 
 $('#ideaTable input[type=checkbox]:checked').each(function() { 
-
-//alert ( $(this).val() );
-/*Grp_idea_json = Grp_idea_json+'{'+
-'"idea_self_url": "'+$(this).val()+'"},';*/
+// getting self url's of files from the files table and adding them to files JSON.
 if($(this).val()!='on'){
 Grp_idea_json = Grp_idea_json+$(this).val()+';';
 var row = $(this).parent().parent();
 var rowcells = row.find('td');
-//alert(" rowcells1: "+rowcells[1].textContent);
-// alert(" rowcells2: "+rowcells[2].textContent);
-//alert(" rowcells3: "+rowcells[3].textContent);
+
 if(rowcells[1].textContent!='Title'){
 all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">'+rowcells[1].textContent+'</td>'+
@@ -2416,22 +2332,16 @@ all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">Ideas</td>'+
 '</tr>';
 }
-//console.log("Grp_idea_json: "+Grp_idea_json);
 }
 });
 
 $('#pollTable input[type=checkbox]:checked').each(function() { 
-
-//alert ( $(this).val() );
-/*Grp_blog_json = Grp_blog_json+'{'+
-'"idea_self_url": "'+$(this).val()+'"},';*/
+// getting self url's of files from the files table and adding them to files JSON.
 if($(this).val()!='on'){
 Grp_poll_json = Grp_poll_json+$(this).val()+';';
 var row = $(this).parent().parent();
 var rowcells = row.find('td');
-//alert(" rowcells1: "+rowcells[1].textContent);
-//alert(" rowcells2: "+rowcells[2].textContent);
-//alert(" rowcells3: "+rowcells[3].textContent);
+
 if(rowcells[1].textContent!='Title'){
 all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">'+rowcells[1].textContent+'</td>'+
@@ -2439,22 +2349,16 @@ all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">Polls</td>'+
 '</tr>';
 }
-//console.log("Grp_blog_json: "+Grp_blog_json);
 }
 });
 
 $('#blogTable input[type=checkbox]:checked').each(function() { 
-
-//alert ( $(this).val() );
-/*Grp_blog_json = Grp_blog_json+'{'+
-'"idea_self_url": "'+$(this).val()+'"},';*/
+// getting self url's of files from the files table and adding them to files JSON.
 if($(this).val()!='on'){
 Grp_blog_json = Grp_blog_json+$(this).val()+';';
 var row = $(this).parent().parent();
 var rowcells = row.find('td');
-//alert(" rowcells1: "+rowcells[1].textContent);
-//alert(" rowcells2: "+rowcells[2].textContent);
-//alert(" rowcells3: "+rowcells[3].textContent);
+
 if(rowcells[1].textContent!='Title'){
 all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">'+rowcells[1].textContent+'</td>'+
@@ -2462,20 +2366,19 @@ all_selected=all_selected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">Blogs</td>'+
 '</tr>';
 }
-//console.log("Grp_blog_json: "+Grp_blog_json);
 }
 });
 
 
 all_selected=all_selected+'</table>';
-//console.log(all_selected);
 
+// writing all selected files to the final selection table on the app home page.
 document.getElementById("selected_items").innerHTML=all_selected;  
-var count = $('#all_selected_items tr').length;
-//alert(count);  
 
+var count = $('#all_selected_items tr').length;
 if (count==1)
 {
+// actions when no content has been selected by the user.
 all_selected='<table name="all_selected_items" id="all_selected_items" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 600px;">'
 +'<col width="400px" /><col width="120px" /><col width="10px" />'+
 '<tr><td colspan="4" style="border:1px ;border: 1px solid #000000;width: 60px;padding: 2px;color: #ffffff;background-color: #6690bc;text-align: center;" valign="middle"><strong>No content selected.</strong></td></tr></table>';
@@ -2486,6 +2389,8 @@ document.getElementById("selected_items").innerHTML=all_selected;
 };
 
 function startCopying(){
+// handles actions after clicking the start copy button.
+
 $("#cmdu").show();
 $("#src_place").hide();
 $("#start_copying_button").hide();
@@ -2494,17 +2399,19 @@ $("#button_div").hide();
 $("#from_place").hide();
 $("#to_place").hide();
 
-//alert("startCopying");
 if(browserName=="MSIE")
 {
-//alert("inside if msie");
+// actions when the app is used in IE.
 var finalurl=redirection_url+'/content';
+
+// we add static message to IE and do not use the iframe based tracker because of compatibility issues.
 var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-color:#3778C7;">The selected contents are being copied. This may take a while depending on the number of contents and files that have been selected. The process will be completed in the background so you can close this window. The copies of the selected contents will be available after completion here: <a href='+finalurl+'>'+dest_space_name+' - Contents</a></span>';
 document.getElementById("selected_items").innerHTML=ieSpan; 
 
 dest_space_name=dest_space_name.toLowerCase();
 dest_space_name=dest_space_name.replace(/[^a-z0-9-\s]/gi, '').replace(/[_\s]/g, '-');
 
+// OSAPI call to send the details to the server for copying.
 osapi.http.get({
 'href' : 'http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/AIServlet?srcgroup_place_url='+space_url+'&target_groupurl='+to_url+'&src_group_file='+Grp_file_json+'&src_group_document='+Grp_doc_json+'&src_idea='+Grp_idea_json+'&src_discussion='+Grp_disc_json+'&src_blog='+Grp_blog_json+'&src_poll='+Grp_poll_json+'&logged-user='+loggedUser+'&logged-userName='+loggedUserName+'&group-name='+dest_space_name,
 'format' : 'json',
@@ -2513,6 +2420,7 @@ osapi.http.get({
 }
 else
 {
+// actions when the app is used in any other browser.
 var iframe = '<iframe id="frame1" src = "javascript:"&nbsp;" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 document.getElementById("selected_items").innerHTML=iframe;  
 $("#copyTo").text("Copying this:");
@@ -2526,6 +2434,7 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = "Copying in Progress.<br>Please leave this window open until the copying process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+initialMsg.fontcolor("#3778C7")+"</span>";
 
+// OSAPI call to send the details to the server for copying.
 osapi.http.get({
 'href' : 'http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/AIServlet?srcgroup_place_url='+space_url+'&target_groupurl='+to_url+'&src_group_file='+Grp_file_json+'&src_group_document='+Grp_doc_json+'&src_idea='+Grp_idea_json+'&src_discussion='+Grp_disc_json+'&src_blog='+Grp_blog_json+'&src_poll='+Grp_poll_json+'&logged-user='+loggedUser+'&logged-userName='+loggedUserName+'&group-name='+dest_space_name,
 'format' : 'json',
@@ -2538,11 +2447,13 @@ var flag=false;
 
 function blankMethod(response)
 {
-//alert("blankMethod"+JSON.stringify(response));
+// to handle the response when the app is being used in IE.
+// the method is blank because we are adding just to complete the syntax.
 }
 
 function refreshiframe() 
 { 
+// to hit the logger servlet and get the response of which action is being done right now.
 flag=true;
 osapi.http.get({
 'href' : 'http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-CopyAppv1/LoggerServlet?logged-user='+loggedUser+'&logged-userName='+loggedUserName,
@@ -2554,18 +2465,18 @@ osapi.http.get({
 
 function refreshFrameResponse(response) 
 {
+// refreshs iframe with the fresh messages being received from the server.
 if(!flag)
 {
 refreshiframe();
 }
 setTimeout("refreshiframe()",1000); 	
 var str=response.content;
-//console.log("str: "+str);
 var res='{ error: "Connect to /54.246.36.246:8080 timed out" }';
 var errorCode=str.indexOf(res);
-//alert("errorCode: "+errorCode);
 if(errorCode!=0)
 {
+// checks if the server is running
 document.getElementById("frame1").contentDocument.body.style.fontFamily="Tahoma";	
 document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
@@ -2574,18 +2485,14 @@ document.getElementById("frame1").contentDocument.body.innerHTML = "Copying in P
 var compare='You will be redirected to the "copy to" group.';
 
 var pos=str.indexOf(compare);
-//console.log("pos: "+pos+" "+str);
 if (pos!=-1)
 {
-//alert("redirecting....");
+// redirects to target place when the final message is received.
 document.getElementById("frame1").contentDocument.body.innerHTML = "Copying in Progress.<br>Please leave this window open until the copying process has been completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-//setTimeout("refreshiframe()",1000); 
 $("#stylized").fadeOut(5000,function(){
-window.location = redirection_url;         
-
+window.location = redirection_url;
 });
 }
-//}	
 }
 else
 {
@@ -2598,6 +2505,7 @@ var uploadSelected='';
 
 function uploadFiles()
 {
+// handles the response for uploading files.
 uploadSelected='';
 
 uploadSelected='<input  style="visibility:hidden" type="text" name="loggedUser" value="'+loggedUser+'">'+
@@ -2612,11 +2520,11 @@ uploadSelected='<input  style="visibility:hidden" type="text" name="loggedUser" 
 '<td style="border:1px ;border: 1px solid #000000;width: 43px;padding: 2px;color: #ffffff;background-color: #6690bc;text-align: left;" valign="middle"><strong>Description [optional]</strong></td>'+
 '</tr>';
 
+// getting the details about the files selected by the user for upload.
 var files = $('#up_select_items_button').prop("files");
 var names = $.map(files, function(val) { return val.name; });
 for(var i=0;i<names.length;i++)
 {
-//alert("names: "+names[i]);
 var fileObject = document.getElementById('up_select_items_button').files[i];
 var fileName=fileObject.name;
 var fileSize=fileObject.size;
@@ -2624,6 +2532,7 @@ var sizeInMB = (fileSize / (1024*1024)).toFixed(2);
 sizeInMB= sizeInMB +'MB';
 var fileDesc='Please enter your description here.';
 
+// listing the files selected for upload.
 uploadSelected=uploadSelected+'<tr>'+
 '<td style="border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;"><input id="fileName'+i+'" size="45" type="text" name="fileName" value="'+fileName+'" onchange="javascript:getName(this,'+i+')"></td>'+
 '<td style="color:black; border:1px solid black;border: 1px solid #000000;text-align: left;padding: 2px;">'+sizeInMB+'</td>'+
@@ -2642,9 +2551,9 @@ document.getElementById("start_uploading").disabled = false;
 
 document.getElementById("selected_items").innerHTML=uploadSelected;  
 document.getElementById("form2").innerHTML=uploadSelected;  
-//console.log(uploadSelected);
 var count = $('#upload_selected_items tr').length;
 // count is taken as 2 because we are adding three dynamic textboxes in this table
+// check if the selection is empty.
 if (count==2)
 {
 uploadSelected='<table name="upload_selected_items" id="upload_selected_items" border="0" class="jiveBorder" jive-data-cell="{&quot;color&quot;:&quot;#575757&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;backgroundColor&quot;:&quot;#6690BC&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;2&quot;,&quot;fontFamily&quot;:&quot;arial,helvetica,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #000000; width: 600px;">'
@@ -2659,7 +2568,7 @@ $('#up_select_items_button').css("margin-left", "-320px");
 }
 
 function clickclear(thisfield) {
-//alert("click clear");
+// adding description and handling the description textfield.
 if (thisfield.value == 'Please enter your description here.') {
 thisfield.value = "";
 thisfield.color="black";
@@ -2668,7 +2577,7 @@ thisfield.color="black";
 }
 
 function clickrecall(thisfield) {
-//alert("click recalls");
+// when the description is cleared add the defualt message.
 if (thisfield.value == "") {
 thisfield.value = 'Please enter your description here.';
 }
@@ -2676,26 +2585,23 @@ thisfield.value = 'Please enter your description here.';
 }
 
 function getName(data,counter){
-//alert("val: "+data.value+ " counter : "+counter);
+// adding the new name in name textbox.
 var id = 'fileName'+counter;
-//alert("id: "+id);
 document.getElementById(id).value=data.value;
-//alert("answer: "+document.getElementById(id).value);
 }
 function getDesc(data,counter){
-//alert("val: "+data.value+ " counter : "+counter);
+// adding the new description.
 var id = 'fileDesc'+counter;
-//alert("id: "+id);
 
 if(data.value!='Please enter your description here.')
 document.getElementById(id).value=data.value;
 else
 document.getElementById(id).value='';
-//alert("answer: "+document.getElementById(id).value);
 }
 
 function startUploading(){
 
+// handles the actions for upload functionality.
 $("#cmdu").show();
 $("#src_place").hide();
 var files = $('#up_select_items_button').prop("files");
@@ -2715,7 +2621,6 @@ $("#upTo").text("Uploading this:");
 var iframe = '<iframe id="frame1" src = "javascript:"&nbsp;" style="width:650px;height:90px;margin-top:0px;font-family:Tahoma"></iframe>';
 document.getElementById("selected_items").innerHTML=iframe;  
 
-//var initialMsg='Initializing the upload of your files... (please wait, you will be redirected later)';
 var initialMsg1='Your files are now being uploaded. Please <u>do not close</u> this window.!<br/><br/>';
 var initialMsg2='You will be redirected to the uploaded files once the upload is complete.<br/>';
 
@@ -2724,16 +2629,9 @@ document.getElementById("frame1").contentDocument.body.style.fontSize = "12px";
 document.getElementById("frame1").contentDocument.body.style.color='Grey';
 document.getElementById("frame1").contentDocument.body.innerHTML = "<span id='mySpan' style='font-family:Tahoma;font-size:12px;font-weight:bold;'>"+initialMsg1.fontcolor("#3778C7")+"</span><span id='mySpan' style='font-weight:bold;'>"+initialMsg2.fontcolor("Grey")+"</span>";
 
-//alert(document.getElementById("fileName").value);
-
 document.getElementById('redirectVal').value=redirection_url;
 
-//alert("redirect value ="+document.getElementById('redirectVal').value);
 document.getElementById("form2").submit();
-//console.log(redirection_url); 
-/*$("#stylized").fadeOut(5000,function(){
-window.location = redirection_url;   
-});*/
 
 }
 
@@ -2742,7 +2640,7 @@ var flag=false;
 function uprefreshiframe() 
 { 
 
-//console.log("Calling ........");
+// for getting servlet response for upload functionality.
 flag=true;
 
 osapi.http.get({
@@ -2755,15 +2653,13 @@ osapi.http.get({
 
 function uprefreshFrameResponse(response) 
 {
-
+// refresh iframe for upload functionality.
 if(!flag)
 {
 uprefreshiframe();
 }
 setTimeout("uprefreshiframe()",1000); 	
-//alert("response :"+JSON.stringify(response));
 var str=response.content;
-//alert("str: "+str);
 var res='{ error: "Connect to /54.246.36.246:8080 timed out" }';
 var errorCode=str.indexOf(res);
 if(errorCode!=0)
@@ -2776,12 +2672,9 @@ document.getElementById("frame1").contentDocument.body.innerHTML = "Upload in Pr
 var compare='You will be redirected to the "upload to" place.';
 
 var pos=str.indexOf(compare);
-//console.log("pos: "+pos+" "+str);
 if (pos!=-1)
 {
-//alert("redirecting....");
 document.getElementById("frame1").contentDocument.body.innerHTML = "Upload in Progress.<br>Please leave this window open until the upload process has completed.<br><br><span id='mySpan' style='font-weight:bold;'>"+str.fontcolor("#3778C7")+"</span>";
-//setTimeout("uprefreshiframe()",1000); 
 $("#stylized").fadeOut(5000,function(){
 window.location = redirection_url;   
 });
@@ -2796,6 +2689,7 @@ document.getElementById("frame1").contentDocument.body.innerHTML = "<br><br><spa
 }
 
 function startMoving(){
+// handles actions for move.
 $("#cmdu").show();
 $("#src_place").hide();
 $("#from_place").hide();
@@ -2803,13 +2697,10 @@ $("#to_place").hide();
 $("#start_copying_button").hide();
 $("#change_contents").hide();
 $("#button_div").hide();
-//alert("startMoving");
 $("#copyTo").text("Moving this:");
 
-
+// send data to JS file movendelete for move.
 movendelete('move',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,dest_space_name,redirection_url,source_html_url,src_space_name,to_place_blog_url,browserName);
-
-
 };
 
 function startDeleting(){
@@ -2819,18 +2710,15 @@ $("#start_copying_button").hide();
 $("#change_contents").hide();
 $("#button_div").hide();
 $("#del_place").hide();
-//alert("startDeleting");
 $("#deleteTo").text("Deleting this:");
-//alert(src_space_name);
 
+// send data to JS file movendelete for move.
 movendelete('delete',space_url,to_url,Grp_file_json,Grp_doc_json,Grp_disc_json,Grp_idea_json,Grp_poll_json,Grp_blog_json,'test_name','test_url',source_html_url,src_space_name,to_place_blog_url,browserName);
-
 };
 
 function startDownloading()
 {
-//alert("Start Downloading..!!");
-
+// handles actions for download.
 $("#cmdu").show();
 $("#src_place").hide();
 $("#start_copying_button").hide();
@@ -2838,11 +2726,10 @@ $("#change_contents").hide();
 $("#button_div").hide();
 $("#dwn_place").hide();
 $("#dwnTo").text("Downloading this:");
-//alert(src_space_name);
-
-//alert("Grp_file_json: "+Grp_file_json);
 
 document.getElementById("dwnloadDataSend").value=Grp_file_json;
+
+// submits the form to server for processing download.
 document.getElementById("form3").submit();
 var strDwnload="Closing this browser window will abort the operation.";
 
@@ -2850,7 +2737,6 @@ var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-colo
 '<span id="ieSpan2" style="font-weight:bold;">'+strDwnload.fontcolor("#3778C7")+'</span>';
 
 document.getElementById("selected_items").innerHTML=ieSpan;
-
 }
 </script>
 </head>
