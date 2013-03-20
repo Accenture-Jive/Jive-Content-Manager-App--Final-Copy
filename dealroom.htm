@@ -2741,6 +2741,10 @@ var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-colo
 
 document.getElementById("selected_items").innerHTML=ieSpan;
 }
+
+$(function() {
+    $( document ).tooltip();
+  });
 </script>
 </head>
 
@@ -3018,6 +3022,12 @@ The "move from" place has to be different from the "move to" place.
 <div id="footer" style="font-family:Tahoma">&copy; Accenture 2012-13</div>
 
 <style> 
+
+label {
+    display: inline-block;
+    width: 5em;
+  }
+  
 .borderadd 
 {
 border-radius: 4px;
