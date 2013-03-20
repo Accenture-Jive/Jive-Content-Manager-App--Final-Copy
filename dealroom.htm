@@ -245,7 +245,7 @@ document.getElementById("del_place").style.display="inline";
 document.getElementById("del_select_items_button").style.display="inline";
 document.getElementById("up_select_items_button").style.display="inline";
 document.getElementById("up_place").style.display="inline";
-$("#del_place").css("margin-top", "140px");
+$("#del_place").css("margin-top", "110px");
 $("#del_select_items_button").hide();
 $("#up_select_items_button").hide();
 $("#copyTo").hide();
@@ -393,7 +393,7 @@ document.getElementById("del_place").style.display="inline";
 document.getElementById("del_select_items_button").style.display="inline";
 document.getElementById("up_select_items_button").style.display="inline";
 document.getElementById("up_place").style.display="inline";
-$("#del_place").css("margin-top", "140px");
+$("#del_place").css("margin-top", "110px");
 $("#del_select_items_button").hide();
 $("#up_select_items_button").hide();
 $("#copyTo").hide();
@@ -766,7 +766,7 @@ $("#up_place").hide();
 document.getElementById("dwn_place").style.display="inline";
 $("#dwn_place").show();
 document.getElementById("dwn_from_space").innerHTML='<span id="myId" style="text-decoration:underline;">Space</span>'+': '+from_place_name;
-$("#dwn_place").css("margin-top", "130px");
+$("#dwn_place").css("margin-top", "140px");
 $("#dwn_from_space").show();
 $("#dwn_from_group").hide();
 $("#dwn_from_project").hide();
@@ -956,7 +956,7 @@ $("#up_place").hide();
 document.getElementById("dwn_place").style.display="inline";
 $("#dwn_place").show();
 document.getElementById("dwn_from_group").innerHTML='<span id="myId" style="text-decoration:underline;">Group</span>'+': '+from_place_name;
-$("#dwn_place").css("margin-top", "130px");
+$("#dwn_place").css("margin-top", "140px");
 $("#dwn_from_group").show();
 $("#dwn_from_space").hide();
 $("#dwn_from_project").hide();
@@ -1147,7 +1147,7 @@ document.getElementById("dwn_place").style.display="inline";
 $("#dwn_place").show();
 $("#del_place").hide();
 document.getElementById("dwn_from_project").innerHTML='<span id="myId" style="text-decoration:underline;">Project</span>'+': '+from_place_name;
-$("#dwn_place").css("margin-top", "130px");
+$("#dwn_place").css("margin-top", "140px");
 $("#dwn_from_group").hide();
 $("#dwn_from_space").hide();
 $("#dwn_from_project").show();
@@ -2741,10 +2741,6 @@ var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-colo
 
 document.getElementById("selected_items").innerHTML=ieSpan;
 }
-
-$(function() {
-    $( document ).tooltip();
-  });
 </script>
 </head>
 
@@ -2830,14 +2826,14 @@ Copy To:
 <label id ="deleteFrom" style="display:none;margin-left:-126px;position:absolute; margin-top:86px;"><br/>Delete From:</label>
 <tr>
 <tr>
-<label title="Hello" id="del_from_space" style="margin-left:230px;position:absolute; margin-top:120px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Delete From Space</label>
-<label id="del_from_group" style="margin-left:230px;position:absolute; margin-top:120px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Delete From Group</label>
-<label id="del_from_project" style="margin-left:230px;position:absolute; margin-top:120px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Delete From Project</label>
+<label id="del_from_space" style="margin-left:230px;position:absolute; margin-top:120px;font-weight:normal;text-align:center;display:none;">Delete From Space</label>
+<label id="del_from_group" style="margin-left:230px;position:absolute; margin-top:120px;font-weight:normal;text-align:center;display:none;">Delete From Group</label>
+<label id="del_from_project" style="margin-left:230px;position:absolute; margin-top:120px;font-weight:normal;text-align:center;display:none;">Delete From Project</label>
 </tr>
 <td>
 <br/>
 <select name="del_place" id="del_place" onchange="javascript:delFromPlace();" 
-style="display:none;margin-left:-80px;position:absolute; margin-top:140px;">
+style="display:none;margin-left:-80px;position:absolute; margin-top:110px;">
 <option value="select_one">Select Place</option>
 <option value="select_space">Select Space</option>
 <option value="select_group">Select Group</option>
@@ -2857,9 +2853,9 @@ style="display:none;margin-left:-80px;position:absolute; margin-top:140px;">
 <label id ="upFrom" style="display:none;margin-left:-135px;position:absolute; margin-top:70px;"><br/>Upload To:</label>
 <tr>
 <tr>
-<label id="up_from_space" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Upload to Space</label>
-<label id="up_from_group" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Upload to Group</label>
-<label id="up_from_project" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Upload to Project</label>
+<label id="up_from_space" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Upload to Space</label>
+<label id="up_from_group" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Upload to Group</label>
+<label id="up_from_project" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Upload to Project</label>
 </tr>
 <td>
 <br/>
@@ -2887,9 +2883,9 @@ style="display:none;margin-left:-80px;position:absolute; margin-top:90px;">
 <label id ="dwnFrom" style="display:none;margin-left:210px;position:absolute; margin-top:62px;"><br/>Download From:</label>
 <tr>
 <tr>
-<label id="dwn_from_space" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Download From Space</label>
-<label id="dwn_from_group" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Download From Group</label>
-<label id="dwn_from_project" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">Download From Project</label>
+<label id="dwn_from_space" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Download From Space</label>
+<label id="dwn_from_group" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Download From Group</label>
+<label id="dwn_from_project" style="margin-left:230px;position:absolute; margin-top:110px;font-weight:normal;text-align:center;display:none;">Download From Project</label>
 </tr>
 <td>
 <br/>
@@ -3022,12 +3018,6 @@ The "move from" place has to be different from the "move to" place.
 <div id="footer" style="font-family:Tahoma">&copy; Accenture 2012-13</div>
 
 <style> 
-
-label {
-    display: inline-block;
-    width: 5em;
-  }
-  
 .borderadd 
 {
 border-radius: 4px;
