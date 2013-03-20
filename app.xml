@@ -28,16 +28,6 @@
 		<Require feature="jive-connects-v1"/>
 		<Require feature="opensocial-1.0"/>
 		<Require feature="jive-core-v2"/>
-		<Require feature="actions">  
-      <Param name="action-contributions">  
-			      <![CDATA[
-                  <action id="jiveapps.jw12apps101.content"
-                  path="jive/actions/content/*"
-                  label="Jive Content Manager"
-                  view="home"
-                  icon="icon16.png" />  ]]>
-      </Param>  
-    </Require>  
 		<Link rel="event.addapp" href="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/installed" method="GET"/>
 		<Link rel="event.removeapp" href="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/uninstalled" method="GET"/>
 		
