@@ -2743,12 +2743,39 @@ var ieSpan='<span id="ieSpan" style="font-family:Tahoma;font-size:12px;font-colo
 
 document.getElementById("selected_items").innerHTML=ieSpan;
 }
+
+$(document).ready(function() {
+ 
+	var changeTooltipPosition = function(event) {
+	  var tooltipX = event.pageX - 8;
+	  var tooltipY = event.pageY + 8;
+	  $('div.tooltip').css({top: tooltipY, left: tooltipX});
+	};
+ 
+	var showTooltip = function(event) {
+	  $('div.tooltip').remove();
+	  $('<div class="tooltip">I\' am tooltips! tooltips! tooltips! :)</div>')
+            .appendTo('body');
+	  changeTooltipPosition(event);
+	};
+ 
+	var hideTooltip = function() {
+	   $('div.tooltip').remove();
+	};
+ 
+	$("span#hint,label#from_group'").bind({
+	   mousemove : changeTooltipPosition,
+	   mouseenter : showTooltip,
+	   mouseleave: hideTooltip
+	});
+});
 </script>
 </head>
 
 <body id="maskLoad" style="text-align: center" onLoad="onPageLoad()">
 <div id="stylized" class="myform" style="font-family:Tahoma; width:650px; height:420px;margin-top:70px;">
 <table width="600">
+<span id="hint">hint (mouseover me)</span>
 <tr>
 <td colspan="2"><div style="text-align:center;width:600px;height:0px;font-size:15px;font-weight:bold;">Jive Content Manager App</div></td></tr>
 <tr>
@@ -3020,6 +3047,21 @@ The "move from" place has to be different from the "move to" place.
 <div id="footer" style="font-family:Tahoma">&copy; Accenture 2012-13</div>
 
 <style> 
+
+#hint
+{
+		cursor:pointer;
+}
+	
+.tooltip
+{
+		margin:8px;
+		padding:8px;
+		border:1px solid blue;
+		background-color:yellow;
+		position: absolute;
+		z-index: 2;
+}
 
 .xlabel
 {
