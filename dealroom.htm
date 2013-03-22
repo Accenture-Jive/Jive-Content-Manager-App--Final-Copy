@@ -2746,8 +2746,6 @@ document.getElementById("selected_items").innerHTML=ieSpan;
 
 $(document).ready(function() {
 
-$('div.tooltip').css({top: '10', left: '40'});
-
 	$("#hint").hide();
 	var tooltipValue = '';
 	var id='';
@@ -2775,9 +2773,9 @@ $('div.tooltip').css({top: '10', left: '40'});
 	};
  
  	var showTooltip = function(event) {
-	console.log("showTooltip"+event);
-	  $('div.tooltip').remove();
+	console.log("showTooltip"+event);	  
 	  $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
+	  $('div.tooltip').remove();
 	  changeTooltipPosition(event);
 	};
  
