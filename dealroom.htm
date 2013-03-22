@@ -2753,9 +2753,9 @@ var id='';
 $("label").mouseenter(function(e){
 
 id = this.id;
-console.log(id);
 tooltipValue=document.getElementById(id).innerHTML;
 console.log(tooltipValue);
+
 $('div.tooltip').remove();
 $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 
@@ -2768,7 +2768,6 @@ mouseleave: hideTooltip
 });
 
 var changeTooltipPosition = function(event) {
-//console.log("changeTooltipPosition"+event);
 var tooltipX = event.pageX - 8;
 var tooltipY = event.pageY + 8;
 $('div.tooltip').css({top: tooltipY, left: tooltipX});
