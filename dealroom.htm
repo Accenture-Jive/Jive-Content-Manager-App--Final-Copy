@@ -2760,11 +2760,6 @@ $(document).ready(function() {
 	   mouseenter : showTooltip,
 	   mouseleave: hideTooltip
 	});
-	$('span#hint,label#'+id).unbind({
-	   mousemove : changeTooltipPosition,
-	   mouseenter : showTooltip,
-	   mouseleave: hideTooltip
-	});
 	});
  
 	var changeTooltipPosition = function(event) {
@@ -2782,6 +2777,12 @@ $(document).ready(function() {
 	var hideTooltip = function() {
 	   $('div.tooltip').remove();
 	};
+	
+	$('span#hint,label#'+id).unbind({
+	   mousemove : changeTooltipPosition,
+	   mouseenter : showTooltip,
+	   mouseleave: hideTooltip
+	});
 });
 </script>
 </head>
