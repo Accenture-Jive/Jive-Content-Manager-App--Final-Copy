@@ -2756,7 +2756,8 @@ $(document).ready(function() {
  
  	var showTooltip = function(event) {
 	  $('div.tooltip').remove();
-	  $('<div class="tooltip">I am tooltips! tooltips!</div>').appendTo('body');
+	  var tooltipValue = $(this).attr('value');
+	  $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 	  changeTooltipPosition(event);
 	};
  
