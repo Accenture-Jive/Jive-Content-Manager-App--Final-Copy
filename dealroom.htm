@@ -2747,10 +2747,8 @@ document.getElementById("selected_items").innerHTML=ieSpan;
 $(document).ready(function() {
 
 	$("#hint").hide();
-	var tooltipValue='';
-	var test=document.getElementById("from_group").value;
-	alert("tooltipValue main:"+test);
-	
+	var tooltipValue = "value value";
+ 
 	var changeTooltipPosition = function(event) {
 	  var tooltipX = event.pageX - 8;
 	  var tooltipY = event.pageY + 8;
@@ -2759,16 +2757,12 @@ $(document).ready(function() {
  
  	var showTooltip = function(event) {
 	  $('div.tooltip').remove();
-	  tooltipValue = document.getElementById("from_group").value;
-	  alert("tooltipValue Show:"+test);
-	  $('<div class="tooltip">'+test+'</div>').appendTo('body');
+	  $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 	  changeTooltipPosition(event);
 	};
  
 	var hideTooltip = function() {
 	   $('div.tooltip').remove();
-	   tooltipValue = '';
-	   //alert("tooltipValue hide:"+tooltipValue);
 	};
  
 	$("span#hint,label#from_group'").bind({
