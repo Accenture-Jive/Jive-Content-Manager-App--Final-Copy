@@ -2755,6 +2755,11 @@ $(document).ready(function() {
 	console.log(id);
 	tooltipValue=document.getElementById(id).innerHTML;
 	console.log(tooltipValue);
+	$('span#hint,label#'+id).bind({
+	   mousemove : changeTooltipPosition,
+	   mouseenter : showTooltip,
+	   mouseleave: hideTooltip
+	});
 	});
  
 	var changeTooltipPosition = function(event) {
@@ -2772,14 +2777,6 @@ $(document).ready(function() {
 	var hideTooltip = function() {
 	   $('div.tooltip').remove();
 	};
- 
-	final_label='label#'+id;
-	alert(final_label)
-	$('span#hint,'+final_label).bind({
-	   mousemove : changeTooltipPosition,
-	   mouseenter : showTooltip,
-	   mouseleave: hideTooltip
-	});
 });
 </script>
 </head>
