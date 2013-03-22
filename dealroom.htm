@@ -2748,7 +2748,8 @@ $(document).ready(function() {
 
 	$("#hint").hide();
 	var tooltipValue='';
-	//alert("tooltipValue main:"+tooltipValue);
+	var test=document.getElementById("from_group").value;
+	alert("tooltipValue main:"+test);
 	
 	var changeTooltipPosition = function(event) {
 	  var tooltipX = event.pageX - 8;
@@ -2759,8 +2760,8 @@ $(document).ready(function() {
  	var showTooltip = function(event) {
 	  $('div.tooltip').remove();
 	  tooltipValue = document.getElementById("from_group").value;
-	  alert("tooltipValue Show:"+tooltipValue);
-	  $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
+	  alert("tooltipValue Show:"+test);
+	  $('<div class="tooltip">'+test+'</div>').appendTo('body');
 	  changeTooltipPosition(event);
 	};
  
