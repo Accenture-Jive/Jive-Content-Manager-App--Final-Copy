@@ -2766,14 +2766,14 @@ $(document).ready(function() {
 	});
  
 	var changeTooltipPosition = function(event) {
-	  alert("changeTooltipPosition"+event);
+	  console.log("changeTooltipPosition"+event);
 	  var tooltipX = event.pageX - 8;
 	  var tooltipY = event.pageY + 8;
 	  $('div.tooltip').css({top: tooltipY, left: tooltipX});
 	};
  
  	var showTooltip = function(event) {
-	alert("showTooltip"+event);
+	console.log("showTooltip"+event);
 	  $('div.tooltip').remove();
 	  $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 	  changeTooltipPosition(event);
