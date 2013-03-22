@@ -2747,10 +2747,11 @@ document.getElementById("selected_items").innerHTML=ieSpan;
 $(document).ready(function() {
 
 	$("#hint").hide();
-	var tooltipValue = "";
+	var tooltipValue = '';
+	var id='';
 	
 	$("label").mouseenter(function(e){
-    var id = this.id;
+    id = this.id;
 	console.log(id);
 	tooltipValue=document.getElementById(id).innerHTML;
 	console.log(tooltipValue);
@@ -2772,7 +2773,7 @@ $(document).ready(function() {
 	   $('div.tooltip').remove();
 	};
  
-	$("span#hint,label#from_group'").bind({
+	$('span#hint,label#from_group').bind({
 	   mousemove : changeTooltipPosition,
 	   mouseenter : showTooltip,
 	   mouseleave: hideTooltip
