@@ -2772,8 +2772,8 @@ mouseleave: hideTooltip
 });
 
 var changeTooltipPosition = function(event) {
-var tooltipX = event.pageX;
-var tooltipY = event.pageY;
+var tooltipX = event.pageX - 100;
+var tooltipY = event.pageY + 100;
 $('div.tooltip').css({top: tooltipY, left: tooltipX});
 };
 
