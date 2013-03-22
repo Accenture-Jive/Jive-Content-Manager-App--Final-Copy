@@ -2757,6 +2757,8 @@ $(document).ready(function() {
 	tooltipValue=document.getElementById(id).innerHTML;
 	console.log(tooltipValue);
 	$('div.tooltip').remove();
+	$('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
+	
 	$('span#hint,label#'+id).bind({
 	   mousemove : changeTooltipPosition,
 	   mouseenter : showTooltip,
@@ -2766,15 +2768,16 @@ $(document).ready(function() {
 	});
  
 	var changeTooltipPosition = function(event) {
-	  console.log("changeTooltipPosition"+event);
+	  //console.log("changeTooltipPosition"+event);
 	  var tooltipX = event.pageX - 8;
 	  var tooltipY = event.pageY + 8;
 	  $('div.tooltip').css({top: tooltipY, left: tooltipX});
 	};
  
  	var showTooltip = function(event) {
-	console.log("showTooltip"+event);	  
-	  $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
+	console.log("showTooltip"+event);
+	 // $('div.tooltip').remove();
+	 // $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 	  changeTooltipPosition(event);
 	};
  
