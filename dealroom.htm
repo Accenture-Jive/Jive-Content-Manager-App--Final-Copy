@@ -2756,7 +2756,7 @@ $(document).ready(function() {
 	console.log(id);
 	tooltipValue=document.getElementById(id).innerHTML;
 	console.log(tooltipValue);
-	
+	$('div.tooltip').remove();
 	$('span#hint,label#'+id).bind({
 	   mousemove : changeTooltipPosition,
 	   mouseenter : showTooltip,
@@ -2775,7 +2775,6 @@ $(document).ready(function() {
  	var showTooltip = function(event) {
 	console.log("showTooltip"+event);	  
 	  $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
-	  $('div.tooltip').remove();
 	  changeTooltipPosition(event);
 	};
  
