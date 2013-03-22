@@ -2760,6 +2760,11 @@ $(document).ready(function() {
 	   mouseenter : showTooltip,
 	   mouseleave: hideTooltip
 	});
+	$('span#hint,label#'+id).unbind({
+	   mousemove : changeTooltipPosition,
+	   mouseenter : showTooltip,
+	   mouseleave: hideTooltip
+	});
 	});
  
 	var changeTooltipPosition = function(event) {
