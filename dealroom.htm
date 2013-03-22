@@ -2773,8 +2773,9 @@ $(document).ready(function() {
 	   $('div.tooltip').remove();
 	};
  
-	
-	$('span#hint,label#from_group').bind({
+	final_label='label#'+id;
+	alert(final_label)
+	$('span#hint,'+final_label).bind({
 	   mousemove : changeTooltipPosition,
 	   mouseenter : showTooltip,
 	   mouseleave: hideTooltip
