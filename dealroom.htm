@@ -2759,11 +2759,16 @@ console.log(tooltipValue);
 $('div.tooltip').remove();
 $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 
+var compare='</span>';
+var pos=tooltipValue.indexOf(compare);
+if (pos!=-1)
+{
 $('span#hint,label#'+id).bind({
 mousemove : changeTooltipPosition,
 mouseenter : showTooltip,
 mouseleave: hideTooltip
 });
+}
 
 });
 
