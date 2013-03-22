@@ -2750,9 +2750,8 @@ $(document).ready(function() {
 	var tooltipValue='';
 	//alert("tooltipValue main:"+tooltipValue);
 	
-	$('document').on('hover','.leftSpan',(function () {
-    tooltipValue=(this.id);
-	alert(tooltipValue);
+	$('document').on('hover',(function () {
+    $('#lblOutput').text(this.id);
 });
  
 	var changeTooltipPosition = function(event) {
