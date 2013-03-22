@@ -2752,16 +2752,16 @@ $(document).ready(function() {
 	
 	$("label").mouseenter(function(e){
     
+	id = this.id;
+	console.log(id);
+	tooltipValue=document.getElementById(id).innerHTML;
+	console.log(tooltipValue);
+	
 	$('span#hint,label#'+id).unbind({
 	   mousemove : changeTooltipPosition,
 	   mouseenter : showTooltip,
 	   mouseleave: hideTooltip
 	});	
-	
-	id = this.id;
-	console.log(id);
-	tooltipValue=document.getElementById(id).innerHTML;
-	console.log(tooltipValue);
 	
 	$('span#hint,label#'+id).bind({
 	   mousemove : changeTooltipPosition,
