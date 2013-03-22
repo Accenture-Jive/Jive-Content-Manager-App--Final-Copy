@@ -2748,6 +2748,7 @@ $(document).ready(function() {
 
 	$("#hint").hide();
 	var tooltipValue='';
+	alert("tooltipValue main:"+tooltipValue);
  
 	var changeTooltipPosition = function(event) {
 	  var tooltipX = event.pageX - 8;
@@ -2758,6 +2759,7 @@ $(document).ready(function() {
  	var showTooltip = function(event) {
 	  $('div.tooltip').remove();
 	  tooltipValue = $(this).attr('value');
+	  alert("tooltipValue Show:"+tooltipValue);
 	  $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 	  changeTooltipPosition(event);
 	};
@@ -2765,6 +2767,7 @@ $(document).ready(function() {
 	var hideTooltip = function() {
 	   $('div.tooltip').remove();
 	   tooltipValue = '';
+	   alert("tooltipValue hide:"+tooltipValue);
 	};
  
 	$("span#hint,label#from_group'").bind({
