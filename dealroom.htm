@@ -2756,12 +2756,12 @@ id = this.id;
 tooltipValue=document.getElementById(id).innerHTML;
 
 $('div.tooltip').remove();
-$('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 
 var compare='</span>';
 var pos=tooltipValue.indexOf(compare);
 if (pos!=-1)
 {
+$('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
 $('span#hint,label#'+id).bind({
 mousemove : changeTooltipPosition,
 mouseenter : showTooltip,
