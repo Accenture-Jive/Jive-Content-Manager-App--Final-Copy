@@ -5,7 +5,7 @@
 <script type="text/javascript" src="js/jquery.datepick.js"></script>
 <script type="text/javascript" src="js/movendelete.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
- <script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script src="http://code.jquery.com/jquery-latest.js"></script> 
 <link href="css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
@@ -75,11 +75,11 @@ function onPageLoad()
 
 // Detect the browser for adding different code when using IE.
 navigator.sayswho= (function(){    
-	var N= navigator.appName, ua= navigator.userAgent, tem;
-    var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-	M= M? [M[1]]: [N];
-	
-	browserName=M;
+var N= navigator.appName, ua= navigator.userAgent, tem;
+var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+M= M? [M[1]]: [N];
+
+browserName=M;
 })();
 
 // Set the margins and position for given elements while loading the page in IE.
@@ -2746,44 +2746,41 @@ document.getElementById("selected_items").innerHTML=ieSpan;
 
 $(document).ready(function() {
 
-	$("#hint").hide();
-	var tooltipValue = '';
-	var id='';
-	
-	$("label").mouseenter(function(e){
-    
-	id = this.id;
-	console.log(id);
-	tooltipValue=document.getElementById(id).innerHTML;
-	console.log(tooltipValue);
-	$('div.tooltip').remove();
-	$('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
-	
-	$('span#hint,label#'+id).bind({
-	   mousemove : changeTooltipPosition,
-	   mouseenter : showTooltip,
-	   mouseleave: hideTooltip
-	});
-	
-	});
- 
-	var changeTooltipPosition = function(event) {
-	  //console.log("changeTooltipPosition"+event);
-	  var tooltipX = event.pageX - 8;
-	  var tooltipY = event.pageY + 8;
-	  $('div.tooltip').css({top: tooltipY, left: tooltipX});
-	};
- 
- 	var showTooltip = function(event) {
-	console.log("showTooltip"+event);
-	 // $('div.tooltip').remove();
-	 // $('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
-	  changeTooltipPosition(event);
-	};
- 
-	var hideTooltip = function() {
-	   $('div.tooltip').remove();
-	};
+$("#hint").hide();
+var tooltipValue = '';
+var id='';
+
+$("label").mouseenter(function(e){
+
+id = this.id;
+console.log(id);
+tooltipValue=document.getElementById(id).innerHTML;
+console.log(tooltipValue);
+$('div.tooltip').remove();
+$('<div class="tooltip">'+tooltipValue+'</div>').appendTo('body');
+
+$('span#hint,label#'+id).bind({
+mousemove : changeTooltipPosition,
+mouseenter : showTooltip,
+mouseleave: hideTooltip
+});
+
+});
+
+var changeTooltipPosition = function(event) {
+//console.log("changeTooltipPosition"+event);
+var tooltipX = event.pageX - 8;
+var tooltipY = event.pageY + 8;
+$('div.tooltip').css({top: tooltipY, left: tooltipX});
+};
+
+var showTooltip = function(event) {
+changeTooltipPosition(event);
+};
+
+var hideTooltip = function() {
+$('div.tooltip').remove();
+};
 });
 </script>
 </head>
@@ -3066,17 +3063,17 @@ The "move from" place has to be different from the "move to" place.
 
 #hint
 {
-		cursor:pointer;
+cursor:pointer;
 }
-	
+
 .tooltip
 {
-		margin:8px;
-		padding:8px;
-		border:1px solid blue;
-		background-color:yellow;
-		position: absolute;
-		z-index: 2;
+margin:8px;
+padding:8px;
+border:1px solid blue;
+background-color:yellow;
+position: absolute;
+z-index: 2;
 }
 
 .xlabel
