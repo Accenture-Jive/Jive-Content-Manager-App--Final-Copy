@@ -2747,7 +2747,11 @@ document.getElementById("selected_items").innerHTML=ieSpan;
 $(document).ready(function() {
 
 	$("#hint").hide();
-	var tooltipValue = "value value";
+	var tooltipValue = "";
+	
+	$("input").mouseenter(function(e){
+    var id = this.id;
+	});
  
 	var changeTooltipPosition = function(event) {
 	  var tooltipX = event.pageX - 8;
