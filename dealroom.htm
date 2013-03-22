@@ -2749,6 +2749,11 @@ $(document).ready(function() {
 	$("#hint").hide();
 	var tooltipValue='';
 	//alert("tooltipValue main:"+tooltipValue);
+	
+	$('document').on('hover','.leftSpan',(function () {
+    tooltipValue=this.id;
+	alert(tooltipValue);
+});
  
 	var changeTooltipPosition = function(event) {
 	  var tooltipX = event.pageX - 8;
