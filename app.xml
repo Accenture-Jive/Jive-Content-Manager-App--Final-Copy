@@ -28,8 +28,8 @@
 		<Require feature="jive-connects-v1"/>
 		<Require feature="opensocial-1.0"/>
 		<Require feature="jive-core-v2"/>
-		<Link rel="event.addapp" href="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/installed" method="GET"/>
-		<Link rel="event.removeapp" href="http://ec2-54-246-36-246.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/uninstalled" method="GET"/>
+		<Link rel="event.addapp" href="http://ec2-54-228-171-115.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/installed" method="GET"/>
+		<Link rel="event.removeapp" href="http://ec2-54-228-171-115.eu-west-1.compute.amazonaws.com:8080/AIDealRoom-Staging/AIServlet/uninstalled" method="GET"/>
 		
     </ModulePrefs>
 	
