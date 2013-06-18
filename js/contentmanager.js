@@ -4087,7 +4087,7 @@ function startUpdatingCategories() {
     //console.log("mainUncheckItems.length = "+mainUncheckItems.length);
     //***********************************
 
-    // filterCheckedUncheckCatgUrl1();
+     filterCheckedUncheckCatgUrl1();
 
 
     catIndex = 0;
